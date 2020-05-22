@@ -113,8 +113,14 @@ header .login .log-btn {
 }
 
 .main-contain {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.left-side {
+    border-right: solid 1px;
+    padding-right: 0;
+    /* padding-left: 15px; */
 }
 
 .profile_img {
@@ -122,6 +128,80 @@ header .login .log-btn {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    /* position: relative; */
+}
+
+.avatar-kh {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-change {
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    background-color: rgb(243, 240, 252);
+    width: 120px;
+    height: 35px;
+    position: absolute;
+    /* top: 65%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: -20px;
+    /* right: 16px; */
+}
+
+.infor-tab,
+.pwd-tab {
+    border: solid 1px;
+    border-right-style: none;
+    margin: 3rem 0 5rem 0;
+}
+
+#img-inf,
+#img-pwd {
+    width: 30px;
+    height: 30px;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.text-tab {
+    padding-left: 50px;
+}
+
+.on-showing {
+    background-color: rgb(224, 207, 207);
+}
+
+.not-show {
+    display: none;
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.btn-update-inf,
+.btn-act-email,
+.btn-change-pwd {
+    border-radius: 15px;
+    width: 200px;
+    background-color: #12263A;
+}
+
+.my-custom-select select {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 0 10px #E8E8E8 inset;
+    /* height: 40px; */
+    /* margin: 0 0 0 25px; */
+    /* padding: 10px; */
+    /* width: 110px; */
 }
 
 
@@ -161,3 +241,14 @@ footer .ft-container {
 
 
 /* For responsive */
+
+@media (max-width: 992px) {
+    .left-side {
+        border-style: none;
+    }
+    .infor-tab,
+    .pwd-tab {
+        border: solid 1px;
+        margin: 3rem 0 5rem 0;
+    }
+}
