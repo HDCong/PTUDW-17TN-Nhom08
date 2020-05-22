@@ -1,0 +1,222 @@
+/* #12263A */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+html {
+    font-size: 20px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+body+div {
+    padding: 0px 40px 0px 40px;
+}
+
+
+/* header */
+
+header {
+    height: 120px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(5, 17, 34, 0.041);
+    padding-bottom: 20px;
+}
+
+header .logo {
+    height: 100%;
+}
+
+header .logo img {
+    width: auto;
+    height: 100%;
+}
+
+header .hotel-name {
+    font-family: "Vladimir Script" !important;
+    src: url("//db.onlinewebfonts.com/t/01a1cdebb8bf5b8573622fa6f689369c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/01a1cdebb8bf5b8573622fa6f689369c.woff") format("woff");
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-align: center;
+    display: inline-block;
+}
+
+header .login {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .login .log-btn {
+    width: 110px;
+    height: 25px;
+    background-color: #12263A;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar ul li {
+    width: auto;
+    font-size: 14px;
+    text-align: center;
+}
+
+.nav-bar ul li .active {
+    border-bottom: 1px solid #12263A;
+}
+
+
+/* content */
+
+.banner {
+    background-image: url(../images/booking-images/bk-room.png);
+    /* background-position: center; */
+    background-position: center center;
+    background-size: cover;
+    /* width: 100%; */
+}
+
+.space-top {
+    height: 110px;
+}
+
+.text-banner {
+    padding: 15px;
+}
+
+.space-bottom {
+    height: 110px;
+    margin: auto;
+}
+
+.booking-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.img-detail-small {
+    background-image: url(../images/booking-images/detail-room01.jpg);
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    font-size: 14px;
+}
+
+.reservation {
+    background-color: #12263A;
+    height: 500px;
+    color: #fff;
+}
+
+.check p,
+.quantity p {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.notify-user {
+    /* margin: 10px; */
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: lightblue;
+}
+
+
+/* .fa-circle {
+    color: #000;
+} */
+
+.icon-background {
+    color: #c0ffc0;
+}
+
+.dot {
+    /* margin-top: 10px; */
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    display: inline-block;
+}
+
+.selected-service {
+    background-color: greenyellow;
+}
+
+.service-content {
+    margin-left: 5px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.input-lg {}
+
+.btn-dark {
+    background-color: #12263A;
+    width: 200px;
+}
+
+
+/* footer */
+
+footer {
+    background-color: #12263A;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    position: static;
+    left: 0;
+    bottom: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 100;
+}
+
+footer h5 {
+    font-size: 25px;
+}
+
+footer .ft-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* For responsive */
