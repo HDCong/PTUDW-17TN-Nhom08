@@ -23,7 +23,7 @@ $(window).resize(function() {
 function changeMenuStyle() {
     var object = document.getElementById("menu-text");
     var size = window.innerWidth;
-    if (size <= 576) {
+    if (size <= 992) {
         object.style.display = "inline-block";
     } else {
         object.style.display = "none";
