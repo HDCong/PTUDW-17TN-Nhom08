@@ -1,0 +1,254 @@
+/* #12263A */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+html {
+    font-size: 20px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+body+div {
+    padding: 0px 40px 0px 40px;
+}
+
+
+/* header */
+
+header {
+    height: 120px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(5, 17, 34, 0.041);
+    padding-bottom: 20px;
+}
+
+header .logo {
+    height: 100%;
+}
+
+header .logo img {
+    width: auto;
+    height: 100%;
+}
+
+header .hotel-name {
+    font-family: "Vladimir Script" !important;
+    src: url("//db.onlinewebfonts.com/t/01a1cdebb8bf5b8573622fa6f689369c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/01a1cdebb8bf5b8573622fa6f689369c.woff") format("woff");
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-align: center;
+    display: inline-block;
+}
+
+header .login {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .login .log-btn {
+    width: 110px;
+    height: 25px;
+    background-color: #12263A;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar ul li {
+    width: auto;
+    font-size: 14px;
+    text-align: center;
+}
+
+.nav-bar ul li .active {
+    border-bottom: 1px solid #12263A;
+}
+
+
+/* content */
+
+.banner {
+    background-image: url(../images/booking-images/bk-room.png);
+    /* background-position: center; */
+    background-position: center center;
+    background-size: cover;
+    /* width: 100%; */
+}
+
+.space-top {
+    height: 110px;
+}
+
+.text-banner {
+    padding: 15px;
+}
+
+.space-bottom {
+    height: 110px;
+    margin: auto;
+}
+
+.main-contain {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.left-side {
+    border-right: solid 1px;
+    padding-right: 0;
+    /* padding-left: 15px; */
+}
+
+.profile_img {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* position: relative; */
+}
+
+.avatar-kh {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-change {
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    background-color: rgb(243, 240, 252);
+    width: 120px;
+    height: 35px;
+    position: absolute;
+    /* top: 65%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: -20px;
+    /* right: 16px; */
+}
+
+.infor-tab,
+.pwd-tab {
+    border: solid 1px;
+    border-right-style: none;
+    margin: 3rem 0 5rem 0;
+}
+
+#img-inf,
+#img-pwd {
+    width: 30px;
+    height: 30px;
+}
+
+.row {
+    margin-right: 0;
+}
+
+.text-tab {
+    padding-left: 50px;
+}
+
+.on-showing {
+    background-color: rgb(224, 207, 207);
+}
+
+.not-show {
+    display: none;
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.btn-update-inf,
+.btn-act-email,
+.btn-change-pwd {
+    border-radius: 15px;
+    width: 200px;
+    background-color: #12263A;
+}
+
+.my-custom-select select {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 0 10px #E8E8E8 inset;
+    /* height: 40px; */
+    /* margin: 0 0 0 25px; */
+    /* padding: 10px; */
+    /* width: 110px; */
+}
+
+
+/* footer */
+
+footer {
+    background-color: #12263A;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    position: static;
+    left: 0;
+    bottom: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 100;
+}
+
+footer h5 {
+    font-size: 25px;
+}
+
+footer .ft-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* For responsive */
+
+@media (max-width: 992px) {
+    .left-side {
+        border-style: none;
+    }
+    .infor-tab,
+    .pwd-tab {
+        border: solid 1px;
+        margin: 3rem 0 5rem 0;
+    }
+}
