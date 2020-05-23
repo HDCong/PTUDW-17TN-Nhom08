@@ -7,54 +7,56 @@
     <title>Sea Diamond | Rooms</title>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- css style -->
     <link rel="stylesheet" type="text/css" href="../css/Home-page.css">
     <link rel="stylesheet" type="text/css" href="../css/ListRooms-page.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- font -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- slick -->
 
 </head>
 
 <body>
     <!-- wrap all content in the page consist of header main content, footer-->
-    <div class="container">
+    <div class="container mb-4">
         <!-- content goes here -->
 
         <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
         <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
-            <div class="logo col-2">
-                <a href=""><img src="../images/logos/logo_v1.png" alt="logo"></a>
+            <div class="logo col-sm-3">
+                <a href=""><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
             </div>
 
-            <div class="hotel-name col-8 text-center text-nowrap">
+            <div class="hotel-name col-sm-6 text-center">
                 Sea Diamond hotel
             </div>
 
-            <div class="login text-right col-2">
+            <div class="login text-right col-sm-3">
                 <a class="log-btn" href="#">Sign In</a>
             </div>
         </header>
 
         <!-- navigation bar -->
-        <div class="nav-bar mb-3" id="content">
+        <div class="nav-bar mb-4" id="content">
             <ul class="nav justify-content-center no-gutters pt-2 pb-2">
-                <li class="nav-item col-2 i-begin active">
+                <li class="nav-item col-md-2 i-begin active">
                     <a class="nav-link active" href="#">Home</a>
                 </li>
-                <li class="nav-item col-2 i-normal">
+                <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="#">Our rooms</a>
                 </li>
-                <li class="nav-item col-2 i-normal">
+                <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item col-2 i-normal">
+                <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="#">About us</a>
                 </li>
-                <li class="nav-item col-2 i-end">
+                <li class="nav-item col-md-2 i-end">
                     <a class="nav-link" href="#">Book now</a>
                 </li>
             </ul>
@@ -72,32 +74,32 @@
                         <div id="check-in-text">CHECK-IN</div>
                         <div class="number" id="date-in"></div>
                         <div class="month" id="month-in"></div>
-                        <i class="fas fa-caret-down" onclick="downNumber(this)"></i>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                     </div>
                     <div class="booking-item check-out">
                         <div id="check-out-text">CHECK-OUT</div>
                         <div class="number" id="date-out"></div>
                         <div class="month" id="month-out"></div>
-                        <i class="fas fa-caret-down" onclick="downNumber(this)"></i>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                     </div>
                     <div class="booking-item guests">
                         <div id="guests-text">GUESTS</div>
                         <div class="number" id="count-guests">1</div>
-                        <i class="fas fa-caret-up" onclick="upNumber(this)"></i>
-                        <i class="fas fa-caret-down" onclick="downNumber(this)"></i>
+                        <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                     </div>
                     <div class="booking-item nights">
                         <div id="nights-text">NIGHTS</div>
                         <div class="number" id="count-nights">1</div>
-                        <i class="fas fa-caret-up" onclick="upNumber(this)"></i>
-                        <i class="fas fa-caret-down" onclick="downNumber(this)"></i>
+                        <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                     </div>
                 </div>
                 <div class="list-rooms row col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <div class="room room1 col-5">
                         <img class="room-image" src="../images/listrooms-images/room1.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -105,7 +107,7 @@
                     <div class="room room2 col-5">
                         <img class="room-image" src="../images/listrooms-images/room2.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -113,7 +115,7 @@
                     <div class="room room3 col-5">
                         <img class="room-image" src="../images/listrooms-images/room3.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -121,7 +123,7 @@
                     <div class="room room4 col-5">
                         <img class="room-image" src="../images/listrooms-images/room4.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -129,7 +131,7 @@
                     <div class="room room5 col-5">
                         <img class="room-image" src="../images/listrooms-images/room5.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -137,7 +139,7 @@
                     <div class="room room6 col-5">
                         <img class="room-image" src="../images/listrooms-images/room6.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -145,7 +147,7 @@
                     <div class="room room7 col-5">
                         <img class="room-image" src="../images/listrooms-images/room7.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -153,7 +155,7 @@
                     <div class="room room8 col-5">
                         <img class="room-image" src="../images/listrooms-images/room8.jpg">
                         <div class="info-room">
-                            <span class="btn-detail">Thông tin chi tiết</span>
+                            <span class="btn-detail button">Thông tin chi tiết</span>
                             <img class="icon-account" src="../images/listrooms-images/account.png">
                             <span class="count-person">20</span>
                         </div>
@@ -174,45 +176,46 @@
     <!-- this part consists of information of service provider,
              social media links -->
     <!-- footer -->
-    <footer class="page-footer pt-5">
-        <div class="container-fluid text-left">
-            <div class="row justify-content-center">
-                <!-- Grid column -->
-                <div class="ft-container col-3 mb-md-0 mb-3">
-                    <div class="ft-item">
-                        <h5>Main contact</h5>
-                        <ul class="list-unstyled">
-                            <li>District 1, Ho Chi Minh city, VN</li>
-                            <li>info@seadiamond.com</li>
-                            <li>+84 1535 43526</li>
-                        </ul>
-                    </div>
+    <footer class="page-footer container-fluid d-flex flex-row justify-content-center align-items-center pt-4">
+        <div class="ft-container container row justify-content-center no-gutters">
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Main contact</h5>
+                <div class="if-content">
+                    <p>District 1, Ho Chi Minh city, VN</p>
+                    <p>info@seadiamond.com</p>
+                    <p>+84 1535 43526</p>
                 </div>
-                <!-- Grid column -->
-                <div class="ft-container col-3 mb-md-0 mb-3">
-                    <div class="ft-item">
-                        <h5>Site links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#!">About us</a></li>
-                            <li><a href="#!">Our rooms</a></li>
-                        </ul>
-                    </div>
+
+            </div>
+
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Site links</h5>
+                <div class="if-content">
+                    <a href="#!">About us</a>
+                    <a href="#!">Our rooms</a>
                 </div>
-                <!-- Grid column -->
-                <div class="ft-container col-3 mb-md-0 mb-3">
-                    <div class="ft-item">
-                        <h5>Social</h5>
-                        <div class="icons">
-                            <span class="mr-3"><a href="#"><i class="fab fa-facebook-f"></i></a></span>
-                            <span class="mr-3"><a href="#"><i class="fab fa-instagram"></i></a></span>
-                            <span class="mr-3"><a href="#"><i class="fab fa-youtube"></i></a></span>
-                        </div>
-                        <div class="footer-copyright mt-2">Copy rights 2020 HCMUS-CNTN</div>
+            </div>
+
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Social</h5>
+                <div class="if-content d-flex flex-column justify-content-center">
+                    <div class="icons d-flex flex-row justify-content-center">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="ml-4 mr-4 fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Javascript -->
     <script src="../js/ListRooms-page.js"></script>
 </body>
 
