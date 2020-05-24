@@ -34,61 +34,6 @@ body+div {
 }
 
 
-/* header */
-
-header {
-    height: 120px;
-    margin-top: 10px;
-    border-bottom: 1px solid rgba(5, 17, 34, 0.041);
-    padding-bottom: 20px;
-}
-
-header .logo {
-    height: 100%;
-}
-
-header .logo img {
-    width: auto;
-    height: 100%;
-}
-
-header .hotel-name {
-    font-family: "Vladimir Script" !important;
-    src: url("//db.onlinewebfonts.com/t/01a1cdebb8bf5b8573622fa6f689369c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/01a1cdebb8bf5b8573622fa6f689369c.woff") format("woff");
-    font-size: 70px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-align: center;
-    display: inline-block;
-}
-
-header .login {
-    display: flex;
-    justify-content: flex-end;
-}
-
-header .login .log-btn {
-    width: 110px;
-    height: 25px;
-    background-color: #12263A;
-    font-size: 14px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-bar ul li {
-    width: auto;
-    font-size: 14px;
-    text-align: center;
-}
-
-.nav-bar ul li .active {
-    border-bottom: 1px solid #12263A;
-}
-
-
 /* content */
 
 .banner {
@@ -115,6 +60,7 @@ header .login .log-btn {
 .main-contain {
     padding-top: 30px;
     padding-bottom: 30px;
+    /* height: 700px; */
 }
 
 .left-side {
@@ -160,6 +106,11 @@ header .login .log-btn {
     margin: 3rem 0 5rem 0;
 }
 
+.infor-tab:hover,
+.pwd-tab:hover {
+    cursor: pointer;
+}
+
 #img-inf,
 #img-pwd {
     width: 30px;
@@ -202,41 +153,6 @@ header .login .log-btn {
     /* margin: 0 0 0 25px; */
     /* padding: 10px; */
     /* width: 110px; */
-}
-
-
-/* footer */
-
-footer {
-    background-color: #12263A;
-    height: 200px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 14px;
-    position: static;
-    left: 0;
-    bottom: 0;
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-    text-decoration: none;
-    font-style: normal;
-    font-weight: 100;
-}
-
-footer h5 {
-    font-size: 25px;
-}
-
-footer .ft-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 

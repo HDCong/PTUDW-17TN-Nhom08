@@ -13,6 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- css style -->
     <link rel="stylesheet" type="text/css" href="../css/user.css">
+    <link rel="stylesheet" type="text/css" href="../css/header-footer.css">
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -21,46 +23,46 @@
 
 <body>
     <!-- wrap all content in the page consist of header main content, footer-->
-    <div class="container">
+    <div class="container mb-4">
+
         <!-- content goes here -->
 
         <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
         <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
-            <div class="logo col-2">
-                <a href=""><img src="../images/logos/logo_v1.png" alt="logo"></a>
+            <div class="logo col-sm-3">
+                <a href=""><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
             </div>
 
-            <div class="hotel-name col-8 text-center text-nowrap">
+            <div class="hotel-name col-sm-6 text-center">
                 Sea Diamond hotel
             </div>
 
-            <div class="login text-right col-2">
+            <div class="login text-right col-sm-3">
                 <a class="log-btn" href="#">Sign In</a>
             </div>
         </header>
 
         <!-- navigation bar -->
-        <div class="nav-bar mb-3" id="content">
+        <div class="nav-bar mb-4" id="content">
             <ul class="nav justify-content-center no-gutters pt-2 pb-2">
-                <li class="nav-item col-2 i-begin active">
+                <li class="nav-item col-md-2 i-begin active">
                     <a class="nav-link active" href="#">Home</a>
                 </li>
-                <li class="nav-item col-2 i-normal">
+                <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="#">Our rooms</a>
                 </li>
-                <li class="nav-item col-2 i-normal">
+                <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item col-2 i-normal">
+                <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="#">About us</a>
                 </li>
-                <li class="nav-item col-2 i-end">
+                <li class="nav-item col-md-2 i-end">
                     <a class="nav-link" href="#">Book now</a>
                 </li>
             </ul>
         </div>
     </div>
-
     <div class="container">
         <div class="banner">
             <div class="space-top"></div>
@@ -82,6 +84,8 @@
                         <img class='profile_img d-inline-block' src="../images/logos/logo_v1.png" alt="">
                         <!-- <button class="btn-change">Thay đổi</button> -->
                         <button type="button" class="btn btn-light btn-change">Change photo</button>
+                        <input type="file" id="myImage" accept="image/*" style="display: none;" />
+
                     </div>
                 </div>
                 <div class="row infor-tab on-showing ">
@@ -101,27 +105,31 @@
                     </div>
                     <div class="form-group p-2">
                         <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName" value="Sea Diamond">
+                        <input type="text" class="form-control" id="inputName">
+                        <!-- value="Sea Diamond"> -->
+                        <label style="font-size: 12px; color:red;display: none;">Name is require</label>
                     </div>
                     <div class="form-group p-1">
                         <label for="inputEmail">Email</label>
                         <div class="d-flex">
-                            <input type="email" class="form-control d-inline" id="inputEmail" value="contact@seadiamond.com">
-                            <button class="btn-dark btn-act-email">Activate email</button>
+                            <input type="email" class="form-control d-inline" id="inputEmail" disabled>
+                            <!-- value="contact@seadiamond.com" > -->
+                            <button class="btn-dark btn-act-email" style="font-size: 14px;display: none;">Activate email</button>
                         </div>
 
                     </div>
                     <div class="form-row p-1">
                         <div class="form-group col-md-6 p-1">
                             <label for="inputPhone">Phone</label>
-                            <input type="text" class="form-control" id="inputPhone" value="0965123456">
+                            <input type="text" class="form-control" id="inputPhone">
+                            <!-- value="0965123456"> -->
                         </div>
                         <div class="form-group col-md-3 p-1 my-custom-select">
                             <label for="inputState">Gender</label>
                             <select id="inputState" class="form-control my-custom-select">
-                              <option selected>Male</option>
-                              <option>Female</option>
-                              <option>Other</option>
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                              <option value="other">Other</option>
                             </select>
                         </div>
                     </div>
@@ -129,15 +137,15 @@
                     <div class="form-row">
                         <div class="form-group col-md-4 p-2 my-custom-select">
                             <select id="inputDayDOB" class="form-control my-custom-select">
-                                    <option value="01" selected>1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
@@ -164,15 +172,15 @@
                         </div>
                         <div class="form-group col-md-4 p-2 my-custom-select">
                             <select id="inputMonthDOB" class="form-control my-custom-select">
-                                        <option value="01" selected>January</option>
-                                        <option value="02">February</option>
-                                        <option value="03">March</option>
-                                        <option value="04">April</option>
-                                        <option value="05">May</option>
-                                        <option value="06">June</option>
-                                        <option value="07">July</option>
-                                        <option value="08">August</option>
-                                        <option value="09">September</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
                                         <option value="10">October</option>
                                         <option value="11">November</option>
                                         <option value="12">December</option>
@@ -180,16 +188,6 @@
                         </div>
                         <div class="form-group col-md-4 p-2 my-custom-select">
                             <select id="inputYearDOB" class="form-control my-custom-select">
-                                    <option value="2030">2030</option>
-                                    <option value="2029">2029</option>
-                                    <option value="2028">2028</option>
-                                    <option value="2027">2027</option>
-                                    <option value="2026">2026</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
                                     <option value="2020">2020</option>
                                     <option value="2019">2019</option>
                                     <option value="2018">2018</option>
@@ -347,46 +345,45 @@
     <!-- this part consists of information of service provider,
              social media links -->
     <!-- footer -->
+    <footer class="page-footer container-fluid d-flex flex-row justify-content-center align-items-center pt-4">
+        <div class="ft-container container row justify-content-center no-gutters">
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Main contact</h5>
+                <div class="if-content">
+                    <p>District 1, Ho Chi Minh city, VN</p>
+                    <p>info@seadiamond.com</p>
+                    <p>+84 1535 43526</p>
+                </div>
 
-    <footer class="page-footer pt-5">
-        <div class="container-fluid text-left">
-            <div class="row justify-content-center">
-                <!-- Grid column -->
-                <div class="ft-container col-3 mb-md-0 mb-3">
-                    <div class="ft-item">
-                        <h5>Main contact</h5>
-                        <ul class="list-unstyled">
-                            <li>District 1, Ho Chi Minh city, VN</li>
-                            <li>info@seadiamond.com</li>
-                            <li>+84 1535 43526</li>
-                        </ul>
-                    </div>
+            </div>
+
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Site links</h5>
+                <div class="if-content">
+                    <a href="#!">About us</a>
+                    <a href="#!">Our rooms</a>
                 </div>
-                <!-- Grid column -->
-                <div class="ft-container col-3 mb-md-0 mb-3">
-                    <div class="ft-item">
-                        <h5>Site links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#!">About us</a></li>
-                            <li><a href="#!">Our rooms</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Grid column -->
-                <div class="ft-container col-3 mb-md-0 mb-3">
-                    <div class="ft-item">
-                        <h5>Social</h5>
-                        <div class="icons">
-                            <span class="mr-3"><a href="#"><i class="fab fa-facebook-f"></i></a></span>
-                            <span class="mr-3"><a href="#"><i class="fab fa-instagram"></i></a></span>
-                            <span class="mr-3"><a href="#"><i class="fab fa-youtube"></i></a></span>
-                        </div>
-                        <div class="footer-copyright mt-2">Copy rights 2020 HCMUS-CNTN</div>
+            </div>
+
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Social</h5>
+                <div class="if-content d-flex flex-column justify-content-center">
+                    <div class="icons d-flex flex-row justify-content-center">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="ml-4 mr-4 fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/User.js " type="text/javascript "></script>
+
 </body>
 
 </html>
