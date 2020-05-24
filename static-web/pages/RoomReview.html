@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sea Diamond | Room Detail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- css style -->
+    <link rel="stylesheet" type="text/css" href="../css/Home-page.css">
+    <link rel="stylesheet" type="text/css" href="../css/RoomDetail.css">
+    <link rel="stylesheet" type="text/css" href="../css/RoomReview.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- font -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- slick -->
+
+</head>
+
+<body>
+    <!-- wrap all content in the page consist of header main content, footer-->
+    <div class="container mb-4">
+        <!-- content goes here -->
+
+        <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
+        <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
+            <div class="logo col-sm-3">
+                <a href=""><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
+            </div>
+
+            <div class="hotel-name col-sm-6 text-center">
+                Sea Diamond hotel
+            </div>
+
+            <div class="login text-right col-sm-3">
+                <a class="log-btn" href="#">Sign In</a>
+            </div>
+        </header>
+
+        <!-- navigation bar -->
+        <div class="nav-bar mb-4" id="content">
+            <ul class="nav justify-content-center no-gutters pt-2 pb-2">
+                <li class="nav-item col-md-2 i-begin active">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item col-md-2 i-normal">
+                    <a class="nav-link" href="#">Our rooms</a>
+                </li>
+                <li class="nav-item col-md-2 i-normal">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item col-md-2 i-normal">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item col-md-2 i-end">
+                    <a class="nav-link" href="#">Book now</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- content goes here -->
+        <div class="main-content">
+            <div class="cover-image">
+                <div class="row" id="menu-frame">
+                    <nav class="navbar navbar-expand-lg col-6 col-sm-6 col-md-8 col-lg-9 col-xl-9" id="menu">
+                        <a id="menu-text" class="navbar-brand" href="#">MENU</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#txt-room-name">DESCRIPTION</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#txt-room-services">ROOM SERVICES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#txt-other-rooms">OTHER ROOMS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">ROOM REVIEW</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 price">
+                        30$ / PER NIGHT
+                    </div>
+                </div>
+            </div>
+            <p class="title-page">Room Review</p>
+            <div id="review-frame">
+                <div id="txt-average-review" class="title-room">Đánh giá trung bình</div>
+                <div id="average-review-frame" class="row">
+                    <div id="average-left" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                        <div id="sum-stars">5/5</div>
+                        <div id="stars">
+                            <div class="icon-star"></div>
+                            <div class="icon-star"></div>
+                            <div class="icon-star"></div>
+                            <div class="icon-star"></div>
+                            <div class="icon-star"></div>
+                        </div>
+                        <div id="txt-count-review">(3 nhận xét)</div>
+                    </div>
+                    <div id="average-right" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div id="5-stars" class="row stars-percent">
+                            <div class="col-1 number-star">5</div>
+                            <div class="icon-star"></div>
+                            <div class="progress col-9">
+                                <div class="progress-bar" style="width:100%"></div>
+                            </div>
+                            <div class="col-1 percent">100%</div>
+                        </div>
+                        <div id="4-stars" class="row stars-percent">
+                            <div class="col-1 number-star">4</div>
+                            <div class="icon-star"></div>
+                            <div class="progress col-9">
+                                <div class="progress-bar" style="width:0%"></div>
+                            </div>
+                            <div class="col-1 percent">0%</div>
+                        </div>
+                        <div id="3-stars" class="row stars-percent">
+                            <div class="col-1 number-star">3</div>
+                            <div class="icon-star"></div>
+                            <div class="progress col-9">
+                                <div class="progress-bar" style="width:0%"></div>
+                            </div>
+                            <div class="col-1 percent">0%</div>
+                        </div>
+                        <div id="2-stars" class="row stars-percent">
+                            <div class="col-1 number-star">2</div>
+                            <div class="icon-star"></div>
+                            <div class="progress col-9">
+                                <div class="progress-bar" style="width:0%"></div>
+                            </div>
+                            <div class="col-1 percent">0%</div>
+                        </div>
+                        <div id="1-stars" class="row stars-percent">
+                            <div class="col-1 number-star">1</div>
+                            <div class="icon-star"></div>
+                            <div class="progress col-9">
+                                <div class="progress-bar" style="width:0%"></div>
+                            </div>
+                            <div class="col-1 percent">0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="txt-product-review" class="title-room">Nhận xét về sản phẩm</div>
+                <div id="comment-frame">
+                    <div class="media border p-3" id="review-1">
+                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <div class="media-body">
+                            <h6>Đặng Tấn Tài <small><i>1 giờ trước</i></small></h6>
+                            <div class="list-review">
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <span>Đánh giá</span>
+                            </div>
+                            <p class="comment">Phòng rộng rãi, thoáng mát, sạch sẽ và rất hài lòng.</p>
+                        </div>
+                    </div>
+                    <div class="media border p-3" id="review-2">
+                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <div class="media-body">
+                            <h6>Đặng Tấn Tài <small><i>1 giờ trước</i></small></h6>
+                            <div class="list-review">
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <span>Đánh giá</span>
+                            </div>
+                            <p class="comment">Phòng rộng rãi, thoáng mát, sạch sẽ và rất hài lòng.</p>
+                        </div>
+                    </div>
+                    <div class="media border p-3" id="review-3">
+                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <div class="media-body">
+                            <h6>Đặng Tấn Tài <small><i>1 giờ trước</i></small></h6>
+                            <div class="list-review">
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <span>Đánh giá</span>
+                            </div>
+                            <p class="comment">Phòng rộng rãi, thoáng mát, sạch sẽ và rất hài lòng.</p>
+                        </div>
+                    </div>
+                    <div class="media border p-3" id="review-yourself">
+                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <div class="media-body">
+                            <h6>Đặng Tấn Tài</h6>
+                            <div class="list-review">
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <div class="icon-star"></div>
+                                <span>Đánh giá của bạn</span>
+                            </div>
+                            <input type="text" placeholder="Nhận xét của bạn" class="comment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- this part consists of information of service provider,
+             social media links -->
+    <!-- footer -->
+    <footer class="page-footer container-fluid d-flex flex-row justify-content-center align-items-center pt-4">
+        <div class="ft-container container row justify-content-center no-gutters">
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Main contact</h5>
+                <div class="if-content">
+                    <p>District 1, Ho Chi Minh city, VN</p>
+                    <p>info@seadiamond.com</p>
+                    <p>+84 1535 43526</p>
+                </div>
+
+            </div>
+
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Site links</h5>
+                <div class="if-content">
+                    <a href="#!">About us</a>
+                    <a href="#!">Our rooms</a>
+                </div>
+            </div>
+
+            <!-- Grid column -->
+            <div class="ft-item col-md-4 mb-4">
+                <h5>Social</h5>
+                <div class="if-content d-flex flex-column justify-content-center">
+                    <div class="icons d-flex flex-row justify-content-center">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="ml-4 mr-4 fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Javascript -->
+    <script src="../js/RoomReview.js"></script>
+</body>
+
+</html>
