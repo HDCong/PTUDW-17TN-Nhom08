@@ -8,7 +8,6 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-    min-width: 500px;
 }
 
 html {
@@ -64,7 +63,7 @@ header .login {
 }
 
 header .login .log-btn {
-    width: 110px;
+    width: 90px;
     height: 25px;
     background-color: #12263A;
     font-size: 14px;
@@ -255,5 +254,35 @@ footer .ft-container .ft-item .if-content a {
     header .hotel-name {
         font-size: 40px;
     }
+
+    header .login .log-btn {
+        width: 90px;
+        font-size: 12px;
+    }
 }
 
+@media only screen and (max-width: 450px) {
+    header {
+        height: 200px;
+    }
+    header .hotel-name {
+        font-size: 25px;
+    }
+    header .login .log-btn {
+        width: 90px;
+        font-size: 12px;
+    }
+    header .logo img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .main-content .top-rooms .text {
+        width: 100%;
+        height: 40px;
+        background-color: #12263A;
+        color: white;
+        font-size: 25px;
+        text-align: center;
+    }
+}
