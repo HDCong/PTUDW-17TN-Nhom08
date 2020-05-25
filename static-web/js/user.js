@@ -2,17 +2,30 @@ var tabInformation = document.getElementsByClassName('infor-tab')[0]
 var tabPassword = document.getElementsByClassName('pwd-tab')[0]
 var rightSideInfor = document.getElementsByClassName('on-infor')[0]
 var rightSidePwd = document.getElementsByClassName('on-pwd')[0]
-console.log(tabInformation, tabPassword)
 var btnChangePhoto = document.getElementsByClassName('btn-change')[0]
 tabInformation.addEventListener('click', showInformationTab)
 tabPassword.addEventListener('click', showPasswordTab)
+var optionMonth = document.getElementById('inputMonthDOB')
+optionMonth.addEventListener('change', defineDay, false)
+var optionYear = document.getElementById('inputYearDOB')
+optionYear.addEventListener('change', defineDay, false)
+
+var newPassword = document.getElementById('inputNewPwd')
+var confirmPassword = document.getElementById('inputConfirmNew')
+confirmPassword.addEventListener('keyup', checkMatchPassword)
+newPassword.addEventListener('keyup', checkMatchPassword)
+
+function checkMatchPassword() {
+    var labelNotify = document.getElementById('not-match')
+    if (confirmPassword.value != newPassword.value)
+        labelNotify.style.display = 'inline'
+    else labelNotify.style.display = 'none'
+}
 
 function changeNewAvatar() {
     $('#myImage').trigger('click')
-        // console.log('helo')
-
-    // upload to Server
-    // change link avatar
+        // upload to Server
+        // change link avatar
 }
 btnChangePhoto.addEventListener('click', changeNewAvatar)
 
@@ -21,6 +34,7 @@ var userInformation = {
     email: 'example@example.com',
     phone: '0954124758',
     gender: 'male',
+    isActivate: true,
     DOB: 8,
     MOB: 8,
     YOB: 1999
@@ -28,9 +42,44 @@ var userInformation = {
 render()
 
 function render() {
+    createOption()
     loadDataFromServer()
     setDataToShow()
 
+}
+
+function createOption() {
+    createOptionForDay(31)
+    createOptionForYear()
+}
+
+function createOptionForDay(nbOfDays) {
+    $('#inputDayDOB').find('option').remove().end()
+    var optionDay = document.getElementById('inputDayDOB')
+    for (i = 1; i <= nbOfDays; ++i) {
+        var text = `<option value="${i}">${i}</option>`
+        optionDay.insertAdjacentHTML('beforeend', text)
+    }
+}
+
+function defineDay() {
+    var month = optionMonth.value
+    if (month == undefined) return 31
+    var Days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    var year = optionYear.value
+    if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+        Days[1] += 1
+    createOptionForDay(Days[month - 1])
+
+}
+
+
+function createOptionForYear() {
+    var optionYear = document.getElementById('inputYearDOB')
+    for (i = 2020; i >= 1900; --i) {
+        var text = `<option value="${i}">${i}</option>`
+        optionYear.insertAdjacentHTML('beforeend', text)
+    }
 }
 
 function loadDataFromServer() {
@@ -44,7 +93,6 @@ function selectElement(id, valueToSelect) {
 }
 
 function setDataToShow() {
-    console.log('hello')
     var customerName = document.getElementById('inputName');
     var customerEmail = document.getElementById('inputEmail');
     var customerPhone = document.getElementById('inputPhone');
@@ -54,11 +102,13 @@ function setDataToShow() {
     selectElement('inputDayDOB', userInformation.DOB.toString())
     selectElement('inputMonthDOB', userInformation.MOB.toString())
     selectElement('inputYearDOB', userInformation.YOB.toString())
+    if (userInformation.isActivate)
+        customerEmail.parentElement.lastElementChild.style.display = 'none'
 }
 
 // /Listener
 function showInformationTab() {
-    console.log('info')
+
     if (!tabInformation.classList.contains('on-showing')) {
         tabInformation.classList.add('on-showing')
 
@@ -69,6 +119,7 @@ function showInformationTab() {
     }
     if (!rightSidePwd.classList.contains('not-show')) {
         // rightSideInfor.classList.remove('not-show')
+
         $('.on-pwd').fadeOut('slow', function() {
             rightSidePwd.classList.add('not-show')
         })
@@ -83,14 +134,13 @@ function showInformationTab() {
         })
     }
 
-
-
-    console.log(tabInformation), console.log(rightSideInfor), console.log(tabPassword), console.log(rightSidePwd)
-
+    newPassword.value = ''
+    confirmPassword.value = ''
+    checkMatchPassword()
 }
 
 function showPasswordTab() {
-    console.log('pwd')
+
     if (!tabPassword.classList.contains('on-showing')) {
         tabPassword.classList.add('on-showing')
 
@@ -131,10 +181,21 @@ function updateUserInformation() {
     console.log('btn update clicked')
 
     // send to server
+
+    // if ok
+    $("#notifyUpdate").modal({ show: true });
+
+
 }
 
 function changePassword() {
     console.log('btn update clicked')
 
     // send to server
+
+    //if ok
+    $("#notifyChangePwd").modal({ show: true });
+    newPassword.value = ''
+    confirmPassword.value = ''
+    checkMatchPassword()
 }
