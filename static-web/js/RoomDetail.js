@@ -6,6 +6,7 @@ var count_guests = document.getElementById("count-guests");
 var count_nights = document.getElementById("count-nights");
 var room_detail_1 = document.getElementById("room-detail-1");
 var room_detail_2 = document.getElementById("room-detail-2");
+var list_tab = document.querySelectorAll("#menu .nav-item .nav-link");
 
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -18,18 +19,22 @@ window.onload = (event) => {
     month_in.innerHTML = arrMonth[date.getMonth()];
     month_out.innerHTML = arrMonth[date.getMonth()];
 }
-
 $(window).resize(function() {
     changeMenuStyle();
 })
 
 function changeMenuStyle() {
-    var object = document.getElementById("menu-text");
+    var object = document.getElementById("list-tab-room-detail");
+    var nav_item = document.getElementById("menu").getElementsByClassName("nav-item");
     var size = window.innerWidth;
     if (size <= 992) {
         object.style.display = "inline-block";
+        for (i = 1; i < nav_item.length; i++)
+            nav_item[i].style.display = "none";
     } else {
         object.style.display = "none";
+        for (i = 1; i < nav_item.length; i++)
+            nav_item[i].style.display = "inline-block";
     }
 }
 
@@ -63,15 +68,19 @@ function downNumber(element) {
 }
 
 function changeTabRoomDetail(element) {
-    var navbar = element.parentElement.parentElement;
-    var active = navbar.getElementsByClassName("active");
-    active[0].setAttribute("class", "nav-link");
-    element.setAttribute("class", "nav-link active");
-    if (element.getAttribute("id") != "tab-room-review") {
-        room_detail_1.style.display = "block";
-        room_detail_2.style.display = "none";
-    } else {
+    var content = element.innerHTML;
+    for (i = 1; i < list_tab.length; i++) {
+        if (list_tab[i].innerHTML != content) {
+            list_tab[i].setAttribute("class", "nav-link");
+        } else {
+            list_tab[i].setAttribute("class", "nav-link active");
+        }
+    }
+    if (element.innerHTML == "ROOM REVIEW") {
         room_detail_1.style.display = "none";
         room_detail_2.style.display = "block";
+    } else {
+        room_detail_1.style.display = "block";
+        room_detail_2.style.display = "none";
     }
 }
