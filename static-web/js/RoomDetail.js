@@ -4,6 +4,8 @@ var month_in = document.getElementById("month-in");
 var month_out = document.getElementById("month-out");
 var count_guests = document.getElementById("count-guests");
 var count_nights = document.getElementById("count-nights");
+var room_detail_1 = document.getElementById("room-detail-1");
+var room_detail_2 = document.getElementById("room-detail-2");
 
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -16,6 +18,7 @@ window.onload = (event) => {
     month_in.innerHTML = arrMonth[date.getMonth()];
     month_out.innerHTML = arrMonth[date.getMonth()];
 }
+
 $(window).resize(function() {
     changeMenuStyle();
 })
@@ -57,4 +60,18 @@ function downNumber(element) {
         month[0].innerHTML = arrMonth[dataMonth];
     }
     number[0].innerHTML = dataDate;
+}
+
+function changeTabRoomDetail(element) {
+    var navbar = element.parentElement.parentElement;
+    var active = navbar.getElementsByClassName("active");
+    active[0].setAttribute("class", "nav-link");
+    element.setAttribute("class", "nav-link active");
+    if (element.getAttribute("id") != "tab-room-review") {
+        room_detail_1.style.display = "block";
+        room_detail_2.style.display = "none";
+    } else {
+        room_detail_1.style.display = "none";
+        room_detail_2.style.display = "block";
+    }
 }

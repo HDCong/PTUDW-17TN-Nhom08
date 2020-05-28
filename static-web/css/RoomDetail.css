@@ -1,6 +1,9 @@
+body {
+    color: #12263A;
+}
+
 .cover-image {
     height: 400px;
-    color: #12263A;
     background-image: url(../images/listrooms-images/roomdetail.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,7 +45,6 @@
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 25px;
-    color: #12263A;
 }
 
 #txt-review {
@@ -53,7 +55,6 @@
 .title-room {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #12263A;
 }
 
 .icon-star {
@@ -80,7 +81,6 @@
 #room-info {
     text-align: center;
     font-size: 14px;
-    color: #12263A;
     margin-top: 10px;
 }
 
@@ -113,7 +113,6 @@
     margin: 20px 0px;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
-    color: #12263A;
     text-align: center;
     padding: 20px 0px;
 }
@@ -131,7 +130,6 @@
 }
 
 #room-services {
-    color: #12263A;
     font-size: 14px;
 }
 
@@ -205,7 +203,6 @@
 
 .other-room-frame {
     font-size: 16px;
-    color: #12263A;
     margin: 0px 0px 10px 0px;
 }
 
@@ -239,4 +236,80 @@
 
 .button {
     cursor: pointer;
+}
+
+#review-frame {
+    padding: 20px 70px 20px 50px;
+    border: 1px solid gray;
+}
+
+#sum-stars {
+    font-size: 30px;
+    margin-left: 60px;
+}
+
+#stars {
+    margin-left: 35px;
+}
+
+#txt-count-review {
+    clear: both;
+    margin-left: 35px;
+}
+
+#average-right {
+    margin-top: -15px;
+    padding: 15px 0px;
+}
+
+.stars-percent {
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.number-star {
+    padding: 0;
+    text-align: right;
+}
+
+.percent {
+    padding: 0;
+    text-align: center;
+}
+
+.progress {
+    height: 12px;
+    margin: auto;
+    padding: 0;
+}
+
+.progress-bar {
+    background-color: #12263A;
+}
+
+.txt-review-blue {
+    font-size: 14px;
+}
+
+.media-body {
+    margin-top: 10px;
+}
+
+.list-review {
+    margin-top: -10px;
+}
+
+.list-review span {
+    font-size: 14px;
+    color: #0E80F1;
+    margin-left: 8px;
+}
+
+.comment {
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+    border: none;
+    width: 100%;
 }
