@@ -64,7 +64,7 @@ header .login {
 }
 
 header .login .log-btn {
-    width: 110px;
+    width: 90px;
     height: 25px;
     background-color: #12263A;
     font-size: 14px;
@@ -120,28 +120,31 @@ header .login .log-btn {
 }
 
 .main-content .image-info .float-container .item .item-dangtantai {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     background-image: url("../images/about-images/dangtantai.jpg");
     background-position: center;
     background-size: cover;
+    border-radius: 50%;
 }
 
 .main-content .image-info .float-container .item .item-hoangduccong {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     background-image: url("../images/about-images/hoangduccong.jpg");
     background-position: center;
     background-size: cover;
+    border-radius: 50%;
 }
 
 
 .main-content .image-info .float-container .item .item-truongkhactrieu {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     background-image: url("../images/about-images/truongkhactrieu.jpg");
     background-position: center;
     background-size: cover;
+    border-radius: 50%;
 }
 
 /* footer */
