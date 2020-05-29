@@ -12,6 +12,8 @@
     <!-- css style -->
     <link rel="stylesheet" type="text/css" href="../css/Home-page.css">
     <link rel="stylesheet" type="text/css" href="../css/ListRooms-page.css">
+    <link rel="stylesheet" type="text/css" href="../css/Login-form.css">
+    <link rel="stylesheet" type="text/css" href="../css/Register-form.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- font -->
@@ -22,6 +24,50 @@
 </head>
 
 <body>
+    <!-- login form -->
+    <div id="login-form" class="l-overlay container-fluid no-gutters p-5">
+        <!-- <div class="login-form col-md-4 p-3 row"> -->
+        <div class="login-form p-3 no-gutters">
+            <div class="login-form-header row justify-content-center align-items-center">
+                <h1>Welcome</h1>
+            </div>
+            <form class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
+                <input type="text" placeholder="Username" class="mt-2">
+                <input type="password" placeholder="Password" class="mt-2">
+
+                <div class="register-form row justify-content-end mt-2">
+                    <span>Don't have an account? <a href="#register-form">Create</a></span>
+                </div>
+
+                <div class="form-btn d-flex flex-column justify-content-center align-items-center mt-2">
+                    <input type="submit" value="Sign In">
+                    <a class="mt-1" href="#">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- register form -->
+    <div id="register-form" class="r-overlay container-fluid no-gutters p-5">
+        <!-- <div class="login-form col-md-4 p-3 row"> -->
+        <div class="register-form p-3 no-gutters">
+            <div class="register-form-header row justify-content-center align-items-center">
+                <h1>Welcome</h1>
+            </div>
+            <form class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
+                <input type="text" placeholder="Email" class="mt-2">
+                <input type="text" placeholder="Username" class="mt-2">
+                <input type="password" placeholder="Password" class="mt-2">
+                <input type="password" placeholder="Confirm password" class="mt-2">
+
+                <div class="form-btn d-flex flex-column justify-content-center align-items-center mt-4">
+                    <input type="submit" value="Sign Up">
+                    <a class="mt-1" href="#">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- wrap all content in the page consist of header main content, footer-->
     <div class="container mb-4">
         <!-- content goes here -->
@@ -37,7 +83,7 @@
             </div>
 
             <div class="login text-right col-sm-3">
-                <a class="log-btn" href="#">Sign In</a>
+                <a class="log-btn" href="#login-form">Sign In</a>
             </div>
         </header>
 
@@ -54,7 +100,7 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
-                    <a class="nav-link" href="#">About us</a>
+                    <a class="nav-link" href="../pages/About-us.html">About us</a>
                 </li>
                 <li class="nav-item col-md-2 i-end">
                     <a class="nav-link" href="#">Book now</a>
@@ -212,10 +258,13 @@
         </div>
     </footer>
 
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Javascript -->
+
+    <script src="../js/Homepage.js"></script>
     <script src="../js/ListRooms-page.js"></script>
 </body>
 

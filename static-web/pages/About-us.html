@@ -13,10 +13,56 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <!-- slick -->
+    <!-- login form style-->
+    <link rel="stylesheet" type="text/css" href="../css/Login-form.css">
+    <link rel="stylesheet" type="text/css" href="../css/Register-form.css">
 
 </head>
 <body>
+    <!-- login form -->
+    <div id="login-form" class="l-overlay container-fluid no-gutters p-5">
+        <!-- <div class="login-form col-md-4 p-3 row"> -->
+        <div class="login-form p-3 no-gutters">
+            <div class="login-form-header row justify-content-center align-items-center">
+                <h1>Welcome</h1>
+            </div>
+            <form class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
+                <input type="text" placeholder="Username" class="mt-2">
+                <input type="password" placeholder="Password" class="mt-2">
+
+                <div class="register-form row justify-content-end mt-2">
+                    <span>Don't have an account? <a href="#register-form">Create</a></span>
+                </div>
+
+                <div class="form-btn d-flex flex-column justify-content-center align-items-center mt-2">
+                    <input type="submit" value="Sign In">
+                    <a class="mt-1" href="#">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <!-- register form -->
+    <div id="register-form" class="r-overlay container-fluid no-gutters p-5">
+            <!-- <div class="login-form col-md-4 p-3 row"> -->
+        <div class="register-form p-3 no-gutters">
+            <div class="register-form-header row justify-content-center align-items-center">
+                <h1>Welcome</h1>
+            </div>
+            <form class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
+                <input type="text" placeholder="Email" class="mt-2">
+                <input type="text" placeholder="Username" class="mt-2">
+                <input type="password" placeholder="Password" class="mt-2">
+                <input type="password" placeholder="Confirm password" class="mt-2">
+
+                <div class="form-btn d-flex flex-column justify-content-center align-items-center mt-4">
+                    <input type="submit" value="Sign Up">
+                    <a class="mt-1" href="#">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- wrap all content in the page consist of header main content, footer-->
     <div class="container mb-5">
         <!-- content goes here -->
@@ -24,7 +70,7 @@
         <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
         <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
             <div class="logo col-sm-3">
-                <a href=""><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
+                <a href="../pages/Home-page.html"><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
             </div>
 
             <div class="hotel-name col-sm-6 text-center">
@@ -32,7 +78,7 @@
             </div>
 
             <div class="login text-right col-sm-3">
-                <a class="log-btn" href="#">Sign In</a>
+                <a class="log-btn" href="#login-form">Sign In</a>
             </div>
         </header>
         
@@ -40,19 +86,19 @@
         <div class="nav-bar mb-4" id="content">
             <ul class="nav justify-content-center no-gutters pt-2 pb-2">
                 <li class="nav-item col-md-2 i-begin">
-                  <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="../pages/Home-page.html">Home</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
-                  <a class="nav-link" href="#">Our rooms</a>
+                <a class="nav-link" href="#">Our rooms</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
-                  <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
-                  <a class="nav-link active" href="#">About us</a>
+                <a class="nav-link active" href="#">About us</a>
                 </li>
                 <li class="nav-item col-md-2 i-end">
-                  <a class="nav-link" href="#">Book now</a>
+                <a class="nav-link" href="#">Book now</a>
                 </li>
             </ul>
         </div>
