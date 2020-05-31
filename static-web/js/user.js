@@ -12,14 +12,37 @@ optionYear.addEventListener('change', defineDay, false)
 
 var newPassword = document.getElementById('inputNewPwd')
 var confirmPassword = document.getElementById('inputConfirmNew')
-confirmPassword.addEventListener('keyup', checkMatchPassword)
-newPassword.addEventListener('keyup', checkMatchPassword)
+confirmPassword.addEventListener('keyup', validateConfirm)
+newPassword.addEventListener('keyup', validatePassword)
 
-function checkMatchPassword() {
+function validateConfirm() {
     var labelNotify = document.getElementById('not-match')
-    if (confirmPassword.value != newPassword.value)
+
+    if (confirmPassword.value != newPassword.value) {
         labelNotify.style.display = 'inline'
-    else labelNotify.style.display = 'none'
+        console.log('false confirm')
+        return false
+    } else labelNotify.style.display = 'none'
+    console.log('true confirm')
+
+    return true
+
+}
+
+function validatePassword() {
+    var labelValid = document.getElementById('valid-pwd')
+    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
+    if (newPassword.value.match(re)) {
+        labelValid.style.display = 'none'
+        console.log('true pwd')
+
+        return true
+    } else {
+        labelValid.style.display = 'inline'
+        console.log('false pwd')
+
+        return false
+    }
 }
 
 function changeNewAvatar() {
@@ -73,7 +96,6 @@ function defineDay() {
 
 }
 
-
 function createOptionForYear() {
     var optionYear = document.getElementById('inputYearDOB')
     for (i = 2020; i >= 1900; --i) {
@@ -115,11 +137,9 @@ function showInformationTab() {
     }
     if (tabPassword.classList.contains('on-showing')) {
         tabPassword.classList.remove('on-showing')
-
     }
     if (!rightSidePwd.classList.contains('not-show')) {
         // rightSideInfor.classList.remove('not-show')
-
         $('.on-pwd').fadeOut('slow', function() {
             rightSidePwd.classList.add('not-show')
         })
@@ -133,25 +153,23 @@ function showInformationTab() {
 
         })
     }
-
     newPassword.value = ''
     confirmPassword.value = ''
-    checkMatchPassword()
+    validatePassword()
 }
 
 function showPasswordTab() {
 
     if (!tabPassword.classList.contains('on-showing')) {
         tabPassword.classList.add('on-showing')
-
     }
     if (tabInformation.classList.contains('on-showing')) {
         tabInformation.classList.remove('on-showing')
-
     }
 
     if (!rightSideInfor.classList.contains('not-show')) {
         $('.on-infor').fadeOut('slow', function() {
+            // console.log('b')
             rightSideInfor.classList.add('not-show')
         })
     }
@@ -162,7 +180,6 @@ function showPasswordTab() {
         })
     }
 }
-
 
 var usernameData = document.getElementById('inputName')
 usernameData.addEventListener('keyup', function() {
@@ -194,8 +211,9 @@ function changePassword() {
     // send to server
 
     //if ok
-    $("#notifyChangePwd").modal({ show: true });
-    newPassword.value = ''
-    confirmPassword.value = ''
-    checkMatchPassword()
+    if (validateConfirm() && validatePassword()) {
+        newPassword.value = ''
+        confirmPassword.value = ''
+        $("#notifyChangePwd").modal({ show: true });
+    }
 }
