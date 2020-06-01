@@ -7,19 +7,18 @@
     <title>Sea Diamond | Rooms</title>
 
     <!-- bootstrap -->
-    <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- css style -->
-    <link rel="stylesheet" type="text/css" href="../css/Home-page.css">
-    <link rel="stylesheet" type="text/css" href="../css/ListRooms-page.css">
-    <link rel="stylesheet" type="text/css" href="../css/Login-form.css">
-    <link rel="stylesheet" type="text/css" href="../css/Register-form.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- font -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <!-- slick -->
+    <!-- css style -->
+    <link rel="stylesheet" type="text/css" href="../css/Page-header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Page-footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/ListRooms-page.css">
+    <link rel="stylesheet" type="text/css" href="../css/Login-form.css">
+    <link rel="stylesheet" type="text/css" href="../css/Register-form.css">
+    <link rel="stylesheet" type="text/css" href="../css/Scrollbar.css">
 
 </head>
 
@@ -47,9 +46,9 @@
         </div>
     </div>
 
-    <!-- register form -->
+        <!-- register form -->
     <div id="register-form" class="r-overlay container-fluid no-gutters p-5">
-        <!-- <div class="login-form col-md-4 p-3 row"> -->
+            <!-- <div class="login-form col-md-4 p-3 row"> -->
         <div class="register-form p-3 no-gutters">
             <div class="register-form-header row justify-content-center align-items-center">
                 <h1>Welcome</h1>
@@ -71,7 +70,6 @@
     <!-- wrap all content in the page consist of header main content, footer-->
     <div class="container mb-4">
         <!-- content goes here -->
-
         <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
         <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
             <div class="logo col-sm-3">
@@ -90,31 +88,30 @@
         <!-- navigation bar -->
         <div class="nav-bar mb-4" id="content">
             <ul class="nav justify-content-center no-gutters pt-2 pb-2">
-                <li class="nav-item col-md-2 i-begin active">
-                    <a class="nav-link active" href="#">Home</a>
+                <li class="nav-item col-md-2 i-begin">
+                    <a class="nav-link" href="../pages/Home-page.html">Home</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
-                    <a class="nav-link" href="#">Our rooms</a>
+                    <a class="nav-link active" href="#">Our rooms</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="../pages/Contact.html"">Contact</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" href="../pages/About-us.html">About us</a>
                 </li>
-                <li class="nav-item col-md-2 i-end">
-                    <a class="nav-link" href="#">Book now</a>
-                </li>
+                <!-- <li class="nav-item col-md-2 i-end">
+                    <a class="nav-link" href="../pages/ListRooms-page.html">Book now</a>
+                </li> -->
             </ul>
         </div>
-
 
         <!-- content goes here -->
         <div class="main-content">
             <div class="cover-image text-center">
                 ROOMS
             </div>
-            <div class="booking-content row">
+            <div class="booking-content row row-mg no-gutters">
                 <div class="booking-frame col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="booking-item check-in">
                         <div id="check-in-text">CHECK-IN</div>
@@ -141,7 +138,7 @@
                         <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                     </div>
                 </div>
-                <div class="list-rooms row col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="list-rooms row row-mg col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <div class="room room1 col-5">
                         <img class="room-image" src="../images/listrooms-images/room1.jpg">
                         <div class="info-room">
@@ -222,8 +219,8 @@
     <!-- this part consists of information of service provider,
              social media links -->
     <!-- footer -->
-    <footer class="page-footer container-fluid d-flex flex-row justify-content-center align-items-center pt-4">
-        <div class="ft-container container row justify-content-center no-gutters">
+    <footer id="p-footer" class="page-footer container-fluid d-flex flex-row justify-content-center align-items-center pt-4">
+        <div class="ft-container container row row-mg justify-content-center no-gutters">
             <!-- Grid column -->
             <div class="ft-item col-md-4 mb-4">
                 <h5>Main contact</h5>

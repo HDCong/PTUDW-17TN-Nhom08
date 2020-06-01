@@ -80,16 +80,18 @@
 }
 
 .l-overlay .login-form form input[type="submit"] {
-    border: none;
-    background-color: #12263A;
-    color: white;
+    border: 1px solid #12263A;;
+    background-color: white;
+    color: #12263A;
     font-size: 16px;
     width: 100px;
     height: 30px;
+    transition: 0.3s;
 }
 
 .l-overlay .login-form form input[type="submit"]:hover {
     background-color: rgb(6, 19, 32);
+    color: white;
 }
 
 .l-overlay .login-form form .form-btn {
@@ -102,7 +104,7 @@
 
 .l-overlay .login-form form .form-btn a:hover {
     font-style: italic;
-    color: #12263A;
+    color: rgb(199, 22, 31);
 }
 
 .l-overlay .login-form form .register-form {
