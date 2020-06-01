@@ -7,7 +7,6 @@ var count_nights = document.getElementById("count-nights");
 var room_detail_1 = document.getElementById("room-detail-1");
 var room_detail_2 = document.getElementById("room-detail-2");
 var list_tab = document.querySelectorAll("#menu .nav-item .nav-link");
-
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -83,4 +82,12 @@ function changeTabRoomDetail(element) {
         room_detail_1.style.display = "block";
         room_detail_2.style.display = "none";
     }
+}
+
+function toBooking() {
+    window.location = "../pages/Booking.html";
+}
+
+function toOtherRoom() {
+    window.location = "#";
 }

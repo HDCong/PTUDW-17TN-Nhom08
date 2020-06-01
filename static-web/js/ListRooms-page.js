@@ -44,3 +44,7 @@ function downNumber(element) {
     }
     number[0].innerHTML = dataDate;
 }
+
+function toRoomDetail() {
+    window.location = "../pages/RoomDetail.html";
+}
