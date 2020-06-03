@@ -27,6 +27,7 @@
     padding: 0;
     background-color: white;
     border-radius: 10px;
+    z-index: 17;
 }
 
 #login-form {
@@ -119,4 +120,11 @@
 .l-overlay .login-form form .register-form a:hover {
     font-style: italic;
     color: #12263A;
+}
+
+#hidden-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 16;
 }
