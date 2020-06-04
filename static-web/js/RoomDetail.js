@@ -91,3 +91,22 @@ function toBooking() {
 function toOtherRoom() {
     window.location = "#";
 }
+
+function likeComment(element) {
+    if (element.getAttribute("style") == "font-weight: bold")
+        element.setAttribute("style", "");
+    else
+        element.setAttribute("style", "font-weight: bold");
+}
+
+function replyComment(element) {
+    var parentNode = element.parentElement.parentElement;
+    var comment = parentNode.querySelector("input");
+    comment.focus();
+}
+
+function fillStar(element) {
+    $(element).attr("class", "button icon-star fas fa-star");
+    $(element).prevAll().attr("class", "button icon-star fas fa-star");
+    $(element).nextAll().attr("class", "button icon-star far fa-star");
+}

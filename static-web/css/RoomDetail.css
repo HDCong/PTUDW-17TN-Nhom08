@@ -62,31 +62,15 @@ body {
     font-size: 25px;
 }
 
-#txt-review {
-    float: left;
-    margin-right: 5px;
-}
-
 .title-room {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
 .icon-star {
-    background-image: url(../images/listrooms-images/star.jpg);
-    width: 30px;
-    height: 30px;
-    inline-size: 20px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    border: none;
-    outline: none;
-    float: left;
-}
-
-.detail-frame {
-    clear: both;
+    color: #ffce00;
+    font-size: 15px;
+    line-height: 30px;
 }
 
 #room-images .carousel-inner img {
@@ -273,12 +257,11 @@ body {
 }
 
 #stars {
-    margin-left: 35px;
+    margin-left: 32px;
 }
 
 #txt-count-review {
-    clear: both;
-    margin-left: 35px;
+    margin-left: 32px;
 }
 
 #average-right {
@@ -295,6 +278,7 @@ body {
 .number-star {
     padding: 0;
     text-align: right;
+    margin-right: 3px;
 }
 
 .percent {
@@ -324,16 +308,44 @@ body {
     margin-top: -10px;
 }
 
-.list-review span {
+.media {
+    padding-bottom: 0px !important;
+    padding-top: 15px !important;
+}
+
+.media-body span {
     font-size: 14px;
     color: #0E80F1;
-    margin-left: 8px;
 }
 
 .comment {
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 7px;
+    margin-bottom: 0px;
     display: block;
     border: none;
     width: 100%;
+}
+
+.comment-reply {
+    margin-top: 5px;
+}
+
+.comment-reply input {
+    font-size: 14px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.media-body input {
+    border: none;
+    color: #12263A;
+}
+
+.media-body input:focus {
+    outline: none;
+}
+
+#review-yourself .list-review {
+    margin-top: 8px;
 }
