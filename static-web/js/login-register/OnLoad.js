@@ -1,5 +1,5 @@
 var dropDownHTML = '';
-
+// console.log(window.location.pathname)
 window.onload = function() {
     if(checkCookie()) {
         document.getElementById('login-btn').innerHTML = dropDownHTML;
@@ -7,10 +7,21 @@ window.onload = function() {
         var notify =document.getElementById('notify-guest')
         if(notify!=null)
             notify.style.display='none'
-            
         document.getElementById('logout-btn').addEventListener('click', function() {
             document.cookie = 'session=' + ';' + 'expires=' + ";path=/";
-            location.reload();
+            var pathLocation = (window.location).toString();
+            console.log(pathLocation)
+            // window.location.pathname='ahdhsahdas'
+            // console.log(window.location)
+            if(pathLocation.includes('User.html')==true){
+                
+                console.log('helo')
+                pathLocation= pathLocation.replace('User.html','Home-page.html')
+                console.log(pathLocation)
+                window.location.replace(pathLocation)
+
+            }
+            else location.reload();
         });
     }
 }

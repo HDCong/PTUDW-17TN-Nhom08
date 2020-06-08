@@ -13,10 +13,11 @@ document.getElementById('log').onsubmit = function() {
     var password = document.getElementById('log-password').value;
 
     if(checkLogin(users, username, password)) {
+        console.log('check ok')
         var notify =document.getElementById('notify-guest')
         if(notify!=null)
             notify.style.display='none'
-
+            
         setCookie("session", username, 30);
         document.getElementById('log-cancel').click();
         location.reload(true);
