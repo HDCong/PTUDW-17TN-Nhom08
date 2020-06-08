@@ -8,13 +8,21 @@ var count_nights = document.getElementById("count-nights");
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-window.onload = (event) => {
+// window.onload = (event) => {
+//     var date = new Date();
+//     date_in.innerHTML = date.getDate();
+//     date_out.innerHTML = date.getDate();
+//     month_in.innerHTML = arrMonth[date.getMonth()];
+//     month_out.innerHTML = arrMonth[date.getMonth()];
+// }
+
+window.addEventListener('load', function() {
     var date = new Date();
     date_in.innerHTML = date.getDate();
     date_out.innerHTML = date.getDate();
     month_in.innerHTML = arrMonth[date.getMonth()];
     month_out.innerHTML = arrMonth[date.getMonth()];
-}
+})
 
 function upNumber(element) {
     var object = element.parentElement;

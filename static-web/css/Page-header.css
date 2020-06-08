@@ -97,3 +97,20 @@ header .login .log-btn:hover {
     font-weight: bold;
     color: #12263A !important;
 }
+
+#login-btn button {
+    font-size: 16px;
+}
+
+#login-btn a {
+    font-size: 16px;
+}
+
+#login-btn a:focus {
+    background-color: #12263A;
+}
+
+#logout-btn:focus {
+    outline: none;
+    background-color: #12263A;
+}

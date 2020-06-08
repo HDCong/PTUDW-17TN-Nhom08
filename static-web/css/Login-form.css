@@ -123,6 +123,7 @@
 }
 
 #hidden-div {
+    cursor: default;
     position: absolute;
     width: 100%;
     height: 100%;
