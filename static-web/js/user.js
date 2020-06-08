@@ -20,10 +20,10 @@ function validateConfirm() {
 
     if (confirmPassword.value != newPassword.value) {
         labelNotify.style.display = 'inline'
-        console.log('false confirm')
+        // console.log('false confirm')
         return false
     } else labelNotify.style.display = 'none'
-    console.log('true confirm')
+    // console.log('true confirm')
 
     return true
 
@@ -34,12 +34,12 @@ function validatePassword() {
     var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
     if (newPassword.value.match(re)) {
         labelValid.style.display = 'none'
-        console.log('true pwd')
+        // console.log('true pwd')
 
         return true
     } else {
         labelValid.style.display = 'inline'
-        console.log('false pwd')
+        // console.log('false pwd')
 
         return false
     }
@@ -143,7 +143,6 @@ function showInformationTab() {
         $('.on-pwd').fadeOut('slow', function() {
             rightSidePwd.classList.add('not-show')
         })
-
     }
 
     if (rightSideInfor.classList.contains('not-show')) {
@@ -155,7 +154,7 @@ function showInformationTab() {
     }
     newPassword.value = ''
     confirmPassword.value = ''
-    validatePassword()
+    // validatePassword()
 }
 
 function showPasswordTab() {

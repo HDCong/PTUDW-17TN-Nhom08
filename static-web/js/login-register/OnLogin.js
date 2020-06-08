@@ -1,3 +1,11 @@
+var loginUsername = document.getElementById('log-username')
+var loginPassword = document.getElementById('log-password')
+loginUsername.addEventListener('keyup', removeLabel)
+loginPassword.addEventListener('keyup', removeLabel)
+function removeLabel()
+{
+    document.getElementById('label-notify').style.display='none'
+}
 document.getElementById('log').onsubmit = function() {
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -5,12 +13,17 @@ document.getElementById('log').onsubmit = function() {
     var password = document.getElementById('log-password').value;
 
     if(checkLogin(users, username, password)) {
+        var notify =document.getElementById('notify-guest')
+        if(notify!=null)
+            notify.style.display='none'
+
         setCookie("session", username, 30);
         document.getElementById('log-cancel').click();
         location.reload(true);
+       
     }
     else {
-        alert("Username or Password incorrect");
+        document.getElementById('label-notify').style.display= 'inline'
     }
 }
 

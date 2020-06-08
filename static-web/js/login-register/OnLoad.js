@@ -2,8 +2,12 @@ var dropDownHTML = '';
 
 window.onload = function() {
     if(checkCookie()) {
-        console.log('true')
         document.getElementById('login-btn').innerHTML = dropDownHTML;
+        
+        var notify =document.getElementById('notify-guest')
+        if(notify!=null)
+            notify.style.display='none'
+            
         document.getElementById('logout-btn').addEventListener('click', function() {
             document.cookie = 'session=' + ';' + 'expires=' + ";path=/";
             location.reload();
