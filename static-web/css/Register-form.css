@@ -23,7 +23,7 @@
 }
 
 .r-overlay .register-form {
-    height: 450px;
+    /* height: 450px; */
     width: 300px;
     padding: 0;
     background-color: white;
