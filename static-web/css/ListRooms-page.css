@@ -1,8 +1,8 @@
 .cover-image {
     height: 400px;
-    color: #12263A;
+    color: white;
     line-height: 400px;
-    font-size: 35px;
+    font-size: 50px;
     background-image: url(../images/listrooms-images/room.jpg);
     background-repeat: no-repeat;
     background-size: cover;

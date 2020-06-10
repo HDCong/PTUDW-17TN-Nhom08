@@ -44,7 +44,7 @@ body + div {
 .cover-image {
   width: 100%;
   height: 400px;
-  background-image: url("../images/about-images/about-main.jpg");
+  background-image: url("../images/user-images/user-cover.jpg");
   background-position: center;
   background-size: cover;
   overflow: hidden;
