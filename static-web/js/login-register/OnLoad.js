@@ -69,3 +69,25 @@ function createDropDown(username) {
     
     return userDropDown;
 }
+
+
+window.onscroll = function() {
+    setNavbarFixed();
+};
+
+
+var navbar = document.getElementById('content');
+var sticky = navbar.offsetTop;
+
+function setNavbarFixed() {
+    if(window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+        document.getElementsByClassName("main-content")[0].style.marginTop = `${navbar.clientHeight}px`;
+        // document.getElementsByClassName("nav-bar")[0].style.backgroundColor = '#12263A'
+    }
+    else {
+        navbar.classList.remove("sticky");
+        document.getElementsByClassName("main-content")[0].style.marginTop = '0px';
+        // document.getElementsByClassName("nav-bar")[0].style.backgroundColor = 'white'
+    }
+}
