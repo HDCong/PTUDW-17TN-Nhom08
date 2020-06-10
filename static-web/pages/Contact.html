@@ -24,10 +24,9 @@
 </head>
 
 <body>
-    <!-- login form -->
-    <div id="login-form" class="l-overlay container-fluid no-gutters p-5">
+     <!-- login form -->
+     <div id="login-form" class="l-overlay container-fluid no-gutters p-5">
         <a href="#" id="hidden-div">
-
         </a>
         <div id="l-form" class="login-form p-3 no-gutters">
             <div class="login-form-header row justify-content-center align-items-center">
@@ -36,7 +35,9 @@
             <form id="log" class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
                 <input id="log-username" type="text" placeholder="Username" class="mt-2">
                 <input id="log-password" type="password" placeholder="Password" class="mt-2">
-
+                <label id="label-notify" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Username or Password incorrect  
+                </label>
                 <div class="register-form row justify-content-end mt-2">
                     <span>Don't have an account? <a href="#register-form">Create</a></span>
                 </div>
@@ -61,10 +62,27 @@
             </div>
             <form id='reg' class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
                 <input id='reg-email' type="text" placeholder="Email" class="mt-2"/>
+                <label id="label-email" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Email existed  
+                </label>
+                <label id="label-email-wrong" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Invalid email address 
+                </label>
                 <input id='reg-username' type="text" placeholder="Username" class="mt-2"/>
+                <label id="label-username" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Username existed  
+                </label>
                 <input id='reg-password' type="password" placeholder="Password" class="mt-2"/>
-                <input id='reg-confirm' type="password" placeholder="Confirm password" class="mt-2"/>
+                <label id="valid-pwd-form"style="font-size: 10px; color: red; display: none; margin: 0;">
+                  At least one number, one lowercase and one uppercase letter
+                  <br />
+                  At least six characters that are letters, numbers or the underscore</label>
+               
+                  <input id='reg-confirm' type="password" placeholder="Confirm password" class="mt-2"/>
 
+                <label id="not-match-form" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Your password and confirmation password do not match
+                </label>
                 <div class="form-btn d-flex flex-column justify-content-center align-items-center mt-4">
                     <input type="submit" value="Sign Up"/>
                     <a id="bk-to-lg" class="mt-3" href="#login-form">Back to login</a>

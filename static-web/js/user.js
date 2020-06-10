@@ -51,6 +51,7 @@ function changeNewAvatar() {
         // change link avatar
 }
 btnChangePhoto.addEventListener('click', changeNewAvatar)
+//3: {email: "Anhtop@gmail.com", username: "ahihidongoc", password: "Anhtop1"}
 
 var userInformation = {
     name: 'Sea Diamond',

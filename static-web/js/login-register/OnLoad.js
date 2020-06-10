@@ -3,26 +3,29 @@ var dropDownHTML = '';
 window.onload = function() {
     if(checkCookie()) {
         document.getElementById('login-btn').innerHTML = dropDownHTML;
-        
+        // For booking page
         var notify =document.getElementById('notify-guest')
         if(notify!=null)
             notify.style.display='none'
+        
         document.getElementById('logout-btn').addEventListener('click', function() {
             document.cookie = 'session=' + ';' + 'expires=' + ";path=/";
             var pathLocation = (window.location).toString();
-            console.log(pathLocation)
-            // window.location.pathname='ahdhsahdas'
-            // console.log(window.location)
             if(pathLocation.includes('User.html')==true){
-                
-                console.log('helo')
                 pathLocation= pathLocation.replace('User.html','Home-page.html')
-                console.log(pathLocation)
                 window.location.replace(pathLocation)
-
             }
             else location.reload();
         });
+    }
+    else{
+        // For user page
+        // if not login
+        var pathLocation = (window.location).toString();
+        if(pathLocation.includes('User.html')==true){
+            pathLocation= pathLocation.replace('User.html','Home-page.html')
+            window.location.replace(pathLocation)
+        }
     }
 }
 
@@ -40,7 +43,6 @@ function getCookie(cookieName) {
         return c.substring(name.length, c.length);
         }
     }
-
     return "";
 }
 
