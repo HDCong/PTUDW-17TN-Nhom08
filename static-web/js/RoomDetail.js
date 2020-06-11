@@ -10,14 +10,15 @@ var list_tab = document.querySelectorAll("#menu .nav-item .nav-link");
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-window.onload = (event) => {
+$(document).ready(function() {
     changeMenuStyle();
     var date = new Date();
     date_in.innerHTML = date.getDate();
     date_out.innerHTML = date.getDate();
     month_in.innerHTML = arrMonth[date.getMonth()];
     month_out.innerHTML = arrMonth[date.getMonth()];
-}
+})
+
 $(window).resize(function() {
     changeMenuStyle();
 })
