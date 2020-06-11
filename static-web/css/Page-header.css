@@ -81,6 +81,15 @@ header .login .log-btn:hover {
     font-weight: bold;
 }
 
+/* .nav-bar {
+    width: 100%;
+} */
+
+.nav-bar {
+    /* opacity: 0.5; */
+    
+}
+
 .nav-bar ul li {
     width: auto;
     font-size: 14px;
@@ -113,4 +122,17 @@ header .login .log-btn:hover {
 #logout-btn:focus {
     outline: none;
     background-color: #12263A;
+}
+
+#content {
+    background-color: white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    /* width: 100%; */
+    z-index: 17;
 }

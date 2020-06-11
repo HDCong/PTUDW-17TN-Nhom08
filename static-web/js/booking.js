@@ -1,3 +1,4 @@
+
 var basePrice = 30
 var isLogin = false
     // services is loaded from server, but now,

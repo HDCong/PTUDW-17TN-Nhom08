@@ -4,7 +4,10 @@ loginUsername.addEventListener('keyup', removeLabel)
 loginPassword.addEventListener('keyup', removeLabel)
 function removeLabel()
 {
-    document.getElementById('label-notify').style.display='none'
+    
+    var label = document.getElementById('label-notify')
+    if(label!=null)
+        label.style.display='none'
 }
 document.getElementById('log').onsubmit = function() {
     var users = JSON.parse(localStorage.getItem('users')) || [];
@@ -13,17 +16,20 @@ document.getElementById('log').onsubmit = function() {
     var password = document.getElementById('log-password').value;
 
     if(checkLogin(users, username, password)) {
+        console.log('check ok')
         var notify =document.getElementById('notify-guest')
         if(notify!=null)
             notify.style.display='none'
-
+            
         setCookie("session", username, 30);
         document.getElementById('log-cancel').click();
         location.reload(true);
-       
     }
     else {
-        document.getElementById('label-notify').style.display= 'inline'
+        console.log('check fail')
+        var label = document.getElementById('label-notify')
+        if(label!=null)
+            label.style.display= 'inline'
     }
 }
 

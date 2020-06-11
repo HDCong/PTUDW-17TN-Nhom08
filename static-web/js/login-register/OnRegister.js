@@ -21,7 +21,9 @@ registerMail.addEventListener("keyup", function () {
 
 function validateConfirm() {
   var labelNotify = document.getElementById("not-match-form");
-  if (registerConfirm.value != registerPassword.value) {
+  if(registerConfirm.value.length==0)
+    setDisplayElement(labelNotify, "none");
+  if (registerConfirm.value != registerPassword.value ) {
     setDisplayElement(labelNotify, "inline");
     return false;
   } else {
@@ -34,7 +36,7 @@ function validatePassword() {
   var labelValid = document.getElementById("valid-pwd-form");
   var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
 
-  if (registerPassword.value.match(re)) {
+  if (registerPassword.value.match(re) || registerPassword.value.length==0) {
     setDisplayElement(labelValid, "none");
     return true;
   } else {
