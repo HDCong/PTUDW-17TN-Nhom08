@@ -25,13 +25,13 @@ function changePositionMonthTable() {
     var size = window.innerWidth;
     var percent;
     if (size < 768) {
-        percent = "20%";
+        percent = "23%";
     } else if (size < 992) {
-        percent = "35%";
+        percent = "30%";
     } else if (size < 1200) {
-        percent = "1%";
+        percent = "2%";
     } else {
-        percent = "3.5%";
+        percent = "4.5%";
     }
     $("#table-month").css("left", percent);
 }
