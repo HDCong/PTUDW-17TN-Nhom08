@@ -3,8 +3,11 @@ var tabPassword = document.getElementsByClassName('pwd-tab')[0]
 var rightSideInfor = document.getElementsByClassName('on-infor')[0]
 var rightSidePwd = document.getElementsByClassName('on-pwd')[0]
 var btnChangePhoto = document.getElementsByClassName('btn-change')[0]
+var tabHistory = document.getElementsByClassName('history-tab')[0]
+var rightSideHistory = document.getElementsByClassName('on-history')[0]
 tabInformation.addEventListener('click', showInformationTab)
 tabPassword.addEventListener('click', showPasswordTab)
+tabHistory.addEventListener('click',showHistoryTab)
 var optionMonth = document.getElementById('inputMonthDOB')
 optionMonth.addEventListener('change', defineDay, false)
 var optionYear = document.getElementById('inputYearDOB')
@@ -138,13 +141,21 @@ function showInformationTab() {
     if (tabPassword.classList.contains('on-showing')) {
         tabPassword.classList.remove('on-showing')
     }
+    if (tabHistory.classList.contains('on-showing')) {
+        tabHistory.classList.remove('on-showing')
+    }
     if (!rightSidePwd.classList.contains('not-show')) {
         // rightSideInfor.classList.remove('not-show')
         $('.on-pwd').fadeOut('slow', function() {
             rightSidePwd.classList.add('not-show')
         })
     }
-
+    if (!rightSideHistory.classList.contains('not-show')) {
+        // rightSideInfor.classList.remove('not-show')
+        $('.on-history').fadeOut('slow', function() {
+            rightSideHistory.classList.add('not-show')
+        })
+    }
     if (rightSideInfor.classList.contains('not-show')) {
         // rightSidePwd.classList.add('not-show')
         $('.on-infor').fadeIn('slow', function() {
@@ -165,11 +176,19 @@ function showPasswordTab() {
     if (tabInformation.classList.contains('on-showing')) {
         tabInformation.classList.remove('on-showing')
     }
-
+    if (tabHistory.classList.contains('on-showing')) {
+        tabHistory.classList.remove('on-showing')
+    }
     if (!rightSideInfor.classList.contains('not-show')) {
         $('.on-infor').fadeOut('slow', function() {
             // console.log('b')
             rightSideInfor.classList.add('not-show')
+        })
+    }
+    if (!rightSideHistory.classList.contains('not-show')) {
+        $('.on-history').fadeOut('slow', function() {
+            // console.log('b')
+            rightSideHistory.classList.add('not-show')
         })
     }
     if (rightSidePwd.classList.contains('not-show')) {
@@ -178,8 +197,38 @@ function showPasswordTab() {
             rightSidePwd.classList.remove('not-show')
         })
     }
+   
 }
+function showHistoryTab(){
+    if (!tabHistory.classList.contains('on-showing')) {
+        tabHistory.classList.add('on-showing')
+    }
+    if (tabInformation.classList.contains('on-showing')) {
+        tabInformation.classList.remove('on-showing')
+    }
+    if (tabPassword.classList.contains('on-showing')) {
+        tabPassword.classList.remove('on-showing')
+    }
+    if (!rightSidePwd.classList.contains('not-show')) {
+        $('.on-pwd').fadeOut('slow', function() {
+            // console.log('b')
+            rightSidePwd.classList.add('not-show')
+        })
+    }
+    if (!rightSideInfor.classList.contains('not-show')) {
+        $('.on-infor').fadeOut('slow', function() {
+            // console.log('b')
+            rightSideInfor.classList.add('not-show')
+        })
+    }
 
+    if (rightSideHistory.classList.contains('not-show')) {
+        // rightSideInfor.classList.add('not-show')
+        $('.on-history').fadeIn('slow', function() {
+            rightSideHistory.classList.remove('not-show')
+        })
+    }
+}
 var usernameData = document.getElementById('inputName')
 usernameData.addEventListener('keyup', function() {
     if (!usernameData.value)
