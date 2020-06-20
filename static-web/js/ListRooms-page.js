@@ -8,20 +8,46 @@ var count_nights = document.getElementById("count-nights");
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-// window.onload = (event) => {
-//     var date = new Date();
-//     date_in.innerHTML = date.getDate();
-//     date_out.innerHTML = date.getDate();
-//     month_in.innerHTML = arrMonth[date.getMonth()];
-//     month_out.innerHTML = arrMonth[date.getMonth()];
-// }
+var divMonth;
 
-window.addEventListener('load', function() {
+$(document).click(function(e) {
+    var container = $(".month");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+        $("#table-month").hide();
+    } else {
+        $("#table-month").show();
+        var monthType = e.target.getAttribute("id");
+        divMonth = document.getElementById(monthType);
+    }
+});
+
+function changePositionMonthTable() {
+    var size = window.innerWidth;
+    var percent;
+    if (size < 768) {
+        percent = "20%";
+    } else if (size < 992) {
+        percent = "35%";
+    } else if (size < 1200) {
+        percent = "1%";
+    } else {
+        percent = "3.5%";
+    }
+    $("#table-month").css("left", percent);
+}
+
+$("#table-month div").click(function(e) {
+    divMonth.innerHTML = e.target.innerHTML;
+})
+
+$(document).ready(function() {
     var date = new Date();
     date_in.innerHTML = date.getDate();
     date_out.innerHTML = date.getDate();
     month_in.innerHTML = arrMonth[date.getMonth()];
     month_out.innerHTML = arrMonth[date.getMonth()];
+    $("#table-month").hide();
+    changePositionMonthTable();
 })
 
 function upNumber(element) {
@@ -56,3 +82,7 @@ function downNumber(element) {
 function toRoomDetail() {
     window.location = "../pages/RoomDetail.html";
 }
+
+$(window).resize(function() {
+    changePositionMonthTable();
+})

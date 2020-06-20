@@ -10,6 +10,23 @@ var list_tab = document.querySelectorAll("#menu .nav-item .nav-link");
 const arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+var divMonth;
+
+$(document).click(function(e) {
+    var container = $(".month");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+        $("#table-month").hide();
+    } else {
+        $("#table-month").show();
+        var monthType = e.target.getAttribute("id");
+        divMonth = document.getElementById(monthType);
+    }
+});
+
+$("#table-month div").click(function(e) {
+    divMonth.innerHTML = e.target.innerHTML;
+})
+
 $(document).ready(function() {
     changeMenuStyle();
     var date = new Date();
@@ -17,10 +34,13 @@ $(document).ready(function() {
     date_out.innerHTML = date.getDate();
     month_in.innerHTML = arrMonth[date.getMonth()];
     month_out.innerHTML = arrMonth[date.getMonth()];
+    $("#table-month").hide();
+    changePositionMonthTable();
 })
 
 $(window).resize(function() {
     changeMenuStyle();
+    changePositionMonthTable();
 })
 
 function changeMenuStyle() {
@@ -36,6 +56,31 @@ function changeMenuStyle() {
         for (i = 1; i < nav_item.length; i++)
             nav_item[i].style.display = "inline-block";
     }
+}
+
+function changePositionMonthTable() {
+    var size = window.innerWidth;
+    var left;
+    var top;
+    if (size < 576) {
+        left = "21%";
+        top = "1720px";
+    }
+    if (size < 768) {
+        left = "21%";
+        top = "1630px";
+
+    } else if (size < 992) {
+        left = "30%";
+        top = "1630px";
+    } else if (size < 1200) {
+        left = "64%";
+        top = "730px";
+    } else {
+        left = "67%";
+        top = "730px";
+    }
+    $("#table-month").css({ "left": left, "top": top });
 }
 
 function upNumber(element) {
