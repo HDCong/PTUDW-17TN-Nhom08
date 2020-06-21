@@ -10,7 +10,7 @@
 
 * JQuery version: 3.2.1
 
-To see the profile or history oder, sign in to the website. We have not using database in this version, so you should create an account, this username and password will storage in cache. Sign in to website with the account you registered.
+To see the profile or history order, sign in to the website. We have not using database in this version, so you should create an account, this username and password will storage in cache. Sign in to website with the account you registered.
 
 
 ## Team member:
