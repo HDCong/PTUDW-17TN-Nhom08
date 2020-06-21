@@ -64,9 +64,8 @@ function changePositionMonthTable() {
     var top;
     if (size < 576) {
         left = "21%";
-        top = "1720px";
-    }
-    if (size < 768) {
+        top = "1790px";
+    } else if (size < 768) {
         left = "21%";
         top = "1630px";
 
