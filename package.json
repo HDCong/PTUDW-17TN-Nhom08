@@ -1,0 +1,24 @@
+{
+  "name": "ptudw-17tn-nhom08",
+  "version": "1.0.0",
+  "description": "Final Project PTUDW - 17 CNTN - Group 08 - SeaDiamond",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HDCong/PTUDW-17TN-Nhom08.git"
+  },
+  "author": "Group 08 - 17CNTN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HDCong/PTUDW-17TN-Nhom08/issues"
+  },
+  "homepage": "https://github.com/HDCong/PTUDW-17TN-Nhom08#readme"
+}

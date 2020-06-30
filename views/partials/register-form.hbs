@@ -1,0 +1,41 @@
+<!-- register form -->
+    <div id="register-form" class="r-overlay container-fluid no-gutters p-5">
+        <a href="#" id="hidden-div">
+
+        </a>
+        <!-- <div class="login-form col-md-4 p-3 row"> -->
+        <div id="r-form" class="register-form p-3 no-gutters">
+            <div class="register-form-header row justify-content-center align-items-center">
+                <h1>Welcome</h1>
+            </div>
+            <form id='reg' class="d-flex flex-column justify-content-center align-items-center pt-3" action="">
+                <input id='reg-email' type="text" placeholder="Email" class="mt-2"/>
+                <label id="label-email" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Email existed  
+                </label>
+                <label id="label-email-wrong" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Invalid email address 
+                </label>
+                <input id='reg-username' type="text" placeholder="Username" class="mt-2"/>
+                <label id="label-username" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Username existed  
+                </label>
+                <input id='reg-password' type="password" placeholder="Password" class="mt-2"/>
+                <label id="valid-pwd-form"style="font-size: 10px; color: red; display: none; margin: 0;">
+                  At least one number, one lowercase and one uppercase letter
+                  <br />
+                  At least six characters that are letters, numbers or the underscore</label>
+               
+                  <input id='reg-confirm' type="password" placeholder="Confirm password" class="mt-2"/>
+
+                <label id="not-match-form" style="font-size: 10px; color: red; display: none; margin: 0;">
+                  Your password and confirmation password do not match
+                </label>
+                <div class="form-btn d-flex flex-column justify-content-center align-items-center mt-4">
+                    <input type="submit" value="Sign Up"/>
+                    <a id="bk-to-lg" class="mt-3" href="#login-form">Back to login</a>
+                    <!-- <a class="mt-1" href="#login-form">Back to login</a> -->
+                </div>
+            </form>
+        </div>
+    </div>
