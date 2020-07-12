@@ -6,7 +6,10 @@
     "host": "ec2-3-216-129-140.compute-1.amazonaws.com",
     "dialect": "postgres",
     "dialectOptions":{
-      "ssl":true
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
     }
   },
   "test": {
