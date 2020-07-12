@@ -32,9 +32,6 @@ module.exports = {
       area: {
         type: Sequelize.DOUBLE
       },
-      numberofreviews: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
