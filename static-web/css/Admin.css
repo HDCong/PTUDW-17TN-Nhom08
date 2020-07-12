@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    font-size: 16px;
+    color: #12263A;
+}
+
+#header {
+    margin: 20px 0px;
+}
+
+#navigation {
+    margin-bottom: 40px;
+}
+
+#Accounts,
+#Services,
+#UsingServices,
+#Reviews,
+#Booking {
+    display: none;
+}
+
+h3 {
+    float: left;
+    margin-left: 10px;
+}
+
+button {
+    float: right;
+    margin-right: 10px;
+}
