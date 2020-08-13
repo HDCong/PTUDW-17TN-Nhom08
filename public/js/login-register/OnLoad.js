@@ -1,6 +1,23 @@
 var dropDownHTML = '';
+var postfix = ["list-room", "contact", "about-us"]
 // console.log(window.location.pathname)
 window.onload = function() {
+    // set active link in navbar
+    var navBar = document.getElementById("content")
+    var anchorElements = navBar.getElementsByTagName("a")
+    var url = window.location.href
+    if(url[url.length-1]=="/") {
+        anchorElements[0].classList.add("active")
+    }
+    else {
+        for(var i=0; i<postfix.length; i++) {
+            if(url.indexOf(postfix[i]) != -1) {
+                document.getElementById(postfix[i]).classList.add("active")
+                break
+            }
+        }
+    }   
+    
     if(checkCookie()) {
         document.getElementById('login-btn').innerHTML = dropDownHTML;
         // For booking page
@@ -60,7 +77,7 @@ function createDropDown(username) {
     var userDropDown = '<div class="btn-group">\
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + username +'</button>\
         <div class="dropdown-menu">\
-        <a class="dropdown-item" href="../pages/User.html">Profile</a>\
+        <a class="dropdown-item" href="/user">Profile</a>\
         <a class="dropdown-item" href="#">Booking history</a>\
         <div class="dropdown-divider"></div>\
         <button id="logout-btn" class="dropdown-item" href="#">Log out</button>\
