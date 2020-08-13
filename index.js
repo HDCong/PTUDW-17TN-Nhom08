@@ -1,4 +1,6 @@
 var express = require('express')
+const bodyParser = require('body-parser')
+
 var app = express()
 
 //public static server
@@ -39,6 +41,13 @@ app.get('/list-room',(req,res)=>{
 })
 app.get('/details',(req,res)=>{
     res.render('details')
+})
+app.get('/sync', (req, res)=>{
+    var models = require('./models')
+    models.sequelize.sync()
+    .then(()=>{
+        res.send('database sync completed!')
+    })
 })
 
 // Set port and start server
