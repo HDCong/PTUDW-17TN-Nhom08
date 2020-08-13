@@ -19,29 +19,37 @@ app.engine('hbs',hbs.engine)
 app.set('view engine', 'hbs')
 // Routes 
 
-app.get('/',(req,res)=>{
-    res.render('home-page')
-})
+app.use('/',require('./routes/indexRoutes'))
+app.use('/details',require('./routes/detailsRouter'))
+app.use('/user',require('./routes/indexRoutes'))
+app.use('/booking',require('./routes/indexRoutes'))
+app.use('/contact',require('./routes/indexRoutes'))
+app.use('/about',require('./routes/indexRoutes'))
+app.use('/list',require('./routes/indexRoutes'))
 
-app.get('/user',(req,res)=>{
-    res.render('user')
-})
+// app.get('/',(req,res)=>{
+//     res.render('home-page')
+// })
 
-app.get('/booking',(req,res)=>{
-    res.render('booking')
-})
-app.get('/contact',(req,res)=>{
-    res.render('contact')
-})
-app.get('/about-us',(req,res)=>{
-    res.render('about-us')
-})
-app.get('/list-room',(req,res)=>{
-    res.render('list-room')
-})
-app.get('/details',(req,res)=>{
-    res.render('details')
-})
+// app.get('/user',(req,res)=>{
+//     res.render('user')
+// })
+
+// app.get('/booking',(req,res)=>{
+//     res.render('booking')
+// })
+// app.get('/contact',(req,res)=>{
+//     res.render('contact')
+// })
+// app.get('/about-us',(req,res)=>{
+//     res.render('about-us')
+// })
+// app.get('/list-room',(req,res)=>{
+//     res.render('list-room')
+// })
+// app.get('/details',(req,res)=>{
+//     res.render('details')
+// })
 app.get('/sync', (req, res)=>{
     var models = require('./models')
     models.sequelize.sync()
