@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
-      // Service.hasMany(models.UsingService, {foreignKey: 'serviceId'})
-      Service.belongsToMany(models.Room, {through: 'UsingService'})
-    }
+    // static associate(models) {
+    //   // define association here
+    //   // Service.hasMany(models.UsingService, {foreignKey: 'serviceId'})
+    //   Service.belongsToMany(models.Room, {through: 'UsingService'})
+    // }
   };
   Service.init({
     name: DataTypes.STRING,
