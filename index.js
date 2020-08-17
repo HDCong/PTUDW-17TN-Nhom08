@@ -21,11 +21,11 @@ app.set('view engine', 'hbs')
 
 app.use('/',require('./routes/indexRoutes'))
 app.use('/details',require('./routes/detailsRouter'))
-app.use('/user',require('./routes/indexRoutes'))
-app.use('/booking',require('./routes/indexRoutes'))
-app.use('/contact',require('./routes/indexRoutes'))
-app.use('/about',require('./routes/indexRoutes'))
-app.use('/list',require('./routes/indexRoutes'))
+app.use('/user',require('./routes/userRouter'))
+app.use('/booking',require('./routes/bookingRouter'))
+app.use('/contact',require('./routes/contactRouter'))
+app.use('/about',require('./routes/aboutRouter'))
+app.use('/list',require('./routes/listRoomRouter'))
 
 // app.get('/',(req,res)=>{
 //     res.render('home-page')
