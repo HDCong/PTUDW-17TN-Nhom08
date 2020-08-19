@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     isbooking: DataTypes.BOOLEAN,
     description: DataTypes.TEXT,
     capacity: DataTypes.INTEGER,
-    area: DataTypes.DOUBLE
+    area: DataTypes.DOUBLE,
+    count: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Room',
