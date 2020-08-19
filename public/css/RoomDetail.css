@@ -332,7 +332,7 @@ body {
     margin-top: 5px;
 }
 
-.comment-reply input {
+.comment-reply {
     font-size: 14px;
     padding: 5px;
     display: inline-block;
