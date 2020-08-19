@@ -62,11 +62,7 @@
             </p>
             <div id="room-review">
                 <span id="txt-review" class="title-room">Room Review</span>
-                <div class="icon-star fas fa-star"></div>
-                <div class="icon-star fas fa-star"></div>
-                <div class="icon-star fas fa-star"></div>
-                <div class="icon-star fas fa-star"></div>
-                <div class="icon-star fas fa-star"></div>
+                {{{AvgRating reviews}}}
             </div>
             <div class="detail-frame row">
                 <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7" id="left-frame">
@@ -151,181 +147,20 @@
                         <div id="btn-book-now" class="button" onclick="toBooking()">BOOK NOW</div>
                     </div>
                     <p id="txt-other-rooms" class="title-room">Other Rooms</p>
-                    <div id="list-rooms">
-                        <div class="other-room-frame row">
-                            <div class="other-room-image col-4" id="other-room1"></div>
-                            <div class="other-room-info col-7">
-                                <div class="other-room" onclick="toOtherRoom()">Room 1</div>
-                                <div>From 30$ / per night</div>
-                                <br />
-                                <div class="btn-book button" onclick="toBooking()">BOOK NOW</div>
-                            </div>
-                        </div>
-                        <div class="other-room-frame row">
-                            <div class="other-room-image col-4" id="other-room2"></div>
-                            <div class="other-room-info col-7">
-                                <div class="other-room" onclick="toOtherRoom()">Room 2</div>
-                                <div>From 30$ / per night</div>
-                                <br />
-                                <div class="btn-book button" onclick="toBooking()">BOOK NOW</div>
-                            </div>
-                        </div>
-                        <div class="other-room-frame row">
-                            <div class="other-room-image col-4" id="other-room3"></div>
-                            <div class="other-room-info col-7">
-                                <div class="other-room" onclick="toOtherRoom()">Room 3</div>
-                                <div>From 30$ / per night</div>
-                                <br />
-                                <div class="btn-book button" onclick="toBooking()">BOOK NOW</div>
-                            </div>
-                        </div>
-                    </div>
+                    {{{createOtherRooms random}}}
                 </div>
             </div>
         </div>
         <div id="room-detail-2" style="display:none">
+
             <p class="title-page">Room Review</p>
             <div id="review-frame">
-                <div id="txt-average-review" class="title-room">Đánh giá trung bình</div>
+                <div id="txt-average-review" class="title-room">Average Rating</div>
                 <div id="average-review-frame" class="row">
-                    <div id="average-left" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
-                        <div id="sum-stars">5/5</div>
-                        <div id="stars">
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="icon-star fas fa-star"></div>
-                        </div>
-                        <div id="txt-count-review">{{reviews.length}} reviews</div>
-                    </div>
-                    <div id="average-right" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <div id="5-stars" class="row stars-percent">
-                            <div class="col-1 number-star">5</div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="progress col-9">
-                                <div class="progress-bar" style="width:100%"></div>
-                            </div>
-                            <div class="col-1 percent">100</div>
-                        </div>
-                        <div id="4-stars" class="row stars-percent">
-                            <div class="col-1 number-star">4</div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="progress col-9">
-                                <div class="progress-bar" style="width:0%"></div>
-                            </div>
-                            <div class="col-1 percent">0</div>
-                        </div>
-                        <div id="3-stars" class="row stars-percent">
-                            <div class="col-1 number-star">3</div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="progress col-9">
-                                <div class="progress-bar" style="width:0%"></div>
-                            </div>
-                            <div class="col-1 percent">0</div>
-                        </div>
-                        <div id="2-stars" class="row stars-percent">
-                            <div class="col-1 number-star">2</div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="progress col-9">
-                                <div class="progress-bar" style="width:0%"></div>
-                            </div>
-                            <div class="col-1 percent">0</div>
-                        </div>
-                        <div id="1-stars" class="row stars-percent">
-                            <div class="col-1 number-star">1</div>
-                            <div class="icon-star fas fa-star"></div>
-                            <div class="progress col-9">
-                                <div class="progress-bar" style="width:0%"></div>
-                            </div>
-                            <div class="col-1 percent">0</div>
-                        </div>
-                    </div>
+                    {{{createOverallRating reviews}}}
                 </div>
                 <div id="txt-product-review" class="title-room">Customer's reviews</div>
                 <div id="comment-frame">
-                    {{!-- <div class="media p-3" id="review-1">
-                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai"
-                            class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                        <div class="media-body">
-                            <h6>Đặng Tấn Tài <small><i>1 giờ trước</i></small></h6>
-                            <div class="list-review">
-                                <span class="count-review-star">
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                </span>
-                                <span>Đánh giá</span>
-                            </div>
-                            <p class="comment">Phòng rộng rãi, thoáng mát, sạch sẽ và rất hài lòng.</p>
-                            <div>
-                                <span class="button btn-like" onclick="likeComment(this)">Thích</span>
-                                <span class="button btn-reply" onclick="replyComment(this)">Trả lời</span>
-                            </div>
-                            <div class="comment-reply">
-                                <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
-                                    style="width:30px;">
-                                <input type="text" placeholder="Viết câu trả lời của bạn">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="media p-3" id="review-2">
-                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai"
-                            class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                        <div class="media-body">
-                            <h6>Đặng Tấn Tài <small><i>1 giờ trước</i></small></h6>
-                            <div class="list-review">
-                                <span class="count-review-star">
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                </span>
-                                <span>Đánh giá</span>
-                            </div>
-                            <p class="comment">Phòng rộng rãi, thoáng mát, sạch sẽ và rất hài lòng.</p>
-                            <div>
-                                <span class="button btn-like" onclick="likeComment(this)">Thích</span>
-                                <span class="button btn-reply" onclick="replyComment(this)">Trả lời</span>
-                            </div>
-                            <div class="comment-reply">
-                                <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
-                                    style="width:30px;">
-                                <input type="text" placeholder="Viết câu trả lời của bạn">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="media p-3" id="review-3">
-                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai"
-                            class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                        <div class="media-body">
-                            <h6>Đặng Tấn Tài <small><i>1 giờ trước</i></small></h6>
-                            <div class="list-review">
-                                <span class="count-review-star">
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                    <div class="icon-star fas fa-star"></div>
-                                </span>
-                                <span>Đánh giá</span>
-                            </div>
-                            <p class="comment">Phòng rộng rãi, thoáng mát, sạch sẽ và rất hài lòng.</p>
-                            <div>
-                                <span class="button btn-like" onclick="likeComment(this)">Thích</span>
-                                <span class="button btn-reply" onclick="replyComment(this)">Trả lời</span>
-                            </div>
-                            <div class="comment-reply">
-                                <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
-                                    style="width:30px;">
-                                <input type="text" placeholder="Viết câu trả lời của bạn">
-                            </div>
-                        </div>
-                    </div> --}}
-                    {{{showReviews reviews}}}
                     <div class="media p-3" id="review-yourself">
                         <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai"
                             class="mr-3 mt-3 rounded-circle" style="width:60px;">
@@ -338,11 +173,16 @@
                                     <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
                                     <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
                                 </span>
-                                <span>Đánh giá của bạn</span>
+                                <span>Your review</span>
                             </div>
-                            <input type="text" placeholder="Viết nhận xét của bạn" class="comment" id="your-comment">
+                            <div class="row">
+                                <input type="text" placeholder="Write your review here" class="comment col-6" id="your-comment">
+                                <span><button type="button" class="btn btn-light btn-sm col-">Post</button></span>
+                            </div>
                         </div>
                     </div>
+                    {{{showReviews reviews}}}   
+
                 </div>
             </div>
         </div>

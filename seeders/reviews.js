@@ -12,363 +12,363 @@ module.exports = {
          * }], {});
         */
 
-        let data = [{
-            "userId": 1,
-            "roomId": 1,
-            "rating": 1,
-            "content": "37f2a42bf161129911b3f35cbc9ea423",
-            "time": 1597787860591,
-            "numberoflikes": 68
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 5,
-            "content": "830154c5f920e9204376023abf8b7b69",
-            "time": 1597787860008,
-            "numberoflikes": 66
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 4,
-            "content": "a478ea96c481ef83d9cca9db1eb75b7d",
-            "time": 1597787861196,
-            "numberoflikes": 72
-        }, {
-            "userId": 2,
-            "roomId": 5,
-            "rating": 1,
-            "content": "d97c812e535db9849e5006aa28dbaea0",
-            "time": 1597787860217,
-            "numberoflikes": 43
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 3,
-            "content": "12a415943504855af28b805decb0d042",
-            "time": 1597787860968,
-            "numberoflikes": 11
-        }, {
-            "userId": 1,
-            "roomId": 1,
-            "rating": 1,
-            "content": "13492cb8998068895fb6bca16c3878d0",
-            "time": 1597787861294,
-            "numberoflikes": 84
-        }, {
-            "userId": 1,
-            "roomId": 1,
-            "rating": 2,
-            "content": "43136242706c835f31e3cd76ccb64ea6",
-            "time": 1597787860143,
-            "numberoflikes": 39
-        }, {
-            "userId": 1,
-            "roomId": 2,
-            "rating": 1,
-            "content": "d81c5e56772b3cbb2dbc95d1ce937d46",
-            "time": 1597787860030,
-            "numberoflikes": 42
-        }, {
-            "userId": 2,
-            "roomId": 4,
-            "rating": 5,
-            "content": "ea7e699d5b5391d71177bc886a00e305",
-            "time": 1597787861062,
-            "numberoflikes": 41
-        }, {
-            "userId": 1,
-            "roomId": 2,
-            "rating": 2,
-            "content": "79d9a07159844b3c9ea95719f39644ab",
-            "time": 1597787860828,
-            "numberoflikes": 20
-        }, {
-            "userId": 2,
-            "roomId": 1,
-            "rating": 5,
-            "content": "2d04b15eecd5aaa39a93f460294352d8",
-            "time": 1597787861173,
-            "numberoflikes": 75
-        }, {
-            "userId": 1,
-            "roomId": 2,
-            "rating": 4,
-            "content": "8f8dfb2ac39c8fdf690ccd176aa42cd4",
-            "time": 1597787860147,
-            "numberoflikes": 37
-        }, {
-            "userId": 2,
-            "roomId": 3,
-            "rating": 4,
-            "content": "409fb3a8bd13975f8a914ede04b940ff",
-            "time": 1597787860737,
-            "numberoflikes": 84
-        }, {
-            "userId": 2,
-            "roomId": 2,
-            "rating": 4,
-            "content": "24eab9e5d97ed2c20121fc2f069366bc",
-            "time": 1597787860225,
-            "numberoflikes": 57
-        }, {
-            "userId": 2,
-            "roomId": 4,
-            "rating": 3,
-            "content": "035d5b54665899acca61608f15c57477",
-            "time": 1597787861042,
-            "numberoflikes": 68
-        }, {
-            "userId": 2,
-            "roomId": 2,
-            "rating": 4,
-            "content": "c5457d8e26f73d49586188a26b866b6e",
-            "time": 1597787860333,
-            "numberoflikes": 83
-        }, {
-            "userId": 2,
-            "roomId": 3,
-            "rating": 1,
-            "content": "d49f2b37d7ff2b703838d530e38288b0",
-            "time": 1597787861287,
-            "numberoflikes": 4
-        }, {
-            "userId": 2,
-            "roomId": 5,
-            "rating": 1,
-            "content": "13a368f91ce4e10d2b3ffa401059e268",
-            "time": 1597787860648,
-            "numberoflikes": 88
-        }, {
-            "userId": 2,
-            "roomId": 4,
-            "rating": 3,
-            "content": "9a673f2ebe8f0e54bf10442f437a7d55",
-            "time": 1597787860556,
-            "numberoflikes": 19
-        }, {
-            "userId": 2,
-            "roomId": 4,
-            "rating": 3,
-            "content": "c6f5bd9b6508afc80c89b10f28bcfeb8",
-            "time": 1597787860746,
-            "numberoflikes": 90
-        }, {
-            "userId": 2,
-            "roomId": 2,
-            "rating": 2,
-            "content": "d407e459bf2d4978eb4d5bb764b07a6d",
-            "time": 1597787860954,
-            "numberoflikes": 90
-        }, {
-            "userId": 2,
-            "roomId": 3,
-            "rating": 1,
-            "content": "71bbbd01dd70c371b2e818dc6e68266e",
-            "time": 1597787861258,
-            "numberoflikes": 12
-        }, {
-            "userId": 2,
-            "roomId": 3,
-            "rating": 5,
-            "content": "c10be10fe42a050b1fd6f36f9c9d6647",
-            "time": 1597787860337,
-            "numberoflikes": 51
-        }, {
-            "userId": 2,
-            "roomId": 1,
-            "rating": 4,
-            "content": "e663798f27b7835b718b5f0e04075cd3",
-            "time": 1597787861109,
-            "numberoflikes": 86
-        }, {
-            "userId": 2,
-            "roomId": 3,
-            "rating": 1,
-            "content": "16084c322d55bde6f0208d5fbb5b2006",
-            "time": 1597787861110,
-            "numberoflikes": 96
-        }, {
-            "userId": 1,
-            "roomId": 4,
-            "rating": 3,
-            "content": "c64877f1556cd2b95d64f1312cda018e",
-            "time": 1597787860282,
-            "numberoflikes": 46
-        }, {
-            "userId": 2,
-            "roomId": 1,
-            "rating": 3,
-            "content": "94b9ec27dcffb4c4e727e1593dfca41c",
-            "time": 1597787860836,
-            "numberoflikes": 14
-        }, {
-            "userId": 1,
-            "roomId": 1,
-            "rating": 2,
-            "content": "1ff7f20b2f14308f3bd251a41c76a6e1",
-            "time": 1597787860296,
-            "numberoflikes": 88
-        }, {
-            "userId": 2,
-            "roomId": 2,
-            "rating": 4,
-            "content": "a98b1d1792da51560d75c2ee527c63fc",
-            "time": 1597787860453,
-            "numberoflikes": 100
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 3,
-            "content": "aa39733dba4f2885720bddc4dee5f968",
-            "time": 1597787861089,
-            "numberoflikes": 69
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 4,
-            "content": "abae7ba16bb2d113ad90e680567dce2e",
-            "time": 1597787860948,
-            "numberoflikes": 50
-        }, {
-            "userId": 1,
-            "roomId": 4,
-            "rating": 4,
-            "content": "c5d2ea7279c2a9cbd3a915c18be536e6",
-            "time": 1597787860522,
-            "numberoflikes": 85
-        }, {
-            "userId": 1,
-            "roomId": 2,
-            "rating": 4,
-            "content": "4f86b165eb5289f22fc031f96cec62f9",
-            "time": 1597787860907,
-            "numberoflikes": 54
-        }, {
-            "userId": 2,
-            "roomId": 1,
-            "rating": 2,
-            "content": "8b2d76b44dc9e55a07e2fb89dcbdc37c",
-            "time": 1597787861030,
-            "numberoflikes": 63
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 4,
-            "content": "8598b00da17527ed2532755a15ef9ace",
-            "time": 1597787860740,
-            "numberoflikes": 48
-        }, {
-            "userId": 2,
-            "roomId": 2,
-            "rating": 5,
-            "content": "193398a7af094bf5194fd5ff90c4eba6",
-            "time": 1597787861155,
-            "numberoflikes": 67
-        }, {
-            "userId": 1,
-            "roomId": 1,
-            "rating": 5,
-            "content": "ab97e4ec3909358e508d4e09d178a2d0",
-            "time": 1597787861194,
-            "numberoflikes": 67
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 3,
-            "content": "81e8d59a5fb8e695be343d4b24130591",
-            "time": 1597787860204,
-            "numberoflikes": 61
-        }, {
-            "userId": 2,
-            "roomId": 4,
-            "rating": 4,
-            "content": "035821147673d5b7e1da2317f5ea3470",
-            "time": 1597787861218,
-            "numberoflikes": 93
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 1,
-            "content": "1c86975733defd5d6205d1770b1ecaab",
-            "time": 1597787860468,
-            "numberoflikes": 14
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 4,
-            "content": "cd5f4e0f9a689cc27afaaa04de7181af",
-            "time": 1597787860505,
-            "numberoflikes": 5
-        }, {
-            "userId": 2,
-            "roomId": 1,
-            "rating": 3,
-            "content": "23a4347c74221f7def1631d46f2614e1",
-            "time": 1597787860422,
-            "numberoflikes": 46
-        }, {
-            "userId": 2,
-            "roomId": 3,
-            "rating": 1,
-            "content": "195a12985d37704b45147fb77d55e7e4",
-            "time": 1597787860599,
-            "numberoflikes": 69
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 5,
-            "content": "029554b95941ea286e6c422d2a9558d9",
-            "time": 1597787860849,
-            "numberoflikes": 14
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 4,
-            "content": "40d5dc41742d6b72426d0425590f25da",
-            "time": 1597787860049,
-            "numberoflikes": 79
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 2,
-            "content": "ffd42aa358cebd3fe611c513e9ab3fee",
-            "time": 1597787860902,
-            "numberoflikes": 40
-        }, {
-            "userId": 1,
-            "roomId": 5,
-            "rating": 1,
-            "content": "fc4544640d7caedc1fada2d6626438a4",
-            "time": 1597787861031,
-            "numberoflikes": 49
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 4,
-            "content": "eba8f3fff1aa971719d8abd38fd154a3",
-            "time": 1597787860834,
-            "numberoflikes": 31
-        }, {
-            "userId": 1,
-            "roomId": 3,
-            "rating": 3,
-            "content": "f3411608e561c9e180cb2a6402648b21",
-            "time": 1597787861129,
-            "numberoflikes": 94
-        }, {
-            "userId": 2,
-            "roomId": 5,
-            "rating": 4,
-            "content": "34a28af2f64d8f0343b8f6a2c6b75717",
-            "time": 1597787860515,
-            "numberoflikes": 87
-        }]
-        data.map(item => {
-            item.createdAt = Sequelize.literal('NOW()')
-            item.updatedAt = Sequelize.literal('NOW()')
-            return item
-        })
-        await queryInterface.bulkInsert('Reviews', data, {});
+        // let data = [{
+        //     "userId": 1,
+        //     "roomId": 1,
+        //     "rating": 1,
+        //     "content": "37f2a42bf161129911b3f35cbc9ea423",
+        //     "time": 1597787860591,
+        //     "numberoflikes": 68
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 5,
+        //     "content": "830154c5f920e9204376023abf8b7b69",
+        //     "time": 1597787860008,
+        //     "numberoflikes": 66
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 4,
+        //     "content": "a478ea96c481ef83d9cca9db1eb75b7d",
+        //     "time": 1597787861196,
+        //     "numberoflikes": 72
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 5,
+        //     "rating": 1,
+        //     "content": "d97c812e535db9849e5006aa28dbaea0",
+        //     "time": 1597787860217,
+        //     "numberoflikes": 43
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 3,
+        //     "content": "12a415943504855af28b805decb0d042",
+        //     "time": 1597787860968,
+        //     "numberoflikes": 11
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 1,
+        //     "rating": 1,
+        //     "content": "13492cb8998068895fb6bca16c3878d0",
+        //     "time": 1597787861294,
+        //     "numberoflikes": 84
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 1,
+        //     "rating": 2,
+        //     "content": "43136242706c835f31e3cd76ccb64ea6",
+        //     "time": 1597787860143,
+        //     "numberoflikes": 39
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 2,
+        //     "rating": 1,
+        //     "content": "d81c5e56772b3cbb2dbc95d1ce937d46",
+        //     "time": 1597787860030,
+        //     "numberoflikes": 42
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 4,
+        //     "rating": 5,
+        //     "content": "ea7e699d5b5391d71177bc886a00e305",
+        //     "time": 1597787861062,
+        //     "numberoflikes": 41
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 2,
+        //     "rating": 2,
+        //     "content": "79d9a07159844b3c9ea95719f39644ab",
+        //     "time": 1597787860828,
+        //     "numberoflikes": 20
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 1,
+        //     "rating": 5,
+        //     "content": "2d04b15eecd5aaa39a93f460294352d8",
+        //     "time": 1597787861173,
+        //     "numberoflikes": 75
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 2,
+        //     "rating": 4,
+        //     "content": "8f8dfb2ac39c8fdf690ccd176aa42cd4",
+        //     "time": 1597787860147,
+        //     "numberoflikes": 37
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 3,
+        //     "rating": 4,
+        //     "content": "409fb3a8bd13975f8a914ede04b940ff",
+        //     "time": 1597787860737,
+        //     "numberoflikes": 84
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 2,
+        //     "rating": 4,
+        //     "content": "24eab9e5d97ed2c20121fc2f069366bc",
+        //     "time": 1597787860225,
+        //     "numberoflikes": 57
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 4,
+        //     "rating": 3,
+        //     "content": "035d5b54665899acca61608f15c57477",
+        //     "time": 1597787861042,
+        //     "numberoflikes": 68
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 2,
+        //     "rating": 4,
+        //     "content": "c5457d8e26f73d49586188a26b866b6e",
+        //     "time": 1597787860333,
+        //     "numberoflikes": 83
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 3,
+        //     "rating": 1,
+        //     "content": "d49f2b37d7ff2b703838d530e38288b0",
+        //     "time": 1597787861287,
+        //     "numberoflikes": 4
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 5,
+        //     "rating": 1,
+        //     "content": "13a368f91ce4e10d2b3ffa401059e268",
+        //     "time": 1597787860648,
+        //     "numberoflikes": 88
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 4,
+        //     "rating": 3,
+        //     "content": "9a673f2ebe8f0e54bf10442f437a7d55",
+        //     "time": 1597787860556,
+        //     "numberoflikes": 19
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 4,
+        //     "rating": 3,
+        //     "content": "c6f5bd9b6508afc80c89b10f28bcfeb8",
+        //     "time": 1597787860746,
+        //     "numberoflikes": 90
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 2,
+        //     "rating": 2,
+        //     "content": "d407e459bf2d4978eb4d5bb764b07a6d",
+        //     "time": 1597787860954,
+        //     "numberoflikes": 90
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 3,
+        //     "rating": 1,
+        //     "content": "71bbbd01dd70c371b2e818dc6e68266e",
+        //     "time": 1597787861258,
+        //     "numberoflikes": 12
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 3,
+        //     "rating": 5,
+        //     "content": "c10be10fe42a050b1fd6f36f9c9d6647",
+        //     "time": 1597787860337,
+        //     "numberoflikes": 51
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 1,
+        //     "rating": 4,
+        //     "content": "e663798f27b7835b718b5f0e04075cd3",
+        //     "time": 1597787861109,
+        //     "numberoflikes": 86
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 3,
+        //     "rating": 1,
+        //     "content": "16084c322d55bde6f0208d5fbb5b2006",
+        //     "time": 1597787861110,
+        //     "numberoflikes": 96
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 4,
+        //     "rating": 3,
+        //     "content": "c64877f1556cd2b95d64f1312cda018e",
+        //     "time": 1597787860282,
+        //     "numberoflikes": 46
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 1,
+        //     "rating": 3,
+        //     "content": "94b9ec27dcffb4c4e727e1593dfca41c",
+        //     "time": 1597787860836,
+        //     "numberoflikes": 14
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 1,
+        //     "rating": 2,
+        //     "content": "1ff7f20b2f14308f3bd251a41c76a6e1",
+        //     "time": 1597787860296,
+        //     "numberoflikes": 88
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 2,
+        //     "rating": 4,
+        //     "content": "a98b1d1792da51560d75c2ee527c63fc",
+        //     "time": 1597787860453,
+        //     "numberoflikes": 100
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 3,
+        //     "content": "aa39733dba4f2885720bddc4dee5f968",
+        //     "time": 1597787861089,
+        //     "numberoflikes": 69
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 4,
+        //     "content": "abae7ba16bb2d113ad90e680567dce2e",
+        //     "time": 1597787860948,
+        //     "numberoflikes": 50
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 4,
+        //     "rating": 4,
+        //     "content": "c5d2ea7279c2a9cbd3a915c18be536e6",
+        //     "time": 1597787860522,
+        //     "numberoflikes": 85
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 2,
+        //     "rating": 4,
+        //     "content": "4f86b165eb5289f22fc031f96cec62f9",
+        //     "time": 1597787860907,
+        //     "numberoflikes": 54
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 1,
+        //     "rating": 2,
+        //     "content": "8b2d76b44dc9e55a07e2fb89dcbdc37c",
+        //     "time": 1597787861030,
+        //     "numberoflikes": 63
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 4,
+        //     "content": "8598b00da17527ed2532755a15ef9ace",
+        //     "time": 1597787860740,
+        //     "numberoflikes": 48
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 2,
+        //     "rating": 5,
+        //     "content": "193398a7af094bf5194fd5ff90c4eba6",
+        //     "time": 1597787861155,
+        //     "numberoflikes": 67
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 1,
+        //     "rating": 5,
+        //     "content": "ab97e4ec3909358e508d4e09d178a2d0",
+        //     "time": 1597787861194,
+        //     "numberoflikes": 67
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 3,
+        //     "content": "81e8d59a5fb8e695be343d4b24130591",
+        //     "time": 1597787860204,
+        //     "numberoflikes": 61
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 4,
+        //     "rating": 4,
+        //     "content": "035821147673d5b7e1da2317f5ea3470",
+        //     "time": 1597787861218,
+        //     "numberoflikes": 93
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 1,
+        //     "content": "1c86975733defd5d6205d1770b1ecaab",
+        //     "time": 1597787860468,
+        //     "numberoflikes": 14
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 4,
+        //     "content": "cd5f4e0f9a689cc27afaaa04de7181af",
+        //     "time": 1597787860505,
+        //     "numberoflikes": 5
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 1,
+        //     "rating": 3,
+        //     "content": "23a4347c74221f7def1631d46f2614e1",
+        //     "time": 1597787860422,
+        //     "numberoflikes": 46
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 3,
+        //     "rating": 1,
+        //     "content": "195a12985d37704b45147fb77d55e7e4",
+        //     "time": 1597787860599,
+        //     "numberoflikes": 69
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 5,
+        //     "content": "029554b95941ea286e6c422d2a9558d9",
+        //     "time": 1597787860849,
+        //     "numberoflikes": 14
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 4,
+        //     "content": "40d5dc41742d6b72426d0425590f25da",
+        //     "time": 1597787860049,
+        //     "numberoflikes": 79
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 2,
+        //     "content": "ffd42aa358cebd3fe611c513e9ab3fee",
+        //     "time": 1597787860902,
+        //     "numberoflikes": 40
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 5,
+        //     "rating": 1,
+        //     "content": "fc4544640d7caedc1fada2d6626438a4",
+        //     "time": 1597787861031,
+        //     "numberoflikes": 49
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 4,
+        //     "content": "eba8f3fff1aa971719d8abd38fd154a3",
+        //     "time": 1597787860834,
+        //     "numberoflikes": 31
+        // }, {
+        //     "userId": 1,
+        //     "roomId": 3,
+        //     "rating": 3,
+        //     "content": "f3411608e561c9e180cb2a6402648b21",
+        //     "time": 1597787861129,
+        //     "numberoflikes": 94
+        // }, {
+        //     "userId": 2,
+        //     "roomId": 5,
+        //     "rating": 4,
+        //     "content": "34a28af2f64d8f0343b8f6a2c6b75717",
+        //     "time": 1597787860515,
+        //     "numberoflikes": 87
+        // }]
+        // data.map(item => {
+        //     item.createdAt = Sequelize.literal('NOW()')
+        //     item.updatedAt = Sequelize.literal('NOW()')
+        //     return item
+        // })
+        // await queryInterface.bulkInsert('Reviews', data, {});
 
     },
 

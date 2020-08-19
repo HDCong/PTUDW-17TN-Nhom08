@@ -1,12 +1,15 @@
 var controller = {}
 
 var model = require('../models')
+var Sequelize = require('sequelize');
+
 var Room = model.Room
 
 controller.getAll = () => {
     return new Promise((resolve, reject) => {
         Room.findAll({
-            attributes: ['id', 'imagepath', 'count']
+            attributes: ['id', 'imagepath', 'count'],
+            where: { isbooking: false }
         }).then((data => resolve(data)))
             .catch(err => reject(new Error(err)))
     })
@@ -16,7 +19,6 @@ controller.getByID = (id) => {
         Room.findOne({
             where: { id: id }
         }).then((res => {
-            // console.log(res.datcaValues)
             room = res.dataValues
             return model.RoomImage.findAll({
                 where: { roomid: id }
@@ -24,23 +26,32 @@ controller.getByID = (id) => {
         })).then(listImages => {
             room.listImages = listImages
             return model.RoomService.findAll({
-                where:{roomid:id}
+                where: { roomid: id }
             })
-        }).then(roomServices=>{
+        }).then(roomServices => {
             room.services = roomServices
             return model.Review.findAll({
-                where:{roomId:id}
+                where: { roomId: id },
+                include: [{
+                    model: model.User,
+                    where: {
+                    },
+                    attributes :['avatarpath','username']
+                }]
             })
-            
-        }).then(review=>{
+        }).then(review => {
             // console.log(revie w)
             room.reviews = review
-            return Room.fin
+            return model.Room.findAll({
+                where: { isbooking: false },
+                order: [Sequelize.literal('RANDOM()')],
+                limit: 3
+            })
+        }).then(pickrandom => {
+            room.random = pickrandom
             resolve(room)
-        }).then(pickrandom=>{
-
-        })
-            .catch(err => reject(new Error(err)))
+        }).catch(err => reject(new Error(err)))
     })
 }
+
 module.exports = controller
