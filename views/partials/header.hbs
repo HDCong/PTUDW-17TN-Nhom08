@@ -13,7 +13,19 @@
             </div>
 
             <div id='login-btn' class="login text-right col-sm-3">
-                <a class="log-btn" href="#login-form">Sign In</a>
+                {{!-- <a class="log-btn" href="#login-form">Sign In</a> --}}
+                {{#if isLoggedIn}}
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username}}</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/user">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a id="logout-btn" class="dropdown-item" href="/auth/logout">Log out</a>
+                        </div>
+                    </div>
+                {{else}}
+                    <a class="log-btn" href="/auth/login">Sign In</a>
+                {{/if}}
             </div>
         </header>
 
@@ -25,7 +37,7 @@
                 </li>
                 <li class="nav-item col-md-2 i-normal">
 
-                    <a class="nav-link" id="list-room" href="/list">Our rooms</a>
+                    <a class="nav-link" id="list" href="/list">Our rooms</a>
                 </li>
                 <li class="nav-item col-md-2 i-normal">
                     <a class="nav-link" id="contact" href="/contact">Contact</a>
