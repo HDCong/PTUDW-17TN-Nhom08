@@ -44,6 +44,7 @@ var hbs = expressHbs.create({
         createOtherRooms: helper.createOtherRooms,
         createOverallRating : helper.createOverallRating,
         AvgRating:helper.AvgRating,
+        ifEquals:helper.ifEquals,
     }
 })
 

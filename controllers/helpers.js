@@ -234,4 +234,9 @@ helper.createOverallRating = (reviews) => {
 helper.AvgRating=(reviews)=>{
     return createStrStar(calcAvg(reviews)[0])
 }
+
+helper.ifEquals=function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+}
+
 module.exports = helper

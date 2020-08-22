@@ -13,6 +13,8 @@ router.get('/', (req, res, next) => {
             })
             res.locals.rooms = newdata
             console.log(newdata.length)
+
+            req.params.active="list"
             res.render('list-room', req.params)
         })
         .catch(err => next(err))

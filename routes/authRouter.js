@@ -70,7 +70,7 @@ router.post('/register',(req,res,next)=>{
                                     .then(row => {
                                         if(row != null) {
                                             return res.render('register', {
-                                                message: `Username ${user.username} exists! Please choose another username address.`,
+                                                message: `Username ${user.username} exists! Please choose another username.`,
                                                 type: "alert-danger"
                                             })
                                         }

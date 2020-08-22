@@ -1,26 +1,3 @@
-var dropDownHTML = '';
-var postfix = ["list", "contact", "about-us"]
-// console.log(window.location.pathname)
-window.onload = function() {
-    // set active link in navbar
-    var navBar = document.getElementById("content")
-    var anchorElements = navBar.getElementsByTagName("a")
-    var url = window.location.href
-    if(url[url.length-1]=="/") {
-        anchorElements[0].classList.add("active")
-    }
-    else {
-        for(var i=0; i<postfix.length; i++) {
-            if(url.indexOf(postfix[i]) != -1) {
-                document.getElementById(postfix[i]).classList.add("active")
-                break
-            }
-        }
-    }   
-}
-
-
-
 window.onscroll = function() {
     setNavbarFixed();
 };
