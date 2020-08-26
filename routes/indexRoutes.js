@@ -8,6 +8,9 @@ router.get('/',(req,res)=>{
     homepageController.getTopThree()
                     .then(rooms => {
                         topInfo = rooms.map(item => {
+                            if(item.imagepath.length<1) {
+                                item.imagepath="../images/logos/logo_v1.png"
+                            }
                             return {
                                 id: item.id,
                                 imagepath: item.imagepath
