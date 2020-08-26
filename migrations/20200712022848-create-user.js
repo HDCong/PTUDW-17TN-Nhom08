@@ -29,6 +29,9 @@ module.exports = {
       birthday: {
         type: Sequelize.BIGINT
       },
+      avatarpath: {
+        type: Sequelize.TEXT
+      },
       type: {
         type: Sequelize.BOOLEAN
       },

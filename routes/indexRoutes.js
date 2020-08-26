@@ -1,12 +1,22 @@
 let express = require('express')
 let router = express.Router()
+let homepageController = require('../controllers/homepageController')
 
 router.get('/',(req,res)=>{
     req.params.active="home"
-    res.render('home-page', req.params) 
+
+    homepageController.getTopThree()
+                    .then(rooms => {
+                        topInfo = rooms.map(item => {
+                            return {
+                                id: item.id,
+                                imagepath: item.imagepath
+                            }
+                        })
+                        
+                        req.params.topInfo = topInfo
+                        res.render('home-page', req.params) 
+                    })
 })
-// router.get('/:id',(req,res)=>{
-//     res.render('view room details');
-// })
 
 module.exports = router;
