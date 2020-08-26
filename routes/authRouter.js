@@ -17,6 +17,7 @@ router.post('/login',(req,res,next)=>{
                         if(userController.comparePassword(password, user.password)) {
                             req.session.cookie.maxAge = keepLoggedIn ? 30*24*60*60*1000:null
                             req.session.user = user
+                            console.log(user)
                             res.redirect('/')
                         }
                         else {

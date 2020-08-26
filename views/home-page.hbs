@@ -34,7 +34,7 @@
             <p class="text-center">All the best is for you!</p>
         </div>
         <div class="image-book col-md-6 row no-gutters justify-content-center align-items-center">
-            <a class="book-btn" href="../pages/ListRooms-page.html">Book now</a>
+            <a class="book-btn" href="/list">Book now</a>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
             <p>Top 3 room</p>
         </div>
         <div class="top-room-container container row justify-content-between align-items-center no-gutters">
-            <div class="top-room-div top-room-1 row justify-content-center align-items-center no-gutters col-lg-4 mb-3">
+            {{!-- <div class="top-room-div top-room-1 row justify-content-center align-items-center no-gutters col-lg-4 mb-3">
                 <div class="top-room-detail">
                     <div class="top-room-img">
                         <img src="../images/homepage-images/top-room-1.jpg" alt="">
@@ -72,7 +72,20 @@
                         <a href="./RoomDetail.html">Click to see detail</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
+                {{#each topInfo}}
+                    <div class="top-room-div top-room-3 row justify-content-center align-items-center no-gutters col-lg-4 mb-3">
+                        <div class="top-room-detail">
+                            <div class="top-room-img">
+                                <img src="{{imagepath}}">
+                            </div>
+                            <div class="top-room-btn row justify-content-center align-items-center no-gutters">
+                                <a href="/list/{{id}}">Click to see detail</a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
         </div>
     </div>
 </div>
