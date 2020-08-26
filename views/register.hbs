@@ -1,0 +1,48 @@
+<section class="login_box_area section-margin mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<div class="hover">
+							<h4>Already have an account?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="butbut button-account" href="/auth/login">Login Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner register_form_inner">
+						<h3>Create an account</h3>
+						<form class="row login_form" action="/auth/register" id="register_form" method="POST">
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="username" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+              </div>
+              <div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              </div>
+              <div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+							</div>
+							<div class="col-md-12 form-group">
+								<div class="creat_account">
+									<input type="checkbox" id="f-option2" name="keepLoggedIn">
+									<label for="f-option2">Keep me logged in</label>
+								</div>
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="butbut button-register w-100">Register</button>
+							</div>
+                        {{#if message}}
+                            <div class="col-md-12 form-group mt-3 {{type}}" style="font-size: 17px;">
+                                <strong>{{message}}</strong>
+                            </div>
+                        {{/if}}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

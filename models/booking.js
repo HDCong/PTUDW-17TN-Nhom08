@@ -16,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     // }
   };
   Booking.init({
+    userId:DataTypes.INTEGER,
+    roomId:DataTypes.INTEGER,
     checkin: DataTypes.BIGINT,
     checkout: DataTypes.BIGINT,
     total: DataTypes.DOUBLE

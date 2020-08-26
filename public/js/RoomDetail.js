@@ -130,11 +130,11 @@ function changeTabRoomDetail(element) {
 }
 
 function toBooking() {
-    window.location = "../pages/Booking.html";
+    // window.location = "../pages/Booking.html";
 }
 
 function toOtherRoom() {
-    window.location = "#";
+    // window.location = "#";
 }
 
 function likeComment(element) {

@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    // static associate(models) {
+    static associate(models) {
     //   // define association here
-    //   Room.hasMany(models.Review, {foreignKey: 'roomId'})
+      Room.hasMany(models.CommentReply, {foreignKey: 'roomid'})
     //   Room.belongsToMany(models.Service, {through: 'UsingService'})
     //   Room.hasMany(models.Booking, {foreignKey: 'roomId'})
-    // }
+    }
   };
   Room.init({
     price: DataTypes.DOUBLE,
@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     isbooking: DataTypes.BOOLEAN,
     description: DataTypes.TEXT,
     capacity: DataTypes.INTEGER,
-    area: DataTypes.DOUBLE
+    area: DataTypes.DOUBLE,
+    count: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Room',

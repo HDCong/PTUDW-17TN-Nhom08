@@ -1,0 +1,12 @@
+/*=================== mixin start ====================*/
+/*=================== mixin end ====================*/
+/*=================== font family ====================*/
+/*=================== color variations ====================*/
+/*=================== fonts ====================*/
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+/* Login form Area css
+============================================================================================ */
+.register_form_inner {
+  padding-top: 70px;
+}

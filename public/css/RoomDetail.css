@@ -367,3 +367,6 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
+.star-disable{
+    color:gray
+}
