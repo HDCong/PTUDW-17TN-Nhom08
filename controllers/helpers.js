@@ -1,6 +1,24 @@
 let helper = []
 
 helper.createCarousel = (listImagePaths) => {
+    if (listImagePaths.length < 1) {
+        console.log('~~~~~~~~~~~~')
+        return `<ul class="carousel-indicators">
+        <li data-target="#room-images" data-slide-to="0" class="active"></li>
+        '</ul>'
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../images/logos/logo_v1.png" height="400">
+            </div>
+        
+        </div> 
+        <a class="carousel-control-prev" href="#room-images" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#room-images" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>`
+    }
     var strIndicator = `<ul class="carousel-indicators">
     <li data-target="#room-images" data-slide-to="0" class="active"></li>`
 
@@ -115,8 +133,10 @@ generateForReplies = (replies) => {
     })
     return res
 }
-helper.showReviews = (reviews) => {
+helper.showReviews = (reviews, user) => {
     let res = ''
+    console.log(user)
+
     reviews.forEach(element => {
         let str = `     <div class="media p-3" id="review-1">
                         <img src="${element.parent.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.parent.dataValues['avatarpath']}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
@@ -135,13 +155,12 @@ helper.showReviews = (reviews) => {
                             </div>
                             <div class="comment-reply">
                                 ${generateForReplies(element.CommentReplies)}
+                                    {{!--  Generate for user reply--}}
                                         <div class="row mt-3 ">
                                          <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
                                     style="width:30px;">
                                 <input class ="ml-2" type="text" placeholder="Your reply">
                                         </div>
-
-                               
                             </div>
                         </div>
                     </div>`
@@ -252,7 +271,7 @@ helper.AvgRating = (reviews) => {
     return createStrStar(calcAvg(reviews)[0])
 }
 
-helper.ifEquals=function(arg1, arg2, options) {
+helper.ifEquals = function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 }
 

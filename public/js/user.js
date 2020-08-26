@@ -244,13 +244,9 @@ buttonChangePwd.addEventListener('click', changePassword)
 
 function updateUserInformation() {
     console.log('btn update clicked')
-
     // send to server
-
     // if ok
     $("#notifyUpdate").modal({ show: true });
-
-
 }
 
 function changePassword() {
