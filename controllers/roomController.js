@@ -19,28 +19,30 @@ controller.getByID = (id) => {
         Room.findOne({
             where: { id: id }
         }).then((res => {
+            console.log('a')
             room = res.dataValues
             return model.RoomImage.findAll({
                 where: { roomid: id }
             })
         })).then(listImages => {
+            console.log('b')
             room.listImages = listImages
             return model.RoomService.findAll({
                 where: { roomid: id }
             })
         }).then(roomServices => {
+            console.log('c')
             room.services = roomServices
             return model.Review.findAll({
                 where: { roomId: id },
                 include: [{
-                    model: model.User,
-                    where: {
-                    },
-                    attributes :['avatarpath','username']
+                    model: model.User, as: 'parent',
+                    attributes: ['avatarpath', 'username']
                 }]
             })
         }).then(review => {
             // console.log(revie w)
+            console.log('d')
             room.reviews = review
             return model.Room.findAll({
                 where: { isbooking: false },
@@ -48,7 +50,32 @@ controller.getByID = (id) => {
                 limit: 3
             })
         }).then(pickrandom => {
+            console.log('e')
             room.random = pickrandom
+            return model.Review.findAll({
+                where: { roomId: id },
+                include: [{
+                    model: model.User, as: 'parent',
+                    attributes: ['avatarpath', 'username']
+                }, {
+                    model: model.CommentReply,
+                    include: [
+                        {
+                            model: model.User, as: 'child',
+                            attributes: ['avatarpath', 'username']
+                        }
+                    ]
+                },
+
+                ]
+            })
+
+        }).then(replies => {
+            replies = replies.map(item => {
+                item = item.dataValues
+                return item
+            })
+            room.reviews = replies
             resolve(room)
         }).catch(err => reject(new Error(err)))
     })

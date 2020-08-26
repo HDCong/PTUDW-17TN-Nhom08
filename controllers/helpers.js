@@ -103,13 +103,25 @@ createStrStar = (stars) => {
     }
 
 }
+generateForReplies = (replies) => {
+    let res = ' '
+    replies.forEach(element => {
+
+        res += `<div class="row">
+                    <img src="${element.child.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.child.dataValues['avatarpath']}" class="rounded-circle" style="width:30px;">
+                    <h6 class ="ml-2"> ${element.child.dataValues['username']}</h6> 
+                </div>
+                <p class="comment ml-3">${element.content}</p>`
+    })
+    return res
+}
 helper.showReviews = (reviews) => {
     let res = ''
     reviews.forEach(element => {
         let str = `     <div class="media p-3" id="review-1">
-                        <img src="${element.User.dataValues['avatarpath']==null?'../public/images/logos/logo_v1.png':element.User.dataValues['avatarpath']}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <img src="${element.parent.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.parent.dataValues['avatarpath']}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                         <div class="media-body">
-                            <h6>${element.User.dataValues['username']} <small></small></h6>
+                            <h6>${element.parent.dataValues['username']} <small></small></h6>
                             <div class="list-review">
                                 <span class="count-review-star">
                                    ${createStrStar(element.rating)}
@@ -122,9 +134,14 @@ helper.showReviews = (reviews) => {
                                 <span class="button btn-reply" onclick="replyComment(this)">Reply</span>
                             </div>
                             <div class="comment-reply">
-                                <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
+                                ${generateForReplies(element.CommentReplies)}
+                                        <div class="row mt-3 ">
+                                         <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
                                     style="width:30px;">
-                                <input type="text" placeholder="Your reply">
+                                <input class ="ml-2" type="text" placeholder="Your reply">
+                                        </div>
+
+                               
                             </div>
                         </div>
                     </div>`
@@ -166,21 +183,21 @@ helper.createOtherRooms = (random) => {
 }
 calcAvg = (reviews) => {
     var total = 0.0;
-    var dataRating =Array(6).fill(0)
+    var dataRating = Array(6).fill(0)
     for (var i = 0; i < reviews.length; i++) {
         total += reviews[i].rating;
         // console.log(reviews[i].rating)
         dataRating[parseInt(reviews[i].rating)]++;
     }
-    dataRating = dataRating.map(item=>{
-        item =(item*100/reviews.length).toFixed(2);
+    dataRating = dataRating.map(item => {
+        item = (item * 100 / reviews.length).toFixed(2);
         // console.log(item)
         return item;
     })
-    return [ Math.floor(total / reviews.length) , dataRating]
+    return [Math.floor(total / reviews.length), dataRating]
 }
 helper.createOverallRating = (reviews) => {
-    let values =calcAvg(reviews);
+    let values = calcAvg(reviews);
     return `<div id="average-left" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
                         <div id="sum-stars">${values[0]}/5</div>
                         <div id="stars">
@@ -231,7 +248,7 @@ helper.createOverallRating = (reviews) => {
                         </div>
                     </div>`
 }
-helper.AvgRating=(reviews)=>{
+helper.AvgRating = (reviews) => {
     return createStrStar(calcAvg(reviews)[0])
 }
 

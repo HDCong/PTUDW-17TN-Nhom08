@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      CommentReply.belongsTo(models.User, {foreignKey: 'parrentid'})
-      CommentReply.belongsTo(models.Room, {foreignKey: 'roomid'})
-
+      // CommentReply.belongsTo(models.User, {foreignKey: 'parrentid'})
+      CommentReply.belongsTo(models.User, {foreignKey: 'userid',as:'child'})
+      CommentReply.belongsTo(models.Review,{foreignKey: 'reviewid'})
     }
   };
   CommentReply.init({
-    parrentid: DataTypes.INTEGER,
-    roomid: DataTypes.INTEGER,
+    userid:DataTypes.INTEGER,
+    reviewid:DataTypes.INTEGER,
     content: DataTypes.TEXT
   }, {
     sequelize,
