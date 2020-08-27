@@ -55,16 +55,16 @@ function changeNewAvatar() {
 }
 btnChangePhoto.addEventListener('click', changeNewAvatar)
 
-var userInformation = {
-    name: 'Sea Diamond',
-    email: 'example@example.com',
-    phone: '0954124758',
-    gender: 'male',
-    isActivate: true,
-    DOB: 8,
-    MOB: 8,
-    YOB: 1999
-}
+// var userInformation = {
+//     name: 'Sea Diamond',
+//     email: 'example@example.com',
+//     phone: '0954124758',
+//     gender: 'male',
+//     isActivate: true,
+//     DOB: 8,
+//     MOB: 8,
+//     YOB: 1999
+// }
 render()
 
 function render() {

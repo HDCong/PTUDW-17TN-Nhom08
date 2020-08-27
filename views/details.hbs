@@ -55,7 +55,7 @@
                     {{price}}$ / NIGHT
                 </div>
             </div>
-        </div>
+        </div> 
         <div id="room-detail-1" style="display:block">
             <p id="txt-room-name" class="title-page">
                 {{name}}
@@ -93,28 +93,6 @@
                     </div>
                     <p id="txt-room-services" class="title-room">Room Services</p>
                     {{{createRoomServices services}}}
-                    {{!-- <div id="room-services" class="row">
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/swim.png">
-                            <span>Swimming Pool</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/television.png">
-                            <span>Television</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/fastfood.png">
-                            <span>Fast Foods</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/air-conditioner.png">
-                            <span>Air-Conditioner</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/refrigerator.png">
-                            <span>Refrigerator</span>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 right-frame">
                     <div class="booking-frame">
@@ -159,28 +137,12 @@
                     {{{createOverallRating reviews}}}
                 </div>
                 <div id="txt-product-review" class="title-room">Customer's reviews</div>
+
                 <div id="comment-frame">
-                    <div class="media p-3" id="review-yourself">
-                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai"
-                            class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                        <div class="media-body">
-                            <div class="list-review">
-                                <span class="count-review-star">
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                </span>
-                                <span>Your review</span>
-                            </div>
-                            <div class="row">
-                                <input type="text" placeholder="Write your review here" class="comment col-6" id="your-comment">
-                                <span><button type="button" class="btn btn-light btn-sm col-">Post</button></span>
-                            </div>
-                        </div>
-                    </div>
-                    {{{showReviews reviews user}}}   
+                    <form action="?" method="POST">
+                        {{{UserReview user}}}
+                    </form>
+                    {{{showReviews reviews user}}}
                 </div>
             </div>
         </div>
