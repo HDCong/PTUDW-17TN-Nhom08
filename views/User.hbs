@@ -15,7 +15,13 @@
           <!-- <img class="profile_img mx-auto d-inline-block" src="images/logos/logo_v1.png" alt="Avatar" class="avatar"> -->
           <!-- <button type="button" class="btn btn-primary btn-sm ">Small button</button> -->
           <div class="container avatar-kh align-items-center">
-            <img class="profile_img d-inline-block" src="images/logos/logo_v1.png" alt="" />
+            {{#with user}}
+            {{#if avatarpath}}
+              <img class="profile_img d-inline-block" src={{avatarpath}} alt="" />
+            {{else}}
+              <img class="profile_img d-inline-block" src="images/logos/logo_v1.png" alt="" />
+            {{/if}}
+            {{/with}}
             <!-- <button class="btn-change">Thay đổi</button> -->
             <button type="button" class="btn btn-light btn-change">
               Change photo
@@ -38,99 +44,135 @@
       </div>
 
       <div class="right-side col-lg-8">
-        <div class="on-infor ml-3">
+
+        {{!-- user information --}}
+        <div class="on-infor ml-3"> 
+
+          {{!-- ############# change under ############# --}}
           <div class="text-center">
             <h6>Personal information</h6>
           </div>
-          <div class="form-group p-2">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" />
-            <!-- value="Sea Diamond"> -->
-            <label style="font-size: 12px; color: red; display: none;">Name is require</label>
-          </div>
-          <div class="form-group p-1">
-            <label for="inputEmail">Email</label>
-            <div class="d-flex">
-              <input type="email" class="form-control d-inline" id="inputEmail" disabled />
-              <!-- value="contact@seadiamond.com" > -->
-              <button class="btn-dark btn-act-email" style="font-size: 14px; display: inline;">
-                Activate email
-              </button>
-            </div>
-          </div>
-          <div class="form-row p-1">
-            <div class="form-group col-md-6 p-1">
-              <label for="inputPhone">Phone</label>
-              <input type="text" class="form-control" id="inputPhone" />
-              <!-- value="0965123456"> -->
-            </div>
-            <div class="form-group col-md-3 p-1 my-custom-select">
-              <label for="inputState">Gender</label>
-              <select id="inputState" class="form-control my-custom-select">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-          <div style="padding-left: 5px;">Day of birth</div>
-          <div class="form-row">
-            <div class="form-group col-md-4 p-2 my-custom-select">
-              <select id="inputDayDOB" class="form-control my-custom-select">
-              </select>
-            </div>
-            <div class="form-group col-md-4 p-2 my-custom-select">
-              <select id="inputMonthDOB" class="form-control my-custom-select">
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-              </select>
-            </div>
-            <div class="form-group col-md-4 p-2 my-custom-select">
-              <select id="inputYearDOB" class="form-control my-custom-select">
-              </select>
-            </div>
-          </div>
+          
+          <form action="/user/update" method="POST">        
+              {{#with user}}
+              {{!-- {{log this}} --}}
+              <div class="form-group p-2">
+                <label for="name">Name</label>
+                {{#if name}}
+                    <input type="text" class="form-control" id="inputName" name="name" value="{{name}}" >
+                    {{else}}
+                    <input type="text" class="form-control" id="inputName" name="name">
+                {{/if}}
 
-          <div class="text-center">
-            <button class="btn-dark btn-update-inf">Update</button>
-          </div>
+                <!-- value="Sea Diamond"> -->
+                <label style="font-size: 12px; color: red; display: none;">Name is require</label>
+              </div>
+              <div class="form-group p-1">
+                <label for="email">Email</label>
+                <div class="d-flex">
+                  {{#if email}}
+                    <input type="email" class="form-control d-inline" id="inputEmail" name="email" value={{email}} disabled>
+                    {{else}}
+                    <input type="email" class="form-control d-inline" id="inputEmail" name="email">
+                  {{/if}}
+
+                  <!-- value="contact@seadiamond.com" > -->
+                  {{!-- <button class="btn-dark btn-act-email" style="font-size: 14px; display: inline;">
+                    Activate email
+                  </button> --}}
+                </div>
+              </div>
+              <div class="form-row p-1">
+                <div class="form-group col-md-6 p-1">
+                  <label for="phone">Phone</label>
+                  {{#if phone}}
+                    <input type="text" class="form-control" id="inputPhone" name="phone" value={{phone}}>
+                    {{else}}
+                    <input type="text" class="form-control" id="inputPhone" name="phone">
+                  {{/if}}
+                  <!-- value="0965123456"> -->
+                </div>
+                <div class="form-group col-md-3 p-1 my-custom-select">
+                  <label for="inputState">Gender</label>
+                  <select id="inputState" name="gender" class="form-control my-custom-select">
+                    <option value="1" {{#ifEquals gender true}} selected {{/ifEquals}}>Male</option>
+                    <option value="0" {{#ifEquals gender false}} selected {{/ifEquals}}>Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="padding-left: 5px;">Day of birth</div>
+              <div class="form-row">
+                <div class="form-group col-md-4 p-2 my-custom-select">
+                  <select id="inputDayDOB" name="date" class="form-control my-custom-select">
+                    {{{setDatePicker birthday}}}
+                  </select>
+                </div>
+                <div class="form-group col-md-4 p-2 my-custom-select">
+                  <select id="inputMonthDOB" name="month" class="form-control my-custom-select">
+                    {{{setMonthPicker birthday}}}
+                  </select>
+                </div>
+                <div class="form-group col-md-4 p-2 my-custom-select">
+                  <select id="inputYearDOB" name="year" class="form-control my-custom-select">
+                      {{{setYearPicker birthday}}}
+                  </select>
+                </div>
+              </div>
+
+              {{/with}}
+
+              <div class="text-center">
+                <button type="submit" value="submit" class="btn-dark btn-update-inf">Update</button>
+              </div> 
+
+              
+          </form>
+          
+          
         </div>
+
+        {{!-- ############# change above ############# --}}
+
+
+        {{!--  change password --}}
+
         <div class="on-pwd not-show ml-3">
           <div class="text-center">
             <h6>Change password</h6>
           </div>
-          <div class="form-group p-2">
-            <label for="inputOldPwd">Old password</label>
-            <input type="password" class="form-control" id="inputOldPwd" placeholder="Your old password" />
-          </div>
-          <div class="form-group p-2">
-            <label for="inputNewPwd">New password</label>
-            <input type="password" class="form-control" id="inputNewPwd" placeholder="New password" />
-            <label id="valid-pwd" style="font-size: 12px; color: red; display: none;">At least one number, one lowercase
-              and one uppercase letter
-              <br />At least six characters that are letters, numbers or the
-              underscore</label>
-          </div>
-          <div class="form-group p-2">
-            <label for="inputConfirmNew">Confirm new password</label>
-            <input type="password" class="form-control" id="inputConfirmNew" placeholder="Confirm your new password" />
-            <label id="not-match" style="font-size: 12px; color: red; display: none;">Your password and confirmation
-              password do not match</label>
-          </div>
-          <div class="text-center">
-            <button class="btn-dark btn-change-pwd">Change</button>
-          </div>
+
+
+          <form action="/user/change-password" method="POST">
+              <div class="form-group p-2">
+                <label for="inputOldPwd">Old password</label>
+                <input type="password" class="form-control" id="inputOldPwd" name="oldPassword" placeholder="Your old password" />
+              </div>
+              <div class="form-group p-2">
+                <label for="inputNewPwd">New password</label>
+                <input type="password" class="form-control" id="inputNewPwd" name="newPassword" placeholder="New password" />
+                <label id="valid-pwd" style="font-size: 12px; color: red; display: none;">At least one number, one lowercase
+                  and one uppercase letter
+                  <br />At least six characters that are letters, numbers or the
+                  underscore</label>
+              </div>
+              <div class="form-group p-2">
+                <label for="inputConfirmNew">Confirm new password</label>
+                <input type="password" class="form-control" id="inputConfirmNew" name="confirmPassword" placeholder="Confirm your new password" />
+                <label id="not-match" style="font-size: 12px; color: red; display: none;">Your password and confirmation
+                  password do not match</label>
+              </div>
+              <div class="text-center">
+                <button type="submit" value="submit" class="btn-dark btn-change-pwd">Change</button>
+              </div>
+          </form>
+
+
         </div>
+
+
+        {{!-- booking history --}}
+
         <div class="on-history not-show ml-3">
           <div class="text-center">
             <h6>Your Reservations</h6>
@@ -162,7 +204,7 @@
                         <div >Fridge</div>
                       </div>  
                       <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-garden.png"" alt="" />
+                        <img class="icon-services" src="images/room-services/icon-garden.png" alt="" />
                         <div >Garden view</div>
                       </div>  
                       <div class=" row p-1">
@@ -319,4 +361,5 @@
     </div>
   </div>
 
+  
   <script src="../js/User.js " type="text/javascript "></script>

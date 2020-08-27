@@ -45,6 +45,9 @@ var hbs = expressHbs.create({
         createOverallRating : helper.createOverallRating,
         AvgRating:helper.AvgRating,
         ifEquals:helper.ifEquals,
+        setYearPicker:helper.setYearPicker,
+        setMonthPicker:helper.setMonthPicker,
+        setDatePicker:helper.setDatePicker
     }
 })
 

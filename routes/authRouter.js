@@ -1,6 +1,7 @@
 let express = require('express')
 let router = express.Router()
 let userController = require('../controllers/userController');
+const helper = require('../controllers/helpers');
 
 router.get('/login', (req,res,next)=> {
     res.render('login')
@@ -17,7 +18,6 @@ router.post('/login',(req,res,next)=>{
                         if(userController.comparePassword(password, user.password)) {
                             req.session.cookie.maxAge = keepLoggedIn ? 30*24*60*60*1000:null
                             req.session.user = user
-                            console.log(user)
                             res.redirect('/')
                         }
                         else {
@@ -45,7 +45,8 @@ router.post('/register',(req,res,next)=>{
     let user = {
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        type: true
     }
 
     let confirmPassword = req.body.confirmPassword;
