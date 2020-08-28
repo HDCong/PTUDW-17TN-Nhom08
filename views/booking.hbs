@@ -35,25 +35,34 @@
         <form action="/booking" method="POST">
           <div class="form-row p-1">
             <div class="form-group col-md-6 p-1">
-              <label for="inputName ">Name*</label>
-              <input type="text " class="form-control" id="inputName" placeholder="Your name " required />
+              <input type="hidden" for="userId" id="userId" name="userId" value="{{user.id}}">
+              <input type="hidden" for="roomId" id="roomId" name="roomId" value="{{id}}">
+              <input type="hidden" for="checkin" id="checkin" name="checkin" value="{{information.checkin}}">
+              <input type="hidden" for="checkout" id="checkout" name="checkout" value="{{information.checkout}}">
+              <input type="hidden" for="total" id="total" name="total" value="{{price}}">
+              <input type="hidden" for="services" id="services" name="services" value="">
+              <label for="cusname">Name*</label>
+              <input type="text " class="form-control" name="cusname" id="cusname" placeholder="Your name "
+                required />
               <label style="font-size: 12px; color: red; display: inline;">Name is require</label>
             </div>
             <div class="form-group col-md-6 p-1">
-              <label for="inputPhoneNb">Phone*</label>
-              <input type="number" class="form-control" id="inputPhoneNb" placeholder="Phone Number " required />
+              <label for="cusphone">Phone*</label>
+              <input type="number" class="form-control" for="cusphone" name="cusphone" id="cusphone"
+                placeholder="Phone Number " required />
               <label style="font-size: 12px; color: red; display: inline;">Phone number is require</label>
             </div>
           </div>
           <div class="form-row p-1">
             <div class="form-group col-md-6 p-1">
-              <label for="inputEmail ">Email*</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email " required />
+              <label for="cusmail ">Email*</label>
+              <input type="email" class="form-control" for="cusmail" name="cusmail" id="cusmail"
+                placeholder="Email " required />
               <label style="font-size: 12px; color: red; display: inline;">Email is require</label>
             </div>
             <div class="form-group col-md-4 p-1">
               <label for="inputState ">Gender</label>
-              <select id="inputState " class="form-control">
+              <select id="cusstate " for="cusstate" name="cusstate" class="form-control">
                 <option selected>Male</option>
                 <option>Female</option>
                 <option>Other</option>
@@ -62,13 +71,13 @@
           </div>
 
           <div class="form-group p-1">
-            <label for="inputRequire ">Requests</label>
-            <textarea class="form-control" id="inputRequire " rows="4 "></textarea>
+            <label for="request ">Requests</label>
+            <textarea class="form-control" id="request " name="request"rows="4 "></textarea>
           </div>
           <div class="form-row p-1">
             <div class="form-group col-md-4 p-1">
-              <label for="inputTime ">Time Arrive*</label>
-              <select id="inputTime " class="form-control" required>
+              <label for="custime ">Time Arrive*</label>
+              <select id="custime " for="custime" name="custime" class="form-control" required>
                 <option selected>I do not know</option>
                 <option>1:00AM to 3:00AM</option>
                 <option>3:00AM to 5:00AM</option>
@@ -85,6 +94,7 @@
               </select>
             </div>
           </div>
+          <input type="hidden" for="reservationid" id="reservationid" name="reservationid">
           <!-- </form> -->
           <div class="text-center">
             <!--You can add col-lg-12 if you want -->
@@ -93,7 +103,6 @@
             </button>
           </div>
         </form>
-
       </div>
     </div>
   </div>

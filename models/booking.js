@@ -20,7 +20,15 @@ module.exports = (sequelize, DataTypes) => {
     roomId:DataTypes.INTEGER,
     checkin: DataTypes.BIGINT,
     checkout: DataTypes.BIGINT,
-    total: DataTypes.DOUBLE
+    total: DataTypes.DOUBLE,
+    cusname:DataTypes.TEXT,
+    cusphone:DataTypes.INTEGER,
+    cusmail:DataTypes.TEXT,
+    cusstate:DataTypes.TEXT,
+    custime:DataTypes.TEXT,
+    services:DataTypes.TEXT,
+    request:DataTypes.TEXT,
+    reservationid:DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Booking',
