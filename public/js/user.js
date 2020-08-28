@@ -2,7 +2,8 @@ var tabInformation = document.getElementsByClassName('infor-tab')[0]
 var tabPassword = document.getElementsByClassName('pwd-tab')[0]
 var rightSideInfor = document.getElementsByClassName('on-infor')[0]
 var rightSidePwd = document.getElementsByClassName('on-pwd')[0]
-var btnChangePhoto = document.getElementsByClassName('btn-change')[0]
+// var btnChangePhoto = document.getElementsByClassName('btn-change')[0]
+// var btnChangePhoto = document.getElementById('choose-btn')
 var tabHistory = document.getElementsByClassName('history-tab')[0]
 var rightSideHistory = document.getElementsByClassName('on-history')[0]
 tabInformation.addEventListener('click', showInformationTab)
@@ -13,10 +14,10 @@ optionMonth.addEventListener('change', defineDay, false)
 var optionYear = document.getElementById('inputYearDOB')
 optionYear.addEventListener('change', defineDay, false)
 
-var newPassword = document.getElementById('inputNewPwd')
-var confirmPassword = document.getElementById('inputConfirmNew')
-confirmPassword.addEventListener('keyup', validateConfirm)
-newPassword.addEventListener('keyup', validatePassword)
+// var newPassword = document.getElementById('inputNewPwd')
+// var confirmPassword = document.getElementById('inputConfirmNew')
+// confirmPassword.addEventListener('keyup', validateConfirm)
+// newPassword.addEventListener('keyup', validatePassword)
 
 function validateConfirm() {
     var labelNotify = document.getElementById('not-match')
@@ -55,22 +56,23 @@ function changeNewAvatar() {
 }
 btnChangePhoto.addEventListener('click', changeNewAvatar)
 
-// var userInformation = {
-//     name: 'Sea Diamond',
-//     email: 'example@example.com',
-//     phone: '0954124758',
-//     gender: 'male',
-//     isActivate: true,
-//     DOB: 8,
-//     MOB: 8,
-//     YOB: 1999
-// }
-render()
+
+var userInformation = {
+    name: 'Sea Diamond',
+    email: 'example@example.com',
+    phone: '0954124758',
+    gender: 'male',
+    isActivate: true,
+    DOB: 8,
+    MOB: 8,
+    YOB: 1999
+}
+// render()
 
 function render() {
     createOption()
     loadDataFromServer()
-    setDataToShow()
+    // setDataToShow()
 
 }
 
@@ -83,7 +85,7 @@ function createOptionForDay(nbOfDays) {
     $('#inputDayDOB').find('option').remove().end()
     var optionDay = document.getElementById('inputDayDOB')
     for (i = 1; i <= nbOfDays; ++i) {
-        var text = `<option value="${i}">${i}</option>`
+        var text = `<option value="${i}" {{#ifEquals date ${i}}} selected {{/ifEquals}} >${i}</option>`
         optionDay.insertAdjacentHTML('beforeend', text)
     }
 }
@@ -101,8 +103,8 @@ function defineDay() {
 
 function createOptionForYear() {
     var optionYear = document.getElementById('inputYearDOB')
-    for (i = 2020; i >= 1900; --i) {
-        var text = `<option value="${i}">${i}</option>`
+    for (i = 2010; i >= 1950; --i) {
+        var text = `<option value="${i}" {{#ifEquals year ${i}}} selected {{/ifEquals}} >${i}</option>`
         optionYear.insertAdjacentHTML('beforeend', text)
     }
 }
@@ -237,27 +239,27 @@ usernameData.addEventListener('keyup', function() {
         usernameData.parentElement.lastElementChild.style.display = 'none'
 })
 
-var buttonUpdate = document.getElementsByClassName('btn-update-inf')[0]
-buttonUpdate.addEventListener('click', updateUserInformation)
-var buttonChangePwd = document.getElementsByClassName('btn-change-pwd')[0]
-buttonChangePwd.addEventListener('click', changePassword)
+// var buttonUpdate = document.getElementsByClassName('btn-update-inf')[0]
+// buttonUpdate.addEventListener('click', updateUserInformation)
+// var buttonChangePwd = document.getElementsByClassName('btn-change-pwd')[0]
+// buttonChangePwd.addEventListener('click', changePassword)
 
-function updateUserInformation() {
-    console.log('btn update clicked')
-    // send to server
-    // if ok
-    $("#notifyUpdate").modal({ show: true });
-}
+// function updateUserInformation() {
+//     console.log('btn update clicked')
+//     // send to server
+//     // if ok
+//     $("#notifyUpdate").modal({ show: true });
+// }
 
-function changePassword() {
-    console.log('btn update clicked')
+// function changePassword() {
+//     console.log('btn update clicked')
 
-    // send to server
+//     // send to server
 
-    //if ok
-    if (validateConfirm() && validatePassword()) {
-        newPassword.value = ''
-        confirmPassword.value = ''
-        $("#notifyChangePwd").modal({ show: true });
-    }
-}
+//     //if ok
+//     if (validateConfirm() && validatePassword()) {
+//         newPassword.value = ''
+//         confirmPassword.value = ''
+//         $("#notifyChangePwd").modal({ show: true });
+//     }
+// }

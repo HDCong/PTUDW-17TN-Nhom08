@@ -5,7 +5,7 @@ var app = express()
 
 //body parser 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())
@@ -48,6 +48,9 @@ var hbs = expressHbs.create({
         ifEquals:helper.ifEquals,
         UserReview:helper.UserReview,
         createPagination:paging.createPagination,
+        setYearPicker:helper.setYearPicker,
+        setMonthPicker:helper.setMonthPicker,
+        setDatePicker:helper.setDatePicker
     }
 })
 
