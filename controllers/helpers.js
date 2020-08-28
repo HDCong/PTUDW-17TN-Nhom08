@@ -267,6 +267,70 @@ helper.createOverallRating = (reviews) => {
                         </div>
                     </div>`
 }
+
+helper.setDatePicker = (birthday) => {
+    var htmlcode=``
+    var d;
+
+    if(birthday==null) d = new Date()
+    else d = new Date(Number(birthday))
+
+    var date = d.getDate();
+    var month = d.getMonth();
+    var year = d.getFullYear();
+
+    var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+        days[1] += 1
+    
+    for (i = 1; i <= days[month-1]; ++i) {
+        if(i===date)
+            htmlcode += `<option value="${i}" selected >${i}</option>`
+        else 
+            htmlcode +=`<option value="${i}" >${i}</option>`
+    }
+
+    return htmlcode
+}
+
+helper.setMonthPicker = (birthday) => {
+    var htmlcode=``
+    var d;
+
+    if(birthday==null) d = new Date()
+    else d = new Date(Number(birthday))
+    
+    var month = d.getMonth();
+    var text = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    for (i = 1; i <= 12; ++i) {
+        if(i===month)
+            htmlcode += `<option value=${i} selected >${text[i-1]}</option>`
+        else 
+            htmlcode +=`<option value="${i}">${text[i-1]}</option>`
+    }
+
+    return htmlcode
+}
+
+helper.setYearPicker = (birthday) => {
+    htmlcode=``
+    var d;
+    
+    if(birthday==null) d = new Date()
+    else d = new Date(Number(birthday))
+
+    var year = d.getFullYear();
+
+    for (i = 2020; i >= 1971; --i) {
+        if(i===year)
+            htmlcode += `<option value="${i}" selected >${i}</option>`
+        else 
+            htmlcode += `<option value="${i}">${i}</option>`
+    }
+    return htmlcode
+}
+
 helper.AvgRating = (reviews) => {
     return createStrStar(calcAvg(reviews)[0])
 }
@@ -274,5 +338,25 @@ helper.AvgRating = (reviews) => {
 helper.ifEquals = function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 }
+
+helper.birthdayToMillis = function(date, month, year) {
+    var date = new Date(year,month,date); // some mock date
+    var milliseconds = date.getTime();
+
+    return milliseconds
+}
+
+helper.getBirthdayFromMillis = function(millis) {
+    var d = new Date(Number(millis));
+    var birthday = {
+        date: d.getDate(),
+        month: d.getMonth()+1,
+        year: d.getFullYear()
+    }
+
+    return birthday
+}
+
+
 
 module.exports = helper
