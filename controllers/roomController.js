@@ -9,50 +9,59 @@ var Room = model.Room
 controller.getAll = (query) => {
     return new Promise((resolve, reject) => {
 
-        let options ={
-            attributes: ['id', 'imagepath', 'name','count','price','capacity','rating','area'],
+        let options = {
+            attributes: ['id', 'imagepath', 'name', 'count', 'price', 'capacity', 'rating', 'area'],
             where: {
-                isbooking: false ,
-                price:{
-                    [Op.gte]:query.min,
-                    [Op.lte]:query.max
+                isbooking: false,
+                price: {
+                    [Op.gte]: query.min,
+                    [Op.lte]: query.max
                 }
             }
         }
-        if(query.search){
-            options.where.name={
-                [Op.iLike]:`%${query.search}`
+        if (query.search) {
+            options.where.name = {
+                [Op.iLike]: `%${query.search}`
             }
         }
-        if(query.capacity>0){
-            options.where.capacity={
-                [Op.lte]:query.capacity
+        if (query.capacity > 0) {
+            options.where.capacity = {
+                [Op.lte]: query.capacity
             }
         }
-        if(query.rating>0){
-            options.where.rating =query.rating
+        if (query.rating > 0) {
+            options.where.rating = query.rating
         }
-        if(query.show>0){
+        if (query.show > 0) {
             console.log(query.show)
-            options.limit=query.show
-            options.offset= query.show*(query.page-1)
+            options.limit = query.show
+            options.offset = query.show * (query.page - 1)
         }
-        if(query.sort){
-            switch(query.sort){
+        if (query.sort) {
+            switch (query.sort) {
                 case 'capacity':
-                    options.order= [['capacity','ASC']] ; break
+                    options.order = [['capacity', 'ASC']]; break
                 case 'price':
-                    options.order= [['price','ASC']] ; break
+                    options.order = [['price', 'ASC']]; break
                 case 'area':
-                    options.order= [['area','ASC']] ; break
+                    options.order = [['area', 'ASC']]; break
                 case 'rating':
-                    options.order= [['rating','DESC']] ; break
-                default: 
-                    options.order= [['price','ASC']] ; break
+                    options.order = [['rating', 'DESC']]; break
+                default:
+                    options.order = [['price', 'ASC']]; break
             }
         }
         Room.findAndCountAll(options).then((data => resolve(data)))
             .catch(err => reject(new Error(err)))
+    })
+}
+controller.getInfRoom = (id) => {
+    return new Promise((resolve, reject) => {
+        Room.findOne({
+            where: { id: id }
+        }).then((res => {
+            resolve(res)
+        })).catch(err=>reject(err))
     })
 }
 controller.getByID = (id) => {

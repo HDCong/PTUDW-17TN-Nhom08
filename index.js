@@ -50,7 +50,9 @@ var hbs = expressHbs.create({
         createPagination:paging.createPagination,
         setYearPicker:helper.setYearPicker,
         setMonthPicker:helper.setMonthPicker,
-        setDatePicker:helper.setDatePicker
+        setDatePicker:helper.setDatePicker,
+        createToBooking: helper.createToBooking,
+        createReservation: helper.createReservation,
     }
 })
 
