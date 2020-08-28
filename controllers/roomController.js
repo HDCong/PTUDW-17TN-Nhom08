@@ -131,4 +131,14 @@ controller.getByID = (id) => {
     })
 }
 
+controller.getImageByRoomID = (roomid) => {
+    return new Promise((resolve,reject)=> {
+        Room.findOne({
+            where: {id: roomid}
+        }).then(data => resolve(data.dataValues.imagepath))
+        .catch(err=>reject(new Error(err)))
+    })
+}
+
+
 module.exports = controller

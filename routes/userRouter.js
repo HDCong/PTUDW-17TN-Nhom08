@@ -7,12 +7,43 @@ const Resize = require('../middlewares/resize');
 const path = require('path');
 
 let userController = require('../controllers/userController');
+let bookingController = require('../controllers/bookingController');
+let roomController = require('../controllers/roomController');
+const { type } = require('os');
 
 router.get('/',(req,res)=>{
     if(req.session.user) {
-        return res.render('user', req.params) 
+        // return res.render('user', req.params)
+        bookingController.getHistory(req.session.user.id)
+                        .then(result => {
+                            if(result==null) {
+                                return res.render('user', req.params)
+                            }
+                            else {
+                                req.params.haveHistory=true;
+                                var promises = result.map(item=> {
+                                    return roomController.getImageByRoomID(item.dataValues.roomId)
+                                                .then(imagepath=> {
+                                                    item.imagepath=imagepath
+                                                    return item
+                                                })
+                                })
+                                
+                                
+
+                                Promise.all(promises).then(history => {
+                                    // console.log("MA NO: " + history.imagepath)
+                                    console.log("type: " + typeof(history))
+                                    return res.render('user', {history: history})
+                                })
+                                
+                            }
+                        })
+                        .catch(err => {
+                            return res.render('user', req.params) 
+                        })
     }
-    res.redirect('/auth/login')
+    else res.redirect('/auth/login')
 })
 
 router.post('/update',(req,res,next)=>{

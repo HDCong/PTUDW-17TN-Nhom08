@@ -180,133 +180,47 @@
             <h6>Your Reservations</h6>
           </div>
           <ul class="cart_list p-0">
+
+            {{#each history}}
+
+            {{log this}}
             <li class="cart_item clearfix p-0">
+
               <div class="container no-gutters">
                 <div class="row no-gutters">
                   <div class="row justify-content-center cart_item_image p-0 pt-2 col-lg-3 pb-2">
-                    <img   src="images/listrooms-images/room2.jpg" alt="" />
+                    {{!-- <img src="images/listrooms-images/room2.jpg" alt="" /> --}}
+                    <img src={{imagepath}} alt="" />
                   </div>
-                  <div class="cart_item_name cart_info_col mt-1 col-lg-4 ml-0 p-0">
-                    <div class="cart_item_title text-center">LUXURY ROOM</div>
-                    <div class="row cart_item_text m-0">  
-                      <div class="row p-1 ">
-                        <img class="icon-services" src="images/room-services/icon-wifi.png" alt="" />
-                        <div >Wifi</div>
-                      </div>
-                      <div class="row p-1 ">
-                        <img class="icon-services" src="images/room-services/icon-balcony.png" alt="" />
-                        <div >Balcony</div>
-                      </div>
-                      <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-conditioner.png" alt="" />
-                        <div >Conditioner</div>
-                      </div> 
-                      <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-fridge.png" alt="" />
-                        <div >Fridge</div>
-                      </div>  
-                      <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-garden.png" alt="" />
-                        <div >Garden view</div>
-                      </div>  
-                      <div class=" row p-1">
-                        <img class="icon-services" src="images/room-services/icon-mountain.png" alt="" />
-                        <div >Mountain</div>
-                      </div>  
-                      <div class=" row p-1">
-                        <img class="icon-services" src="images/room-services/icon-tv.png" alt="" />
-                        <div >Television</div>
-                      </div>  
-                      <div class=" row p-1">
-                        <img class="icon-services" src="images/room-services/icon-swim.png" alt="" />
-                        <div >Swimming pool</div>
-                      </div>  
-                      
-                    </div>
-                  </div>
+                  {{#with dataValues}}
                   <div class="cart_item_quantity cart_info_col text-center col-lg-2 col-6 col-sm-4 mt-1 p-0">
+                    
                     <div class="cart_item_title">Check in</div>
-                    <div class="cart_item_text m-1">September</div>
+
+                    {{{getHistoryDetail checkin}}}
+                    {{!-- <div class="cart_item_text m-1">September</div>
                     <div class="cart_item_text m-1"> 6th </div>
-                    <div class="cart_item_text  m-1">2020</div>
+                    <div class="cart_item_text  m-1">2020</div> --}}
                   </div>
                   <div class="cart_item_price cart_info_col col-lg-2 col-6 col-sm-4 mt-1 p-0 text-center">
                     <div class="cart_item_title">Check out</div>
-                    <div class="cart_item_text  m-1">September</div>
+                    {{{getHistoryDetail checkout}}}
+                    {{!-- <div class="cart_item_text  m-1">September</div>
                     <div class="cart_item_text  m-1"> 30th </div>
-                    <div class="cart_item_text  m-1">2020</div>
+                    <div class="cart_item_text  m-1">2020</div> --}}
                   </div>
                   <div class="cart_item_total cart_info_col p-0 mt-1 col-sm-4 col-lg-1 text-center">
                     <div class="cart_item_title ">Total</div>
-                    <div class="cart_item_text">500$</div>
+                    <div class="cart_item_text">{{total}}$</div>
                   </div>
+
+                  {{/with}}
                 </div>
               </div>
             </li>
             <hr>
-            <li class="cart_item clearfix p-0">
-              <div class="container no-gutters">
-                <div class="row no-gutters">
-                  <div class="row justify-content-center cart_item_image p-0 pt-2 col-lg-3 pb-2">
-                    <img   src="images/listrooms-images/room2.jpg" alt="" />
-                  </div>
-                  <div class="cart_item_name cart_info_col mt-1 col-lg-4 ml-0 p-0">
-                    <div class="cart_item_title text-center">LUXURY ROOM</div>
-                    <div class="row cart_item_text m-0">  
-                      <div class="row p-1 ">
-                        <img class="icon-services" src="images/room-services/icon-wifi.png" alt="" />
-                        <div >Wifi</div>
-                      </div>
-                      <div class="row p-1 ">
-                        <img class="icon-services" src="images/room-services/icon-balcony.png" alt="" />
-                        <div >Balcony</div>
-                      </div>
-                      <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-conditioner.png" alt="" />
-                        <div >Conditioner</div>
-                      </div> 
-                      <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-fridge.png" alt="" />
-                        <div >Fridge</div>
-                      </div>  
-                      <div class="row p-1">
-                        <img class="icon-services" src="images/room-services/icon-garden.png"" alt="" />
-                        <div >Garden view</div>
-                      </div>  
-                      <div class=" row p-1">
-                        <img class="icon-services" src="images/room-services/icon-mountain.png" alt="" />
-                        <div >Mountain</div>
-                      </div>  
-                      <div class=" row p-1">
-                        <img class="icon-services" src="images/room-services/icon-tv.png" alt="" />
-                        <div >Television</div>
-                      </div>  
-                      <div class=" row p-1">
-                        <img class="icon-services" src="images/room-services/icon-swim.png" alt="" />
-                        <div >Swimming pool</div>
-                      </div>  
-                      
-                    </div>
-                  </div>
-                  <div class="cart_item_quantity cart_info_col text-center col-lg-2 col-6 col-sm-4 mt-1 p-0">
-                    <div class="cart_item_title">Check in</div>
-                    <div class="cart_item_text m-1">July</div>
-                    <div class="cart_item_text m-1"> 9th </div>
-                    <div class="cart_item_text  m-1">2019</div>
-                  </div>
-                  <div class="cart_item_price cart_info_col col-lg-2 col-6 col-sm-4 mt-1 p-0 text-center">
-                    <div class="cart_item_title">Check out</div>
-                    <div class="cart_item_text  m-1">July</div>
-                    <div class="cart_item_text  m-1"> 10th </div>
-                    <div class="cart_item_text  m-1">2019</div>
-                  </div>
-                  <div class="cart_item_total cart_info_col p-0 mt-1 col-sm-4 col-lg-1 text-center">
-                    <div class="cart_item_title ">Total</div>
-                    <div class="cart_item_text">50$</div>
-                  </div>
-                </div>
-              </div>
-            </li>
+            {{/each}}
+            
           </ul>
         </div>
       </div>
