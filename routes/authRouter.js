@@ -18,6 +18,7 @@ router.post('/login',(req,res,next)=>{
                         if(userController.comparePassword(password, user.password)) {
                             req.session.cookie.maxAge = keepLoggedIn ? 30*24*60*60*1000:null
                             req.session.user = user
+                            // localStorage.setItem('user', user);
                             res.redirect('/')
                         }
                         else {
@@ -103,6 +104,7 @@ router.post('/register',(req,res,next)=>{
 router.get('/logout',(req,res,next)=> {
     req.session.user=null
     req.session.cookie.maxAge = null
+    // localStorage.removeItem('user');
 
     return res.redirect('/')
 })

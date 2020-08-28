@@ -1,4 +1,8 @@
 <!-- wrap all content in the page consist of header main content, footer-->
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 <div class="container mb-4">
     <div id="table-month" class="container-fluid no-gutters row">
         <div class="col-3">Jan</div>
@@ -23,12 +27,12 @@
                     <li class="nav-item dropdown" id="list-tab-room-detail">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MENU</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item"  onclick="changeTabRoomDetail(this)">HOME</a>
+                            <a class="dropdown-item" onclick="changeTabRoomDetail(this)">HOME</a>
                             <a class="dropdown-item" href="#txt-room-name"
                                 onclick="changeTabRoomDetail(this)">DESCRIPTION</a>
-                            <a class="dropdown-item" href="#txt-room-services"onclick="changeTabRoomDetail(this)">ROOM
+                            <a class="dropdown-item" href="#txt-room-services" onclick="changeTabRoomDetail(this)">ROOM
                                 SERVICES</a>
-                            <a class="dropdown-item" href="#txt-other-rooms"onclick="changeTabRoomDetail(this)">OTHER
+                            <a class="dropdown-item" href="#txt-other-rooms" onclick="changeTabRoomDetail(this)">OTHER
                                 ROOMS</a>
                             <a class="dropdown-item" onclick="changeTabRoomDetail(this)">ROOM
                                 REVIEW</a>
@@ -38,24 +42,24 @@
                         <a class="nav-link active" onclick="changeTabRoomDetail(this)">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="#txt-room-name" onclick="changeTabRoomDetail(this)">DESCRIPTION</a>
+                        <a class="nav-link" href="#txt-room-name" onclick="changeTabRoomDetail(this)">DESCRIPTION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="#txt-room-services"  onclick="changeTabRoomDetail(this)">ROOM
+                        <a class="nav-link" href="#txt-room-services" onclick="changeTabRoomDetail(this)">ROOM
                             SERVICES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"href="#txt-other-rooms"  onclick="changeTabRoomDetail(this)">OTHER ROOMS</a>
+                        <a class="nav-link" href="#txt-other-rooms" onclick="changeTabRoomDetail(this)">OTHER ROOMS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  onclick="changeTabRoomDetail(this)">ROOM REVIEW</a>
+                        <a class="nav-link" onclick="changeTabRoomDetail(this)">ROOM REVIEW</a>
                     </li>
                 </ul>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 price">
                     {{price}}$ / NIGHT
                 </div>
             </div>
-        </div> 
+        </div>
         <div id="room-detail-1" style="display:block">
             <p id="txt-room-name" class="title-page">
                 {{name}}
@@ -94,21 +98,31 @@
                     <p id="txt-room-services" class="title-room">Room Services</p>
                     {{{createRoomServices services}}}
                 </div>
+
                 <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 right-frame">
                     <div class="booking-frame">
+                        <div class="form-group">
+                            <input id="dp1" type="text" class="form-control clickable input-md" id="DtChkIn"
+                                placeholder="&#xf133;  Check-In">
+                        </div>
+                        <div class="form-group">
+                            <input id="dp2" type="text" class="form-control clickable input-md" id="DtChkOut"
+                                placeholder="&#xf133;  Check-Out">
+                        </div>
+
                         <div class="booking-item check-in">
                             <div id="check-in-text">CHECK-IN</div>
                             <div class="number" id="date-in"></div>
                             <div class="month" id="month-in">
 
                             </div>
-                            <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                            {{!-- <i class="fas fa-caret-down button" onclick="downNumber(this)"></i> --}}
                         </div>
                         <div class="booking-item check-out">
                             <div id="check-out-text">CHECK-OUT</div>
                             <div class="number" id="date-out"></div>
                             <div class="month" id="month-out"></div>
-                            <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                            {{!-- <i class="fas fa-caret-down button" onclick="downNumber(this)"></i> --}}
                         </div>
                         <div class="booking-item guests">
                             <div id="guests-text">GUESTS</div>
@@ -116,16 +130,14 @@
                             <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
                             <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                         </div>
-                        {{!-- <div class="booking-item nights">
+                        <div class="booking-item nights">
                             <div id="nights-text">NIGHTS</div>
                             <div class="number" id="count-nights">1</div>
-                            <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
-                            <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
-                        </div> --}}
-                        <div id="btn-book-now" class="button" onclick="toBooking()">BOOK NOW</div>
+                        </div>
+                        {{{createToBooking id user}}}
                     </div>
                     <p id="txt-other-rooms" class="title-room">Other Rooms</p>
-                    {{{createOtherRooms random}}}
+                    {{{createOtherRooms random user}}}
                 </div>
             </div>
         </div>
@@ -148,6 +160,10 @@
         </div>
     </div>
     {{/with}}
+
+    <!-- Requires Bootstrap, Datepicker, Fontawesome and Jquery -->
+
+
 </div>
 <link rel="stylesheet" type="text/css" href="../css/RoomDetail.css">
 

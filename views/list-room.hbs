@@ -1,5 +1,9 @@
 <link href="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.min.css" rel="stylesheet">
 <script src="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.js"></script>
+<!-- wrap all content in the page consist of header main content, footer-->
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/ListRooms-page.css">
 <!-- wrap all content in the page consist of header main content, footer-->
@@ -44,6 +48,10 @@
                         <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
                         <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                     </div>
+                    <div class="booking-item nights">
+                            <div id="nights-text">NIGHTS</div>
+                            <div class="number" id="count-nights">1</div>
+                        </div>
                 </div>
 
                 <div class="top-filter-head">Product Filters</div>
@@ -161,6 +169,15 @@
             {{{createPagination pagination paginationClass="pagination"}}}
         </nav>
     </div>
+    <div class="form-group">
+        <input id="dp1" type="text" class="form-control clickable input-md" id="DtChkIn"
+            placeholder="&#xf133;  Check-In">
+    </div>
+    <div class="form-group">
+        <input id="dp2" type="text" class="form-control clickable input-md" id="DtChkOut"
+            placeholder="&#xf133;  Check-Out">
+    </div>
+
 </div>
 <script src="js/ListRooms-page.js"></script>
 
@@ -213,5 +230,48 @@
         let url = `/list?${urlParams.toString()}`
         location.href = url
     }
+
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    const tomorrow = new Date(now)
+    tomorrow.setDate(now.getDate() + 1)
+
+    var checkin = $('#dp1').datepicker({
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'dd-mm-yy',
+        minDate: now,
+        onSelect: function (dateText) {
+            var minDate = $('#dp1').datepicker('getDate');
+            minDate.setDate(minDate.getDate() + 1)
+            $("#dp2").datepicker("change", { minDate: minDate });
+
+        }
+
+    }).on('changeDate', function (ev) {
+        console.log('check in change date')
+        if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+            var newDate = new Date(ev.date);
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.datepicker("minDate", newDate);
+        }
+    }).datepicker('setDate', now);
+    var checkout = $('#dp2').datepicker({
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'dd-mm-yy',
+        minDate: tomorrow,
+        autoclose: true
+
+    }).on('changeDate', function (ev) { }).datepicker('setDate', tomorrow);;
+
+
 
 </script>

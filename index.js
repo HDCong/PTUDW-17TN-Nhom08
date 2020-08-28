@@ -52,6 +52,8 @@ var hbs = expressHbs.create({
         setMonthPicker:helper.setMonthPicker,
         setDatePicker:helper.setDatePicker,
         getHistoryDetail:helper.getHistoryDetail
+        createToBooking: helper.createToBooking,
+        createReservation: helper.createReservation,
     }
 })
 

@@ -132,7 +132,7 @@ generateForReplies = (replies) => {
     })
     return res
 }
-function showReplyForUser(user, id,roomid) {
+function showReplyForUser(user, id, roomid) {
     // console.log(user)
     if (user != undefined) {
         return `
@@ -170,7 +170,7 @@ helper.showReviews = (reviews, user) => {
                             </div>
                             <div class="comment-reply">
                                 ${generateForReplies(element.CommentReplies)}
-                                ${showReplyForUser(user, element.id,element.roomId)}
+                                ${showReplyForUser(user, element.id, element.roomId)}
                             </div>
                         </div>
                     </div>`
@@ -206,33 +206,35 @@ helper.UserReview = (user, id) => {
                 </div>
             `
 }
-helper.createOtherRooms = (random) => {
+helper.createOtherRooms = (random, user) => {
+    if (user == undefined) user = 0
+    else user = user.id
     return `<div id="list-rooms">
                         <div class="other-room-frame row">
                             <div class="other-room-image col-4" id="other-room1"></div>
                             <div class="other-room-info col-7">
-                                <div class="other-room" onclick="toOtherRoom()">${random[0].name}</div>
+                                <div class="other-room" onclick="toOtherRoom(${random[0].id})">${random[0].name}</div>
                                 <div>From ${random[0].price}$ / per night</div>
                                 <br />
-                                <div class="btn-book button" onclick="toBooking(${random[0].id})">BOOK NOW</div>
+                                <div class="btn-book button" onclick="toBooking(${random[0].id},${user})">BOOK NOW</div>
                             </div>
                         </div>
                         <div class="other-room-frame row">
                             <div class="other-room-image col-4" id="other-room2"></div>
                             <div class="other-room-info col-7">
-                                <div class="other-room" onclick="toOtherRoom()">${random[1].name}</div>
+                                <div class="other-room" onclick="toOtherRoom(${random[1].id})">${random[1].name}</div>
                                 <div>From ${random[1].price}$ / per night</div>
                                 <br />
-                                <div class="btn-book button" onclick="toBooking(${random[1].id})">BOOK NOW</div>
+                                <div class="btn-book button" onclick="toBooking(${random[1].id},${user})">BOOK NOW</div>
                             </div>
                         </div>
                         <div class="other-room-frame row">
                             <div class="other-room-image col-4" id="other-room3"></div>
                             <div class="other-room-info col-7">
-                                <div class="other-room" onclick="toOtherRoom()">${random[2].name}</div>
+                                <div class="other-room" onclick="toOtherRoom(${random[2].id})">${random[2].name}</div>
                                 <div>From ${random[2].price}$ / per night</div>
                                 <br />
-                                <div class="btn-book button" onclick="toBooking(${random[2].id})">BOOK NOW</div>
+                                <div class="btn-book button" onclick="toBooking(${random[2].id},${user})">BOOK NOW</div>
                             </div>
                         </div>
                     </div>`
@@ -306,10 +308,10 @@ helper.createOverallRating = (reviews) => {
 }
 
 helper.setDatePicker = (birthday) => {
-    var htmlcode=``
+    var htmlcode = ``
     var d;
 
-    if(birthday==null) d = new Date()
+    if (birthday == null) d = new Date()
     else d = new Date(Number(birthday))
 
     var date = d.getDate();
@@ -319,50 +321,50 @@ helper.setDatePicker = (birthday) => {
     var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
         days[1] += 1
-    
-    for (i = 1; i <= days[month-1]; ++i) {
-        if(i===date)
+
+    for (i = 1; i <= days[month - 1]; ++i) {
+        if (i === date)
             htmlcode += `<option value="${i}" selected >${i}</option>`
-        else 
-            htmlcode +=`<option value="${i}" >${i}</option>`
+        else
+            htmlcode += `<option value="${i}" >${i}</option>`
     }
 
     return htmlcode
 }
 
 helper.setMonthPicker = (birthday) => {
-    var htmlcode=``
+    var htmlcode = ``
     var d;
 
-    if(birthday==null) d = new Date()
+    if (birthday == null) d = new Date()
     else d = new Date(Number(birthday))
-    
+
     var month = d.getMonth();
     var text = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     for (i = 1; i <= 12; ++i) {
-        if(i===month)
-            htmlcode += `<option value=${i} selected >${text[i-1]}</option>`
-        else 
-            htmlcode +=`<option value="${i}">${text[i-1]}</option>`
+        if (i === month)
+            htmlcode += `<option value=${i} selected >${text[i - 1]}</option>`
+        else
+            htmlcode += `<option value="${i}">${text[i - 1]}</option>`
     }
 
     return htmlcode
 }
 
 helper.setYearPicker = (birthday) => {
-    htmlcode=``
+    htmlcode = ``
     var d;
-    
-    if(birthday==null) d = new Date()
+
+    if (birthday == null) d = new Date()
     else d = new Date(Number(birthday))
 
     var year = d.getFullYear();
 
     for (i = 2020; i >= 1971; --i) {
-        if(i===year)
+        if (i === year)
             htmlcode += `<option value="${i}" selected >${i}</option>`
-        else 
+        else
             htmlcode += `<option value="${i}">${i}</option>`
     }
     return htmlcode
@@ -376,18 +378,18 @@ helper.ifEquals = function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 }
 
-helper.birthdayToMillis = function(date, month, year) {
-    var date = new Date(year,month,date); // some mock date
+helper.birthdayToMillis = function (date, month, year) {
+    var date = new Date(year, month, date); // some mock date
     var milliseconds = date.getTime();
 
     return milliseconds
 }
 
-helper.getBirthdayFromMillis = function(millis) {
+helper.getBirthdayFromMillis = function (millis) {
     var d = new Date(Number(millis));
     var birthday = {
         date: d.getDate(),
-        month: d.getMonth()+1,
+        month: d.getMonth() + 1,
         year: d.getFullYear()
     }
 
@@ -407,6 +409,70 @@ helper.getHistoryDetail = function(checkin) {
     return `<div class="cart_item_text m-1">${text[month]}</div>
             <div class="cart_item_text m-1"> ${date}th </div>
             <div class="cart_item_text  m-1">${year}</div>`
+
+helper.createToBooking = function (id, user) {
+    if (user != undefined)
+        return `<div id="btn-book-now" class="button" onclick="toBooking(${id}, ${user.id})">BOOK NOW</div>`
+    return `<div id="btn-book-now" class="button" onclick="toBooking(${id})">BOOK NOW</div>`
+
+}
+function getDayMonthYear(value) {
+    let date = new Date(value)
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return [date.getDate(), date.getMonth()+ 1, date.getFullYear(), days[date.getDay()]]
+}
+function getDifDays(value1, value2) {
+    
+    var Difference_In_Time = value1 - value2;
+    // To calculate the no. of days between two dates 
+    return Math.floor(Difference_In_Time / (1000 * 3600 * 24));
+}
+helper.createReservation = function (name, price, information) {
+    // console.log('helpr room: ', room)
+    let checkinDay = getDayMonthYear(information['checkin'])
+    let checkoutDay = getDayMonthYear(information['checkout'])
+    return  `<div class="board-booking col-lg-4">
+      <div class="img-detail-small">
+          ${name}
+      </div>
+      <div class="reservation">
+        <div class="text-center"><small> YOUR RESERVATION</small></div>
+        <div class="row p-3">
+          <div class="text-center col-6 check">
+            <p class="checkin">CHECK-IN</p>
+            <h2 id="date-checkin">${checkinDay[0]}</h2>
+            <p id="month-year-checkin">
+              ${checkinDay[1]},${checkinDay[2]} <br />
+              ${checkinDay[3]}
+            </p>
+          </div>
+          <div class="text-center col-6 check">
+            <p class="checkout">CHECK-OUT</p>
+            <h2 id="date-checkout">${checkoutDay[0]}</h2>
+            <p class="month-year-checkout">
+              ${checkoutDay[1]},${checkoutDay[2]} <br />
+              ${checkoutDay[3]}
+            </p>
+          </div>
+        </div>
+        <div class="row p-3">
+          <div class="text-center col-6 quantity">
+            <h2 id="number-of-guest">${information['guest']}</h2>
+            <p>GUESTS</p>
+          </div>
+          <div class="text-center col-6 quantity">
+            <h2 id="number-of-night">${getDifDays(information['checkout'],information['checkin'])}</h2>
+            <p>NIGHTS</p>
+          </div>
+        </div>
+        <div class="row p-3">
+          <div class="text-center col-12">
+            <h2 id="total-price">${price}$
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>`
 }
 
 module.exports = helper

@@ -12,7 +12,7 @@ const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 var divMonth;
 
-$(document).click(function(e) {
+$(document).click(function (e) {
     var container = $(".month");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
         $("#table-month").hide();
@@ -23,11 +23,12 @@ $(document).click(function(e) {
     }
 });
 
-$("#table-month div").click(function(e) {
+$("#table-month div").click(function (e) {
     divMonth.innerHTML = e.target.innerHTML;
 })
 
-$(document).ready(function() {
+
+$(document).ready(function () {
     changeMenuStyle();
     var date = new Date();
     date_in.innerHTML = date.getDate();
@@ -36,9 +37,11 @@ $(document).ready(function() {
     month_out.innerHTML = arrMonth[date.getMonth()];
     $("#table-month").hide();
     changePositionMonthTable();
+
+
 })
 
-$(window).resize(function() {
+$(window).resize(function () {
     changeMenuStyle();
     changePositionMonthTable();
 })
@@ -129,12 +132,17 @@ function changeTabRoomDetail(element) {
     }
 }
 
-function toBooking() {
-    // window.location = "../pages/Booking.html";
+function toBooking(id,user=0) {
+
+    let checkin =  new Date(document.getElementById('dp1').value).valueOf()
+    let checkout =new Date(document.getElementById('dp2').value).valueOf()
+    let str= `/booking?room=${id}&in=${checkin}&out=${checkout}$user=${user}`
+    console.log(str)
+    window.location =str
 }
 
-function toOtherRoom() {
-    // window.location = "#";
+function toOtherRoom(id) {
+    window.location = "/list/"+id;
 }
 
 function likeComment(element) {
@@ -154,6 +162,49 @@ function fillStar(element) {
     $(element).attr("class", "button icon-star fas fa-star");
     $(element).prevAll().attr("class", "button icon-star fas fa-star");
     $(element).nextAll().attr("class", "button icon-star far fa-star");
-    document.getElementById("rating").value=
-                    document.getElementsByClassName("button icon-star fas fa-star").length
+    document.getElementById("rating").value =
+        document.getElementsByClassName("button icon-star fas fa-star").length
 }
+
+var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+const tomorrow = new Date(now)
+tomorrow.setDate(now.getDate() + 1)
+
+var checkin = $('#dp1').datepicker({
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    dateFormat: 'yy-mm-dd',
+    minDate: now,
+    onSelect: function (dateText) {
+        var minDate = $('#dp1').datepicker('getDate');
+        minDate.setDate(minDate.getDate()+1)
+        $("#dp2").datepicker("change", { minDate: minDate });
+
+    }
+
+}).on('changeDate', function (ev) {
+    console.log('check in change date')
+    if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+        var newDate = new Date(ev.date);
+        newDate.setDate(newDate.getDate() + 1);
+        checkout.datepicker("minDate", newDate);
+    }
+}).datepicker('setDate', now);
+var checkout = $('#dp2').datepicker({
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    dateFormat: 'yy-mm-dd',
+    minDate: tomorrow,
+    autoclose: true
+
+}).on('changeDate', function (ev) { }).datepicker('setDate', tomorrow);;
+
+
