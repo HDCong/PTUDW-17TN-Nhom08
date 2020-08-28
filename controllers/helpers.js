@@ -394,6 +394,19 @@ helper.getBirthdayFromMillis = function(millis) {
     return birthday
 }
 
+helper.getHistoryDetail = function(checkin) {
+    // console.log("HELPER: " + checkin)
+    var d = new Date(Number(checkin))
+    
+    var date = d.getDate();
+    var month = d.getMonth();
+    var year = d.getFullYear();
 
+    var text = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    return `<div class="cart_item_text m-1">${text[month]}</div>
+            <div class="cart_item_text m-1"> ${date}th </div>
+            <div class="cart_item_text  m-1">${year}</div>`
+}
 
 module.exports = helper
