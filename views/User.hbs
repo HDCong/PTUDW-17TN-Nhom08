@@ -14,20 +14,22 @@
         <div class="row container">
           <!-- <img class="profile_img mx-auto d-inline-block" src="images/logos/logo_v1.png" alt="Avatar" class="avatar"> -->
           <!-- <button type="button" class="btn btn-primary btn-sm ">Small button</button> -->
-          <div class="container avatar-kh align-items-center">
-            {{#with user}}
-            {{#if avatarpath}}
-              <img class="profile_img d-inline-block" src={{avatarpath}} alt="" />
-            {{else}}
-              <img class="profile_img d-inline-block" src="images/logos/logo_v1.png" alt="" />
-            {{/if}}
-            {{/with}}
-            <!-- <button class="btn-change">Thay đổi</button> -->
-            <button type="button" class="btn btn-light btn-change">
-              Change photo
-            </button>
-            <input type="file" id="myImage" accept="image/*" style="display: none;" />
-          </div>
+          <form class="container d-flex flex-column avatar-kh align-items-center" method="POST" enctype="multipart/form-data" action="/user/image">
+            {{!-- <div class="container d-flex flex-column avatar-kh align-items-center"> --}}
+              {{#with user}}
+              {{#if avatarpath}}
+                <img class="profile_img d-inline-block" src={{avatarpath}} alt="" onclick="document.getElementById('myImage').click();"/>
+              {{else}}
+                <img class="profile_img d-inline-block" src="images/logos/logo_v1.png" alt="" onclick="document.getElementById('myImage').click();"/>
+              {{/if}}
+              {{/with}}
+              <input id="myImage" type="file" accept="image/*" name="image" style="display: none;" >
+              <button type="submit" value="submit" class="btn btn-light btn-change">
+                Change photo
+              </button>
+            {{!-- </div> --}}
+          </form>
+          
         </div>
         <div class="row infor-tab on-showing">
           <img class="d-inline" id="img-inf" src="images/user-images/inf-icon.png" alt="" />

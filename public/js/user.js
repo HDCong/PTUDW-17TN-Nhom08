@@ -2,7 +2,8 @@ var tabInformation = document.getElementsByClassName('infor-tab')[0]
 var tabPassword = document.getElementsByClassName('pwd-tab')[0]
 var rightSideInfor = document.getElementsByClassName('on-infor')[0]
 var rightSidePwd = document.getElementsByClassName('on-pwd')[0]
-var btnChangePhoto = document.getElementsByClassName('btn-change')[0]
+// var btnChangePhoto = document.getElementsByClassName('btn-change')[0]
+// var btnChangePhoto = document.getElementById('choose-btn')
 var tabHistory = document.getElementsByClassName('history-tab')[0]
 var rightSideHistory = document.getElementsByClassName('on-history')[0]
 tabInformation.addEventListener('click', showInformationTab)

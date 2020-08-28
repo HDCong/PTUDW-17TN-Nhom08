@@ -2,6 +2,10 @@ let express = require('express')
 let helper = require('../controllers/helpers')
 let router = express.Router()
 
+const upload = require('../middlewares/uploadImage');
+const Resize = require('../middlewares/resize');
+const path = require('path');
+
 let userController = require('../controllers/userController');
 
 router.get('/',(req,res)=>{
@@ -50,17 +54,31 @@ router.post('/change-password',(req,res,next)=>{
 
     userController.updatePassword(req.session.user.username,newPassword)
                 .then(result=> {
-                    console.log("LOG RESULT: " + result)
-                    res.render('user')
+                    res.redirect('/user')
                 })
                 .catch(err => {
-                    console.log("LOG: " + err)
-                    res.render('user')
+                    res.redirect('/user')
                 })
 })
 
-router.post('/change-image', (req, res, next)=> {
+router.post('/image', upload.single('image'), async function (req, res) {
+    // folder upload
+    const imagePath = path.join(__dirname, '../public/images/user-avatars');
+    // call class Resize
+    const fileUpload = new Resize(req.session.user.username, imagePath);
+    if (!req.file) {
+        res.status(401).json({error: 'Please provide an image'});
+    }
+    const filename = await fileUpload.save(req.file.buffer);
     
-})
+    userController.updateImagePath(req.session.user.username, `images/user-avatars/${req.session.user.username}.png`)
+                .then(result=> {
+                    req.session.user.avatarpath = `images/user-avatars/${req.session.user.username}.png`;
+                    return res.redirect('/user')
+                })
+                .catch(err=>next(err))
+
+    // return res.status(200).json({ name: filename });
+});
 
 module.exports = router;

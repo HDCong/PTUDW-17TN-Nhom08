@@ -68,8 +68,25 @@ controller.updatePassword = (username,password) => {
     })
 }
 
+controller.updateImagePath = (username,path) => {
+    return new Promise((resolve,reject)=> {
+        userModel.update(
+            {
+                avatarpath: path
+            },
+            {
+                where: {
+                    username: username
+                }
+            }).then((result=>resolve(result)))
+            .catch(err=>reject(new Error(err)))
+    })
+} 
+
 controller.comparePassword = (password, hash) => {
     return bcrypt.compareSync(password, hash);
 }
+
+
 
 module.exports=controller
