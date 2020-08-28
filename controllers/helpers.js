@@ -123,8 +123,8 @@ createStrStar = (stars) => {
 generateForReplies = (replies) => {
     let res = ' '
     replies.forEach(element => {
-
-        res += `<div class="row">
+        if (element.userid != null)
+            res += `<div class="row">
                     <img src="${element.child.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.child.dataValues['avatarpath']}" class="rounded-circle" style="width:30px;">
                     <h6 class ="ml-2"> ${element.child.dataValues['username']}</h6> 
                 </div>
@@ -132,15 +132,17 @@ generateForReplies = (replies) => {
     })
     return res
 }
-function showReplyForUser(user,id){
+function showReplyForUser(user, id,roomid) {
     // console.log(user)
-    if(user!=undefined){
+    if (user != undefined) {
         return `
                 <form action="/review/${id}" method="POST">
                     <div class="row mt-3 ">
                             <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : user['avatarpath']}"
                             style="width:30px;">
-                            <input type="hidden" id="userId" name="userId" value="${user['userId']}">
+                            <input type="hidden" id="userid" name="userid" value="${user.id}">
+                            <input type="hidden" id="reviewId" name="reviewId" value="${id}">
+                            <input type="hidden" id="roomid" name="roomid" value="${roomid}">
                             <input class ="ml-2" type="text" id="content", name="content" placeholder="Your reply">
                     </div>
                 </form>
@@ -168,7 +170,7 @@ helper.showReviews = (reviews, user) => {
                             </div>
                             <div class="comment-reply">
                                 ${generateForReplies(element.CommentReplies)}
-                                ${showReplyForUser(user,element.id)}
+                                ${showReplyForUser(user, element.id,element.roomId)}
                             </div>
                         </div>
                     </div>`
@@ -176,31 +178,31 @@ helper.showReviews = (reviews, user) => {
     });
     return res
 }
-helper.UserReview=(user)=>{
-    if(user!=undefined)
-    return `
+helper.UserReview = (user, id) => {
+    if (user != undefined)
+        return `
                 <div class="media p-3" id="review-yourself">
                         <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : user['avatarpath']}"
                             class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                       <form action="/review" method="POST">
-                        <div class="media-body">
-                            <div class="list-review">
-                                <input type="hidden" id="customRating" name="customRating">
-                                <span class="count-review-star">
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                </span>
-                                <span>Your review</span>
+                            <div class="media-body">
+                                    <div class="list-review">
+                                        <input type="hidden" id="rating" name="rating">
+                                        <input type="hidden" id="userId" name="userId"value="${user.id}">
+                                        <input type="hidden" id="roomId" name="roomId" value=${id}>
+                                        <span class="count-review-star">
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                        </span>
+                                        <span>Your review</span>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" placeholder="Write your review here" class="comment col-6" id="content" name="content">
+                                        <span><button type="submit" class="btn btn-light btn-sm col-">Post</button></span>
+                                    </div>
                             </div>
-                            <div class="row">
-                                <input type="text" placeholder="Write your review here" class="comment col-6" id="content" name="content">
-                                <span><button type="submit" value="submit" class="btn btn-light btn-sm col-">Post</button></span>
-                            </div>
-                        </div>
-                        </form>
                 </div>
             `
 }
