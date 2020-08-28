@@ -22,12 +22,15 @@
     display: grid;
     grid-template-columns: auto auto;
 }
+
 .form-control {
-  border-radius: 0 !important;
-  font-size: 12x;
+    border-radius: 0 !important;
+    font-size: 12x;
 }
 
-.clickable { cursor: pointer; }
+.clickable {
+    cursor: pointer;
+}
 
 .list-rooms {
     padding: 0px 0px 0px 40px;
@@ -131,6 +134,7 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
 .price-range-area {
     padding: 15px 30px 0 30px
 }
@@ -201,37 +205,44 @@
 }
 
 .sidebar-filter {
-    margin-top: 30px
+    margin-top: 30px;
 }
 
 .sidebar-filter .top-filter-head {
     font-family: 'Oswald', sans-serif;
     line-height: 50px;
-    background: #384aeb;
-    padding: 0 30px;
+    background: transparent;
+    padding: 15px 0;
     font-size: 18px;
     font-weight: 400;
-    color: #fff
+    color: #12263a;
 }
 
 .sidebar-filter .head {
     line-height: 60px;
-    padding: 0 30px;
+    background-color: #12263a;
     font-size: 15px;
     font-weight: 400;
-    color: #222;
-    text-transform: capitalize
+    color: white;
+    text-transform: capitalize;
+    padding-left: 10px;
+    margin-bottom: 15px;
 }
 
 .sidebar-filter .common-filter {
-    background: #f1f6f7;
     border-bottom: 1px solid #eee;
-    padding-bottom: 25px
+    padding: 0;
+    padding-bottom: 25px;
+    background-color: rgba(189, 189, 189, 0.4);
+}
+
+.sidebar-filter .common-filter form ul {
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 .sidebar-filter .common-filter .filter-list {
     position: relative;
-    padding-left: 28px
 }
 
 .sidebar-filter .common-filter:last-child {
@@ -253,6 +264,25 @@
 
 .filter-list label {
     margin-bottom: 3px;
+    margin-left: 5px;
     cursor: pointer
 }
 
+.filter-bar {
+    margin-top: -40px;
+    height: 40px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 30px;
+}
+
+.sorting>select {
+    height: 30px !important;
+}
+
+.filter-bar>div {
+    font-size: 16px;
+    height: 25px;
+}

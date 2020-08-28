@@ -28,8 +28,8 @@
             ROOMS
         </div>
         <div class="booking-content row row-mg">
-            <div class="sidebar-filter">
-                <div class="booking-frame ">
+            <div class="sidebar-filter row row-mg col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <div class="booking-frame col-12">
                     <div class="booking-item check-in">
                         <div id="check-in-text">CHECK-IN</div>
                         <div class="number" id="date-in"></div>
@@ -54,8 +54,8 @@
                         </div>
                 </div>
 
-                <div class="top-filter-head">Product Filters</div>
-                <div class="common-filter">
+                <div class="top-filter-head col-12">Product Filters</div>
+                <div class="common-filter col-12">
                     <div class="head">Capacity</div>
                     <form action="#">
                         <ul>
@@ -78,7 +78,7 @@
                     </form>
                 </div>
 
-                <div class="common-filter">
+                <div class="common-filter col-12">
                     <div class="head">Rating</div>
                     <form action="#">
                         <ul>
@@ -95,7 +95,7 @@
                         </ul>
                     </form>
                 </div>
-                <div class="common-filter">
+                <div class="common-filter col-12">
                     <div class="head">Price</div>
                     <div class="price-range-area">
                         <div id="price-range" class="noUi-target noUi-ltr noUi-horizontal">
@@ -112,8 +112,8 @@
                 </div>
             </div>
             <div class="list-rooms row row-mg col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                <div class="filter-bar d-flex flex-wrap align-items-center">
-                    <div class="ml-4 sorting">
+                <div class="filter-bar col-12">
+                    <div class="sorting">
                         <select id="sort" onchange="setParams('sort',this.value)">
                             <option value="price">Sort by price</option>
                             <option value="area">Sort by area</option>
@@ -121,7 +121,7 @@
                             <option value="rating">Sort by rating</option>
                         </select>
                     </div>
-                    <div class="ml-4 sorting mr-auto">
+                    <div class="sorting">
                         <select id="show" onchange="setParams('show',this.value)">
                             <option value="8">Show 8</option>
                             <option value="16">Show 16</option>
@@ -130,10 +130,10 @@
                     </div>
                     <div>
                         <form action="/list" method="GET">
-                            <div class="ml-4 input-group filter-bar-search">
-                                <input type="text" name="search" placeholder="Search">
-                                <div class="input-group-append">
-                                    <button type="submit"><i class="ti-search"></i></button>
+                            <div class="input-group filter-bar-search row">
+                                <input type="text" name="search" placeholder="Search" class = "col-6">
+                                <div class="input-group-append col-6">
+                                    <button type="submit">Search</i></button>
                                 </div>
                             </div>
                         </form>
