@@ -56,6 +56,7 @@ function changeNewAvatar() {
 }
 btnChangePhoto.addEventListener('click', changeNewAvatar)
 
+
 var userInformation = {
     name: 'Sea Diamond',
     email: 'example@example.com',

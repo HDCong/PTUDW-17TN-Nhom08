@@ -2,7 +2,6 @@ let helper = []
 
 helper.createCarousel = (listImagePaths) => {
     if (listImagePaths.length < 1) {
-        console.log('~~~~~~~~~~~~')
         return `<ul class="carousel-indicators">
         <li data-target="#room-images" data-slide-to="0" class="active"></li>
         '</ul>'
@@ -124,8 +123,8 @@ createStrStar = (stars) => {
 generateForReplies = (replies) => {
     let res = ' '
     replies.forEach(element => {
-
-        res += `<div class="row">
+        if (element.userid != null)
+            res += `<div class="row">
                     <img src="${element.child.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.child.dataValues['avatarpath']}" class="rounded-circle" style="width:30px;">
                     <h6 class ="ml-2"> ${element.child.dataValues['username']}</h6> 
                 </div>
@@ -133,12 +132,28 @@ generateForReplies = (replies) => {
     })
     return res
 }
+function showReplyForUser(user, id,roomid) {
+    // console.log(user)
+    if (user != undefined) {
+        return `
+                <form action="/review/${id}" method="POST">
+                    <div class="row mt-3 ">
+                            <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : user['avatarpath']}"
+                            style="width:30px;">
+                            <input type="hidden" id="userid" name="userid" value="${user.id}">
+                            <input type="hidden" id="reviewId" name="reviewId" value="${id}">
+                            <input type="hidden" id="roomid" name="roomid" value="${roomid}">
+                            <input class ="ml-2" type="text" id="content", name="content" placeholder="Your reply">
+                    </div>
+                </form>
+                `;
+    }
+    return ``
+}
 helper.showReviews = (reviews, user) => {
     let res = ''
-    console.log(user)
-
     reviews.forEach(element => {
-        let str = `     <div class="media p-3" id="review-1">
+        let str = `<div class="media p-3" id="review-${element.id}">
                         <img src="${element.parent.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.parent.dataValues['avatarpath']}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                         <div class="media-body">
                             <h6>${element.parent.dataValues['username']} <small></small></h6>
@@ -155,12 +170,7 @@ helper.showReviews = (reviews, user) => {
                             </div>
                             <div class="comment-reply">
                                 ${generateForReplies(element.CommentReplies)}
-                                    {{!--  Generate for user reply--}}
-                                        <div class="row mt-3 ">
-                                         <img src="../images/listrooms-images/avt.jpg" class="rounded-circle"
-                                    style="width:30px;">
-                                <input class ="ml-2" type="text" placeholder="Your reply">
-                                        </div>
+                                ${showReplyForUser(user, element.id,element.roomId)}
                             </div>
                         </div>
                     </div>`
@@ -168,7 +178,34 @@ helper.showReviews = (reviews, user) => {
     });
     return res
 }
-
+helper.UserReview = (user, id) => {
+    if (user != undefined)
+        return `
+                <div class="media p-3" id="review-yourself">
+                        <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : user['avatarpath']}"
+                            class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                            <div class="media-body">
+                                    <div class="list-review">
+                                        <input type="hidden" id="rating" name="rating">
+                                        <input type="hidden" id="userId" name="userId"value="${user.id}">
+                                        <input type="hidden" id="roomId" name="roomId" value=${id}>
+                                        <span class="count-review-star">
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                            <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
+                                        </span>
+                                        <span>Your review</span>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" placeholder="Write your review here" class="comment col-6" id="content" name="content">
+                                        <span><button type="submit" class="btn btn-light btn-sm col-">Post</button></span>
+                                    </div>
+                            </div>
+                </div>
+            `
+}
 helper.createOtherRooms = (random) => {
     return `<div id="list-rooms">
                         <div class="other-room-frame row">

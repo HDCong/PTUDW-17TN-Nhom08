@@ -32,6 +32,7 @@ app.use(express.static(__dirname + '/public'))
 // Handlebars
 var expressHbs = require('express-handlebars')
 var helper = require('./controllers/helpers')
+var paging= require('express-handlebars-paginate')
 var hbs = expressHbs.create({
     extname: 'hbs',
     defaultLayout: 'layout',
@@ -45,6 +46,8 @@ var hbs = expressHbs.create({
         createOverallRating : helper.createOverallRating,
         AvgRating:helper.AvgRating,
         ifEquals:helper.ifEquals,
+        UserReview:helper.UserReview,
+        createPagination:paging.createPagination,
         setYearPicker:helper.setYearPicker,
         setMonthPicker:helper.setMonthPicker,
         setDatePicker:helper.setDatePicker
@@ -62,6 +65,7 @@ app.use('/contact', require('./routes/contactRouter'))
 app.use('/about-us', require('./routes/aboutRouter'))
 app.use('/list', require('./routes/listRoomRouter'))
 app.use('/auth', require('./routes/authRouter'))
+app.use('/review',require('./routes/reviewRouter'))
 
 app.get('/sync', (req, res) => {
     var models = require('./models')

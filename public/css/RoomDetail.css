@@ -370,3 +370,73 @@ body {
 .star-disable{
     color:gray
 }
+/* 
+.sorting {
+    margin-top: 10px;
+    margin-right: 10px
+}
+
+.sorting .nice-select {
+    border-radius: 0px;
+    border: 1px solid #eee;
+    padding-right: 50px;
+    height: 38px;
+    color: #999999
+}
+
+.sorting .nice-select:after {
+    right: 18px
+}
+
+.sorting .nice-select .list {
+    border-radius: 0px
+}
+
+
+.filter-bar {
+    padding: 0px 20px 10px 20px;
+    background: #f1f6f7;
+    margin-bottom: 30px
+}
+
+.filter-bar a,
+.filter-bar i {
+    color: #000
+}
+
+.filter-bar-search {
+    margin-top: 10px
+}
+
+.filter-bar-search input {
+    border: 1px solid #eee;
+    font-size: 14px;
+    color: #999999;
+    height: 38px;
+    padding-left: 15px
+}
+
+.filter-bar-search input:focus {
+    outline: 0;
+    box-shadow: none
+}
+
+.filter-bar-search input::placeholder {
+    color: #999999
+}
+
+.filter-bar-search button {
+    background: transparent;
+    border: 1px solid #eee;
+    background: #fff;
+    border-left: 0;
+    padding-right: 15px
+}
+
+.filter-bar-search button i,
+.filter-bar-search button span {
+    font-size: 14px;
+    color: #999999
+}
+
+ */

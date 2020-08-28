@@ -22,6 +22,12 @@
     display: grid;
     grid-template-columns: auto auto;
 }
+.form-control {
+  border-radius: 0 !important;
+  font-size: 12x;
+}
+
+.clickable { cursor: pointer; }
 
 .list-rooms {
     padding: 0px 0px 0px 40px;
@@ -125,3 +131,128 @@
     text-decoration: underline;
     cursor: pointer;
 }
+.price-range-area {
+    padding: 15px 30px 0 30px
+}
+
+.price-range-area .noUi-target {
+    background: #eee;
+    border-radius: 0px;
+    border: 0px;
+    box-shadow: none
+}
+
+.price-range-area .noUi-base {
+    background: #e8f0f2
+}
+
+.price-range-area .noUi-horizontal {
+    height: 6px
+}
+
+.price-range-area .noUi-connect {
+    background: #e8f0f2;
+    border-radius: 0px;
+    box-shadow: none
+}
+
+.price-range-area .noUi-horizontal .noUi-handle {
+    width: 16px;
+    height: 16px;
+    left: -8px;
+    top: -5px;
+    border-radius: 50%;
+    border: 0px;
+    background: #384aeb;
+    box-shadow: none;
+    cursor: pointer;
+    -webkit-transition: ease 0.1s;
+    -moz-transition: ease 0.1s;
+    -o-transition: ease 0.1s;
+    transition: ease 0.1s
+}
+
+.price-range-area .noUi-horizontal .noUi-handle:focus {
+    outline: none
+}
+
+.price-range-area .noUi-horizontal .noUi-handle:hover {
+    border: 3px solid #384aeb;
+    background: #fff
+}
+
+.price-range-area .noUi-handle::after,
+.price-range-area .noUi-handle::before {
+    display: none
+}
+
+.price-range-area .value-wrapper {
+    margin-top: 15px;
+    color: #777777
+}
+
+.price-range-area .value-wrapper .to {
+    margin: 0 5px
+}
+
+.price-range-area .price {
+    margin-right: 5px;
+    color: #777
+}
+
+.sidebar-filter {
+    margin-top: 30px
+}
+
+.sidebar-filter .top-filter-head {
+    font-family: 'Oswald', sans-serif;
+    line-height: 50px;
+    background: #384aeb;
+    padding: 0 30px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff
+}
+
+.sidebar-filter .head {
+    line-height: 60px;
+    padding: 0 30px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #222;
+    text-transform: capitalize
+}
+
+.sidebar-filter .common-filter {
+    background: #f1f6f7;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 25px
+}
+
+.sidebar-filter .common-filter .filter-list {
+    position: relative;
+    padding-left: 28px
+}
+
+.sidebar-filter .common-filter:last-child {
+    border-bottom: 0
+}
+
+.filter-list {
+    line-height: 32px
+}
+
+.filter-list i {
+    margin-right: 10px;
+    cursor: pointer
+}
+
+.filter-list .number {
+    color: #ccc
+}
+
+.filter-list label {
+    margin-bottom: 3px;
+    cursor: pointer
+}
+

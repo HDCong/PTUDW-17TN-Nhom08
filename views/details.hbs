@@ -23,39 +23,39 @@
                     <li class="nav-item dropdown" id="list-tab-room-detail">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MENU</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" onclick="changeTabRoomDetail(this)">HOME</a>
+                            <a class="dropdown-item"  onclick="changeTabRoomDetail(this)">HOME</a>
                             <a class="dropdown-item" href="#txt-room-name"
                                 onclick="changeTabRoomDetail(this)">DESCRIPTION</a>
-                            <a class="dropdown-item" href="#txt-room-services" onclick="changeTabRoomDetail(this)">ROOM
+                            <a class="dropdown-item" href="#txt-room-services"onclick="changeTabRoomDetail(this)">ROOM
                                 SERVICES</a>
-                            <a class="dropdown-item" href="#txt-other-rooms" onclick="changeTabRoomDetail(this)">OTHER
+                            <a class="dropdown-item" href="#txt-other-rooms"onclick="changeTabRoomDetail(this)">OTHER
                                 ROOMS</a>
-                            <a class="dropdown-item" href="#room-detail-2" onclick="changeTabRoomDetail(this)">ROOM
+                            <a class="dropdown-item" onclick="changeTabRoomDetail(this)">ROOM
                                 REVIEW</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="changeTabRoomDetail(this)">HOME</a>
+                        <a class="nav-link active" onclick="changeTabRoomDetail(this)">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#txt-room-name" onclick="changeTabRoomDetail(this)">DESCRIPTION</a>
+                        <a class="nav-link"  href="#txt-room-name" onclick="changeTabRoomDetail(this)">DESCRIPTION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#txt-room-services" onclick="changeTabRoomDetail(this)">ROOM
+                        <a class="nav-link"  href="#txt-room-services"  onclick="changeTabRoomDetail(this)">ROOM
                             SERVICES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#txt-other-rooms" onclick="changeTabRoomDetail(this)">OTHER ROOMS</a>
+                        <a class="nav-link"href="#txt-other-rooms"  onclick="changeTabRoomDetail(this)">OTHER ROOMS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#room-detail-2" onclick="changeTabRoomDetail(this)">ROOM REVIEW</a>
+                        <a class="nav-link"  onclick="changeTabRoomDetail(this)">ROOM REVIEW</a>
                     </li>
                 </ul>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 price">
                     {{price}}$ / NIGHT
                 </div>
             </div>
-        </div>
+        </div> 
         <div id="room-detail-1" style="display:block">
             <p id="txt-room-name" class="title-page">
                 {{name}}
@@ -93,28 +93,6 @@
                     </div>
                     <p id="txt-room-services" class="title-room">Room Services</p>
                     {{{createRoomServices services}}}
-                    {{!-- <div id="room-services" class="row">
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/swim.png">
-                            <span>Swimming Pool</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/television.png">
-                            <span>Television</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/fastfood.png">
-                            <span>Fast Foods</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/air-conditioner.png">
-                            <span>Air-Conditioner</span>
-                        </div>
-                        <div class="col-4">
-                            <img src="/images/listrooms-images/refrigerator.png">
-                            <span>Refrigerator</span>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 right-frame">
                     <div class="booking-frame">
@@ -138,12 +116,12 @@
                             <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
                             <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
                         </div>
-                        <div class="booking-item nights">
+                        {{!-- <div class="booking-item nights">
                             <div id="nights-text">NIGHTS</div>
                             <div class="number" id="count-nights">1</div>
                             <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
                             <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
-                        </div>
+                        </div> --}}
                         <div id="btn-book-now" class="button" onclick="toBooking()">BOOK NOW</div>
                     </div>
                     <p id="txt-other-rooms" class="title-room">Other Rooms</p>
@@ -159,28 +137,12 @@
                     {{{createOverallRating reviews}}}
                 </div>
                 <div id="txt-product-review" class="title-room">Customer's reviews</div>
+
                 <div id="comment-frame">
-                    <div class="media p-3" id="review-yourself">
-                        <img src="../images/listrooms-images/avt.jpg" alt="Dang Tan Tai"
-                            class="mr-3 mt-3 rounded-circle" style="width:60px;">
-                        <div class="media-body">
-                            <div class="list-review">
-                                <span class="count-review-star">
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                    <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
-                                </span>
-                                <span>Your review</span>
-                            </div>
-                            <div class="row">
-                                <input type="text" placeholder="Write your review here" class="comment col-6" id="your-comment">
-                                <span><button type="button" class="btn btn-light btn-sm col-">Post</button></span>
-                            </div>
-                        </div>
-                    </div>
-                    {{{showReviews reviews user}}}   
+                    <form action="/review" method="POST">
+                        {{{UserReview user id}}}
+                    </form>
+                    {{{showReviews reviews user}}}
                 </div>
             </div>
         </div>

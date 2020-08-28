@@ -154,4 +154,6 @@ function fillStar(element) {
     $(element).attr("class", "button icon-star fas fa-star");
     $(element).prevAll().attr("class", "button icon-star fas fa-star");
     $(element).nextAll().attr("class", "button icon-star far fa-star");
+    document.getElementById("rating").value=
+                    document.getElementsByClassName("button icon-star fas fa-star").length
 }

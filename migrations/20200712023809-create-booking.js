@@ -8,6 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userId: {
+        type: Sequelize.INTEGER
+      },
+      roomId: {
+        type: Sequelize.INTEGER
+      },
       checkin: {
         type: Sequelize.BIGINT
       },

@@ -1,3 +1,6 @@
+<link href="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.min.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.js"></script>
+
 <link rel="stylesheet" type="text/css" href="css/ListRooms-page.css">
 <!-- wrap all content in the page consist of header main content, footer-->
 <div class="main-content container mb-4">
@@ -21,77 +24,194 @@
             ROOMS
         </div>
         <div class="booking-content row row-mg">
-            <div class="booking-frame col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                <div class="booking-item check-in">
-                    <div id="check-in-text">CHECK-IN</div>
-                    <div class="number" id="date-in"></div>
-                    <div class="month" id="month-in"></div>
-                    <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+            <div class="sidebar-filter">
+                <div class="booking-frame ">
+                    <div class="booking-item check-in">
+                        <div id="check-in-text">CHECK-IN</div>
+                        <div class="number" id="date-in"></div>
+                        <div class="month" id="month-in"></div>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                    </div>
+                    <div class="booking-item check-out">
+                        <div id="check-out-text">CHECK-OUT</div>
+                        <div class="number" id="date-out"></div>
+                        <div class="month" id="month-out"></div>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                    </div>
+                    <div class="booking-item guests">
+                        <div id="guests-text">GUESTS</div>
+                        <div class="number" id="count-guests">1</div>
+                        <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
+                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                    </div>
                 </div>
-                <div class="booking-item check-out">
-                    <div id="check-out-text">CHECK-OUT</div>
-                    <div class="number" id="date-out"></div>
-                    <div class="month" id="month-out"></div>
-                    <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+
+                <div class="top-filter-head">Product Filters</div>
+                <div class="common-filter">
+                    <div class="head">Capacity</div>
+                    <form action="#">
+                        <ul>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="capacity-1"
+                                    name="capacity"><label for="capacity-1" onclick="setParams('capacity',1)"> 1</label>
+                            </li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="capacity-2"
+                                    name="capacity"><label for="capacity-2" onclick="setParams('capacity',2)"> 2</label>
+                            </li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="capacity-5"
+                                    name="capacity"><label for="capacity-5" onclick="setParams('capacity',5)"> 5</label>
+                            </li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="capacity-10"
+                                    name="capacity"><label for="capacity-10" onclick="setParams('capacity',10)">
+                                    10</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="capacity-1000"
+                                    name="capacity"><label for="capacity-1000" onclick="setParams('capacity',1000)">
+                                    10+</label></li>
+                        </ul>
+                    </form>
                 </div>
-                <div class="booking-item guests">
-                    <div id="guests-text">GUESTS</div>
-                    <div class="number" id="count-guests">1</div>
-                    <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
-                    <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+
+                <div class="common-filter">
+                    <div class="head">Rating</div>
+                    <form action="#">
+                        <ul>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="rating-1"
+                                    name="rating"><label for="rating-1" onclick="setParams('rating',1)"> 1</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="rating-2"
+                                    name="rating"><label for="rating-2" onclick="setParams('rating',2)"> 2</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="rating-3"
+                                    name="rating"><label for="rating-3" onclick="setParams('rating',3)"> 3</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="rating-4"
+                                    name="rating"><label for="rating-4" onclick="setParams('rating',4)"> 4</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="radio" id="rating-5"
+                                    name="rating"><label for="rating-5" onclick="setParams('rating',5)"> 5</label></li>
+                        </ul>
+                    </form>
                 </div>
-                <div class="booking-item nights">
-                    <div id="nights-text">NIGHTS</div>
-                    <div class="number" id="count-nights">1</div>
-                    <i class="fas fa-caret-up button" onclick="upNumber(this)"></i>
-                    <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                <div class="common-filter">
+                    <div class="head">Price</div>
+                    <div class="price-range-area">
+                        <div id="price-range" class="noUi-target noUi-ltr noUi-horizontal">
+                        </div>
+                        <div class="value-wrapper d-flex">
+                            <div class="price">Price:</div>
+                            <span>$</span>
+                            <div id="lower-value">0.00</div>
+                            <div class="to">to</div>
+                            <span>$</span>
+                            <div id="upper-value">3000.00</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="list-rooms row row-mg col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                 <div class="filter-bar d-flex flex-wrap align-items-center">
-            <div class="sorting">
-              <select style="display: none;">
-                <option value="1">Default sorting</option>
-                <option value="1">Default sorting</option>
-                <option value="1">Default sorting</option>
-              </select><div class="nice-select" tabindex="0"><span class="current">Default sorting</span><ul class="list"><li data-value="1" class="option selected">Default sorting</li><li data-value="1" class="option">Default sorting</li><li data-value="1" class="option">Default sorting</li></ul></div>
-            </div>
-            <div class="sorting mr-auto">
-              <select style="display: none;">
-                <option value="1">Show 12</option>
-                <option value="1">Show 12</option>
-                <option value="1">Show 12</option>
-              </select><div class="nice-select" tabindex="0"><span class="current">Show 12</span><ul class="list"><li data-value="1" class="option selected">Show 12</li><li data-value="1" class="option">Show 12</li><li data-value="1" class="option">Show 12</li></ul></div>
-            </div>
-            <div>
-              <div class="input-group filter-bar-search">
-                <input type="text" placeholder="Search">
-                <div class="input-group-append">
-                  <button type="button"><i class="ti-search"></i></button>
+                    <div class="ml-4 sorting">
+                        <select id="sort" onchange="setParams('sort',this.value)">
+                            <option value="price">Sort by price</option>
+                            <option value="area">Sort by area</option>
+                            <option value="capacity">Sort by capacity</option>
+                            <option value="rating">Sort by rating</option>
+                        </select>
+                    </div>
+                    <div class="ml-4 sorting mr-auto">
+                        <select id="show" onchange="setParams('show',this.value)">
+                            <option value="8">Show 8</option>
+                            <option value="16">Show 16</option>
+                            <option value="24">Show 24</option>
+                        </select>
+                    </div>
+                    <div>
+                        <form action="/list" method="GET">
+                            <div class="ml-4 input-group filter-bar-search">
+                                <input type="text" name="search" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button type="submit"><i class="ti-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
                 {{#each rooms}}
-                    <div class="room room8 col-5">
-                        <img class="room-image" src="{{imagepath}}">
-                        <div class="info-room">
-                            <span id ="{{id}}"class="btn-detail button" onclick="toRoomDetail()">Thông tin chi tiết</span>
+                <div class="room room8 col-5">
+                    <img class="room-image" src="{{imagepath}}">
+                    <div class="info-room">
+                        <div class="first-row">
+                            <span>{{name}}</span>
+                            <span>${{price}}</span>
                             <img class="icon-account" src="images/listrooms-images/account.png">
                             <span class="count-person">{{count}}</span>
                         </div>
+                        <div class="second-row">
+
+                            <span id="{{id}}" class="btn-detail button" onclick="toRoomDetail({{id}})">Thông tin chi
+                                tiết</span>
+                        </div>
+
                     </div>
+                </div>
                 {{/each}}
+
             </div>
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <nav aria-label="Pagination" id="pagination">
 
+            {{{createPagination pagination paginationClass="pagination"}}}
+        </nav>
+    </div>
 </div>
 <script src="js/ListRooms-page.js"></script>
+
+<script>
+    let urlParams = new URLSearchParams(location.search)
+    let params = {
+        capacity: 0,
+        rating: 0,
+        min: 0,
+        max: 1000,
+        show: 8,
+        page: 1,
+        sort: 'price',
+        search: ''
+    }
+    for (let key in params) {
+        if (!urlParams.has(key)) {
+            urlParams.append(key, params[key])
+        }
+    }
+
+    $(document).ready(() => {
+
+        for (let key in params) {
+            let control = $(`#${key}-${urlParams.get(key)}`)
+            if (control) {
+                $(control).prop('checked', true)
+            }
+        }
+        $('#sort').val(urlParams.get('sort'))
+        $('#show').val(urlParams.get('show'))
+
+
+        $('#pagination li').addClass('page-item')
+        $('#pagination li a').addClass('page-link')
+        var oldPage = urlParams.get('page')
+        $('#pagination li a').each((index, item) => {
+            var page = $(item).attr('href').split('=')[1]
+            urlParams.set('page', page)
+            let href_new = '/list?' + urlParams.toString()
+            $(item).attr('href', href_new)
+        })
+        urlParams.set('page', oldPage)
+    })
+
+
+
+    function setParams(key, value) {
+        urlParams.set(key, value)
+        let url = `/list?${urlParams.toString()}`
+        location.href = url
+    }
+
+</script>
