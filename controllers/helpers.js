@@ -36,7 +36,8 @@ helper.createCarousel = (listImagePaths) => {
         strInner +=
             `<div class="carousel-item">
         <img src="${listImagePaths[i].imagepath}" height="400">
-        </div>`}
+        </div>`
+    }
 
     strInner += `</div> 
         <a class="carousel-control-prev" href="#room-images" data-slide="prev">
@@ -51,22 +52,28 @@ helper.createRoomServices = (services) => {
     let str = `
                         <div id="room-services" class="row">`
     services.forEach(e => {
-        let src = '', text = ''
+        let src = '',
+            text = ''
 
         switch (e.service) {
-            case 1: src = '/images/listrooms-images/swim.png'
+            case 1:
+                src = '/images/listrooms-images/swim.png'
                 text = 'Swimming Pool'
                 break;
-            case 2: src = '/images/listrooms-images/television.png'
+            case 2:
+                src = '/images/listrooms-images/television.png'
                 text = 'TV'
                 break;
-            case 3: src = '/images/listrooms-images/fastfood.png'
+            case 3:
+                src = '/images/listrooms-images/fastfood.png'
                 text = 'Fast Food'
                 break;
-            case 4: src = '/images/listrooms-images/air-conditioner.png'
+            case 4:
+                src = '/images/listrooms-images/air-conditioner.png'
                 text = 'Air-Conditioner'
                 break;
-            case 5: src = '/images/listrooms-images/refrigerator.png'
+            case 5:
+                src = '/images/listrooms-images/refrigerator.png'
                 text = 'Refrigerator'
                 break;
             default:
@@ -89,29 +96,25 @@ createStrStar = (stars) => {
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>`
-    }
-    else if (stars == 4) {
+    } else if (stars == 4) {
         return ` <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>`
-    }
-    else if (stars == 3) {
+    } else if (stars == 3) {
         return ` <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>`
-    }
-    else if (stars == 2) {
+    } else if (stars == 2) {
         return ` <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>`
-    }
-    else {
+    } else {
         return ` <div class="icon-star fas fa-star"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>
                                     <div class="icon-star fas fa-star star-disable"></div>
@@ -132,6 +135,7 @@ generateForReplies = (replies) => {
     })
     return res
 }
+
 function showReplyForUser(user, id, roomid) {
     // console.log(user)
     if (user != undefined) {
@@ -374,18 +378,18 @@ helper.AvgRating = (reviews) => {
     return createStrStar(calcAvg(reviews)[0])
 }
 
-helper.ifEquals = function (arg1, arg2, options) {
+helper.ifEquals = function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 }
 
-helper.birthdayToMillis = function (date, month, year) {
+helper.birthdayToMillis = function(date, month, year) {
     var date = new Date(year, month, date); // some mock date
     var milliseconds = date.getTime();
 
     return milliseconds
 }
 
-helper.getBirthdayFromMillis = function (millis) {
+helper.getBirthdayFromMillis = function(millis) {
     var d = new Date(Number(millis));
     var birthday = {
         date: d.getDate(),
@@ -399,7 +403,7 @@ helper.getBirthdayFromMillis = function (millis) {
 helper.getHistoryDetail = function(checkin) {
     // console.log("HELPER: " + checkin)
     var d = new Date(Number(checkin))
-    
+
     var date = d.getDate();
     var month = d.getMonth();
     var year = d.getFullYear();
@@ -410,28 +414,31 @@ helper.getHistoryDetail = function(checkin) {
             <div class="cart_item_text m-1"> ${date}th </div>
             <div class="cart_item_text  m-1">${year}</div>`
 }
-helper.createToBooking = function (id, user) {
+
+helper.createToBooking = function(id, user) {
     if (user != undefined)
         return `<div id="btn-book-now" class="button" onclick="toBooking(${id}, ${user.id})">BOOK NOW</div>`
     return `<div id="btn-book-now" class="button" onclick="toBooking(${id})">BOOK NOW</div>`
 
 }
+
 function getDayMonthYear(value) {
     let date = new Date(value)
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return [date.getDate(), date.getMonth()+ 1, date.getFullYear(), days[date.getDay()]]
+    return [date.getDate(), date.getMonth() + 1, date.getFullYear(), days[date.getDay()]]
 }
+
 function getDifDays(value1, value2) {
-    
+
     var Difference_In_Time = value1 - value2;
     // To calculate the no. of days between two dates 
     return Math.floor(Difference_In_Time / (1000 * 3600 * 24));
 }
-helper.createReservation = function (name, price, information) {
+helper.createReservation = function(name, price, information) {
     // console.log('helpr room: ', room)
     let checkinDay = getDayMonthYear(information['checkin'])
     let checkoutDay = getDayMonthYear(information['checkout'])
-    return  `<div class="board-booking col-lg-4">
+    return `<div class="board-booking col-lg-4">
       <div class="img-detail-small">
           ${name}
       </div>
