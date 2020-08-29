@@ -32,7 +32,7 @@ router.get('/', (req, res, next) => {
     var roomController = require('../controllers/roomController')
     roomController.getInfRoom(req.query.room)
         .then(room => {
-            console.log(room)
+            // console.log(room)
             newdata = room.dataValues
             newdata.user = user;
             newdata.information = information
@@ -44,13 +44,13 @@ router.post('/', (req, res, next) => {
     if (req.body.userId == null || req.body.userId == undefined || req.body.userId.trim() == '') {
         req.body.userId = 1
     }
-    console.log('req.body: ', req.body.userId)
-    console.log(req.body.userId)
+    // console.log('req.body: ', req.body.userId)
+    // console.log(req.body.userId)
 
     var bookingController = require('../controllers/bookingController')
     bookingController.add(req.body)
         .then(data => {
-            console.log(data)
+            console.log("BOOKING: " , data)
             res.redirect('/')
         }).catch(er => next(er))
 })
