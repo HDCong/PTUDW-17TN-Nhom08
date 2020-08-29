@@ -4,7 +4,7 @@ let homepageController = require('../controllers/homepageController')
 
 router.get('/',(req,res)=>{
     req.params.active="home"
-
+    // res.render('booking-details', req.params) 
     homepageController.getTopThree()
                     .then(rooms => {
                         topInfo = rooms.map(item => {

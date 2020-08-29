@@ -1,0 +1,100 @@
+#bookingdetail {
+    color: #12263a;
+    font-size: 16px;
+}
+
+#your-reservation-frame {
+    background-color: rgba(18, 38, 58, 0.9);
+    padding: 15px;
+    text-align: center;
+}
+
+#reservation-title {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#img {
+    background-image: url("../images/booking-images/room8.jpg");
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#reservation {
+    display: flex;
+}
+
+#reservation>div {
+    padding: 20px 0;
+    background-color: rgba(18, 38, 58, 1);
+    color: white;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.date>div:nth-child(1) {
+    font-size: 18px;
+}
+
+.date>div:nth-child(2) {
+    margin: 5px auto;
+    font-size: 40px;
+}
+
+.date>div:nth-child(3) {
+    font-style: italic;
+}
+
+.no-date>div:nth-child(1) {
+    font-size: 25px;
+}
+
+#total {
+    background-color: #12263A;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#total-number {
+    font-size: 40px;
+    margin-right: 5px;
+}
+
+#booking-right>div {
+    margin-top: 25px;
+}
+
+#booking-right-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+#order-transaction {
+    margin-bottom: 20px;
+}
+
+.description {
+    color: rgba(18, 38, 58, 0.5);
+}
+
+#user-info>div {
+    margin-bottom: 10px;
+}
+
+#requests {
+    margin-top: 10px;
+}
+
+#btn-return {
+    padding: 10px 0px;
+    background-color: #12263A;
+    width: 250px;
+    color: white;
+    text-align: center;
+}
