@@ -12,7 +12,6 @@ controller.getAll = (query) => {
         let options = {
             attributes: ['id', 'imagepath', 'name', 'count', 'price', 'capacity', 'rating', 'area'],
             where: {
-                isbooking: false,
                 price: {
                     [Op.gte]: query.min,
                     [Op.lte]: query.max

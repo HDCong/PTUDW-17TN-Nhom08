@@ -11,12 +11,21 @@
   <div class="row booking-section">
     {{{createReservation name price information}}}
     <div class="optional-booking col-lg-8">
+      {{#if user}}
+      <p class="notify-user" id="notify-guest" style="display:none">
+        You are booking as guest,
+        <a style="color: #fff;" href="#">LOGIN</a> or
+        <a style="color: #fff;" href="#">REGISTER</a> if you want to save
+        your reservation on your account.
+      </p>
+      {{else}}
       <p class="notify-user" id="notify-guest">
         You are booking as guest,
         <a style="color: #fff;" href="#">LOGIN</a> or
         <a style="color: #fff;" href="#">REGISTER</a> if you want to save
         your reservation on your account.
       </p>
+      {{/if}}
       <div class="more-service">
         <h6 class="text-center">MORE SERVICES</h6>
         <div class="container">
@@ -40,10 +49,10 @@
               <input type="hidden" for="checkin" id="checkin" name="checkin" value="{{information.checkin}}">
               <input type="hidden" for="checkout" id="checkout" name="checkout" value="{{information.checkout}}">
               <input type="hidden" for="total" id="total" name="total" value="{{price}}">
+              <input type="hidden" id="guest" name="numofguest" value="{{information.guest}}">
               <input type="hidden" for="services" id="services" name="services" value="">
               <label for="cusname">Name*</label>
-              <input type="text " class="form-control" name="cusname" id="cusname" placeholder="Your name "
-                required />
+              <input type="text " class="form-control" name="cusname" id="cusname" placeholder="Your name " required />
               <label style="font-size: 12px; color: red; display: inline;">Name is require</label>
             </div>
             <div class="form-group col-md-6 p-1">
@@ -56,8 +65,8 @@
           <div class="form-row p-1">
             <div class="form-group col-md-6 p-1">
               <label for="cusmail ">Email*</label>
-              <input type="email" class="form-control" for="cusmail" name="cusmail" id="cusmail"
-                placeholder="Email " required />
+              <input type="email" class="form-control" for="cusmail" name="cusmail" id="cusmail" placeholder="Email "
+                required />
               <label style="font-size: 12px; color: red; display: inline;">Email is require</label>
             </div>
             <div class="form-group col-md-4 p-1">
@@ -72,7 +81,7 @@
 
           <div class="form-group p-1">
             <label for="request ">Requests</label>
-            <textarea class="form-control" id="request " name="request"rows="4 "></textarea>
+            <textarea class="form-control" id="request " name="request" rows="4 "></textarea>
           </div>
           <div class="form-row p-1">
             <div class="form-group col-md-4 p-1">

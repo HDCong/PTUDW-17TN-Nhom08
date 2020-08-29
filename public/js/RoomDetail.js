@@ -22,7 +22,13 @@ const arrMonth = [
   "Dec",
 ];
 const dateOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
+function getDiff() {
+  var date1 = $("#dp1").datepicker("getDate");
+  var date2 = $("#dp2").datepicker("getDate");
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  count_nights.innerHTML = diffDays
+}
 $(document).ready(function () {
   changeMenuStyle();
   var day1 = $("#dp1").datepicker("getDate");
@@ -31,6 +37,15 @@ $(document).ready(function () {
   date_out.innerHTML = day2.getDate();
   month_in.innerHTML = arrMonth[day1.getMonth()];
   month_out.innerHTML = arrMonth[day2.getMonth()];
+  getDiff()
+  document.getElementsByClassName("booking-item")[0].addEventListener("click", function () {
+    console.log('check in click')
+    $('#dp1').focus()
+  });
+  document.getElementsByClassName("booking-item")[1].addEventListener("click", function () {
+    console.log('check out click')
+    $('#dp2').focus()
+  });
 });
 
 $(window).resize(function () {
@@ -107,13 +122,15 @@ function changeDateUI() {
   date_out.innerHTML = day2.getDate();
   month_in.innerHTML = arrMonth[day1.getMonth()];
   month_out.innerHTML = arrMonth[day2.getMonth()];
+  getDiff()
 }
 
-function toBooking(id, user = 0) {
+function toBooking(id, user = 1) {
   let checkin = new Date(document.getElementById("dp1").value).valueOf();
   let checkout = new Date(document.getElementById("dp2").value).valueOf();
-  let str = `/booking?room=${id}&in=${checkin}&out=${checkout}$user=${user}`;
-  console.log(str);
+  let numGuest = document.getElementById("count-guests").innerHTML
+  let str = `/booking?room=${id}&num=${numGuest}&in=${checkin}&out=${checkout}&user=${user}`;
+  // alert(str)
   window.location = str;
 }
 
@@ -163,7 +180,7 @@ var checkin = $("#dp1")
     changeMonth: true,
     changeYear: true,
     showButtonPanel: true,
-    dateFormat: "dd-mm-yy",
+    // dateFormat: "dd-mm-yy",
     minDate: now,
     onSelect: function (dateText) {
       console.log("check in select date");
@@ -194,9 +211,9 @@ var checkout = $("#dp2")
     changeMonth: true,
     changeYear: true,
     showButtonPanel: true,
-    dateFormat: "dd-mm-yy",
+    // dateFormat: "dd-mm-yy",
     minDate: tomorrow,
     autoclose: true,
   })
-  .on("changeDate", function (ev) {})
+  .on("changeDate", function (ev) { })
   .datepicker("setDate", tomorrow);

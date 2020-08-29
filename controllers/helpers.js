@@ -4,7 +4,7 @@ helper.createCarousel = (listImagePaths) => {
     if (listImagePaths.length < 1) {
         return `<ul class="carousel-indicators">
         <li data-target="#room-images" data-slide-to="0" class="active"></li>
-        '</ul>'
+        </ul>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="../images/logos/logo_v1.png" height="400">
@@ -49,13 +49,19 @@ helper.createCarousel = (listImagePaths) => {
     return strIndicator + strInner;
 }
 helper.createRoomServices = (services) => {
+    let ser = []
+    services.forEach(element => {
+        console.log(element.service)
+        ser.push(element.service)
+    })
+    let newservices = new Set(ser)
+    console.log(newservices)
     let str = `
                         <div id="room-services" class="row">`
-    services.forEach(e => {
+    newservices.forEach(e => {
         let src = '',
             text = ''
-
-        switch (e.service) {
+        switch (e) {
             case 1:
                 src = '/images/listrooms-images/swim.png'
                 text = 'Swimming Pool'
@@ -75,6 +81,18 @@ helper.createRoomServices = (services) => {
             case 5:
                 src = '/images/listrooms-images/refrigerator.png'
                 text = 'Refrigerator'
+                break;
+            case 6:
+                src = '/images/room-services/icon-garden.png'
+                text = 'Garden'
+                break;
+            case 7:
+                src = '/images/room-services/icon-mountain.png'
+                text = 'Mountain'
+                break;
+            case 8:
+                src = '/images/room-services/icon-wifi.png'
+                text = 'Wifi'
                 break;
             default:
                 src = '/images/listrooms-images/television.png'
@@ -128,7 +146,7 @@ generateForReplies = (replies) => {
     replies.forEach(element => {
         if (element.userid != null)
             res += `<div class="row">
-                    <img src="${element.child.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.child.dataValues['avatarpath']}" class="rounded-circle" style="width:30px;">
+                    <img src="${element.child.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : '../' + element.child.dataValues['avatarpath']}" class="rounded-circle" style="width:30px;">
                     <h6 class ="ml-2"> ${element.child.dataValues['username']}</h6> 
                 </div>
                 <p class="comment ml-3">${element.content}</p>`
@@ -139,15 +157,16 @@ generateForReplies = (replies) => {
 function showReplyForUser(user, id, roomid) {
     // console.log(user)
     if (user != undefined) {
+        console.log(user['avatarpath'])
         return `
                 <form action="/review/${id}" method="POST">
                     <div class="row mt-3 ">
-                            <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : user['avatarpath']}"
+                            <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : '../' + user['avatarpath']}"
                             style="width:30px;">
                             <input type="hidden" id="userid" name="userid" value="${user.id}">
-                            <input type="hidden" id="reviewId" name="reviewId" value="${id}">
-                            <input type="hidden" id="roomid" name="roomid" value="${roomid}">
-                            <input class ="ml-2" type="text" id="content", name="content" placeholder="Your reply">
+                            <input type="hidden" id="reviewId${id}" name="reviewId" value="${id}">
+                            <input type="hidden" id="roomid${roomid}" name="roomid" value="${roomid}">
+                            <input class ="ml-2" type="text" id="content${id}-${roomid}", name="content" placeholder="Your reply">
                     </div>
                 </form>
                 `;
@@ -158,7 +177,7 @@ helper.showReviews = (reviews, user) => {
     let res = ''
     reviews.forEach(element => {
         let str = `<div class="media p-3" id="review-${element.id}">
-                        <img src="${element.parent.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : element.parent.dataValues['avatarpath']}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <img src="${element.parent.dataValues['avatarpath'] == null ? '../images/logos/logo_v1.png' : '../' + element.parent.dataValues['avatarpath']}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                         <div class="media-body">
                             <h6>${element.parent.dataValues['username']} <small></small></h6>
                             <div class="list-review">
@@ -186,13 +205,13 @@ helper.UserReview = (user, id) => {
     if (user != undefined)
         return `
                 <div class="media p-3" id="review-yourself">
-                        <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : user['avatarpath']}"
+                        <img src="${user['avatarpath'] == null ? '../images/logos/logo_v1.png' : '../' + user['avatarpath']}"
                             class="mr-3 mt-3 rounded-circle" style="width:60px;">
                             <div class="media-body">
                                     <div class="list-review">
                                         <input type="hidden" id="rating" name="rating">
-                                        <input type="hidden" id="userId" name="userId"value="${user.id}">
-                                        <input type="hidden" id="roomId" name="roomId" value=${id}>
+                                        <input type="hidden" id="userId${user.id}" name="userId"value="${user.id}">
+                                        <input type="hidden" id="roomId${id}" name="roomId" value=${id}>
                                         <span class="count-review-star">
                                             <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
                                             <div class="button icon-star far fa-star" onclick="fillStar(this)"></div>
@@ -244,8 +263,11 @@ helper.createOtherRooms = (random, user) => {
                     </div>`
 }
 calcAvg = (reviews) => {
-    var total = 0.0;
     var dataRating = Array(6).fill(0)
+    if (reviews.length < 1) {
+        return [5, dataRating]
+    }
+    var total = 0.0;
     for (var i = 0; i < reviews.length; i++) {
         total += reviews[i].rating;
         // console.log(reviews[i].rating)
@@ -378,18 +400,18 @@ helper.AvgRating = (reviews) => {
     return createStrStar(calcAvg(reviews)[0])
 }
 
-helper.ifEquals = function(arg1, arg2, options) {
+helper.ifEquals = function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 }
 
-helper.birthdayToMillis = function(date, month, year) {
+helper.birthdayToMillis = function (date, month, year) {
     var date = new Date(year, month, date); // some mock date
     var milliseconds = date.getTime();
 
     return milliseconds
 }
 
-helper.getBirthdayFromMillis = function(millis) {
+helper.getBirthdayFromMillis = function (millis) {
     var d = new Date(Number(millis));
     var birthday = {
         date: d.getDate(),
@@ -400,7 +422,7 @@ helper.getBirthdayFromMillis = function(millis) {
     return birthday
 }
 
-helper.getHistoryDetail = function(checkin) {
+helper.getHistoryDetail = function (checkin) {
     // console.log("HELPER: " + checkin)
     var d = new Date(Number(checkin))
 
@@ -415,7 +437,7 @@ helper.getHistoryDetail = function(checkin) {
             <div class="cart_item_text  m-1">${year}</div>`
 }
 
-helper.createToBooking = function(id, user) {
+helper.createToBooking = function (id, user) {
     if (user != undefined)
         return `<div id="btn-book-now" class="button" onclick="toBooking(${id}, ${user.id})">BOOK NOW</div>`
     return `<div id="btn-book-now" class="button" onclick="toBooking(${id})">BOOK NOW</div>`
@@ -423,21 +445,25 @@ helper.createToBooking = function(id, user) {
 }
 
 function getDayMonthYear(value) {
-    let date = new Date(value)
+    let date = new Date(Number(value))
+    console.log('value: ', value)
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return [date.getDate(), date.getMonth() + 1, date.getFullYear(), days[date.getDay()]]
 }
 
 function getDifDays(value1, value2) {
 
-    var Difference_In_Time = value1 - value2;
+    var Difference_In_Time = Math.abs(value1 - value2);
     // To calculate the no. of days between two dates 
     return Math.floor(Difference_In_Time / (1000 * 3600 * 24));
 }
-helper.createReservation = function(name, price, information) {
+helper.createReservation = function (name, price, information) {
     // console.log('helpr room: ', room)
     let checkinDay = getDayMonthYear(information['checkin'])
     let checkoutDay = getDayMonthYear(information['checkout'])
+    console.log(checkinDay)
+    console.log(checkoutDay)
+
     return `<div class="board-booking col-lg-4">
       <div class="img-detail-small">
           ${name}
@@ -468,18 +494,37 @@ helper.createReservation = function(name, price, information) {
             <p>GUESTS</p>
           </div>
           <div class="text-center col-6 quantity">
-            <h2 id="number-of-night">${getDifDays(information['checkout'],information['checkin'])}</h2>
+            <h2 id="number-of-night">${getDifDays(information['checkout'], information['checkin'])}</h2>
             <p>NIGHTS</p>
           </div>
         </div>
         <div class="row p-3">
           <div class="text-center col-12">
-            <h2 id="total-price">${price}$
+            <h2 id="total-price">${(price * getDifDays(information['checkout'], information['checkin'])).toFixed(2)}$
             </h2>
           </div>
         </div>
       </div>
-    </div>`
+    </div> 
+`
+}
+
+helper.generatedate = function (millis) {
+    let date = new Date(Number(millis))
+    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+
+    return `<div>${date.getDate()}</div>
+            <div>${months[date.getMonth()]}, ${date.getFullYear()}</div>
+            <div>${days[date.getDay()]}</div>`
+}
+
+helper.getnights = function (checkin, checkout) {
+    let date1 = new Date(Number(checkin))
+    let date2 = new Date(Number(checkout))
+    let diffTime = Math.abs(date2 - date1);
+
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 }
 
 module.exports = helper
