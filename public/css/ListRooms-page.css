@@ -15,7 +15,6 @@
 }
 
 .booking-frame {
-    height: 15em;
     background-color: #12263A;
     margin-bottom: 30px;
     padding: 30px 15px;
@@ -294,9 +293,13 @@
 }
 
 #filter-bar-search input {
-    width: 70%;
+    width: 60%;
     margin-right: 15px;
     padding: 5px 10px;
+}
+
+.input-group {
+    margin: 0;
 }
 
 #filter-bar-search button {
