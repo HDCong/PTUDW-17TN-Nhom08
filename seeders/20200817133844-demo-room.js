@@ -2,514 +2,236 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-      // let data =[{
-      //   "price": 85.41,
-      //   "imagepath": "http://dummyimage.com/450x447.bmp/5fa2dd/ffffff",
-      //   "rating": 2,
-      //   "name": "Corvette",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 68,
-      //   "count": 79
-      // }, {
-      //   "price": 217.8,
-      //   "imagepath": "http://dummyimage.com/483x467.bmp/ff4444/ffffff",
-      //   "rating": 4,
-      //   "name": "Express 2500",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 10,
-      //   "area": 63,
-      //   "count": 116
-      // }, {
-      //   "price": 244.34,
-      //   "imagepath": "http://dummyimage.com/484x526.jpg/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "Bronco",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 75,
-      //   "count": 162
-      // }, {
-      //   "price": 118.07,
-      //   "imagepath": "http://dummyimage.com/437x557.bmp/ff4444/ffffff",
-      //   "rating": 5,
-      //   "name": "Liberty",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 64,
-      //   "count": 142
-      // }, {
-      //   "price": 286.34,
-      //   "imagepath": "http://dummyimage.com/446x435.bmp/ff4444/ffffff",
-      //   "rating": 5,
-      //   "name": "Accord",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 5,
-      //   "area": 55,
-      //   "count": 72
-      // }, {
-      //   "price": 273.16,
-      //   "imagepath": "http://dummyimage.com/514x599.png/cc0000/ffffff",
-      //   "rating": 5,
-      //   "name": "Civic",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 5,
-      //   "area": 68,
-      //   "count": 46
-      // }, {
-      //   "price": 98.69,
-      //   "imagepath": "http://dummyimage.com/535x419.png/ff4444/ffffff",
-      //   "rating": 2,
-      //   "name": "Grand Caravan",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 7,
-      //   "area": 35,
-      //   "count": 168
-      // }, {
-      //   "price": 159.57,
-      //   "imagepath": "http://dummyimage.com/538x587.bmp/5fa2dd/ffffff",
-      //   "rating": 4,
-      //   "name": "Accent",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 8,
-      //   "area": 59,
-      //   "count": 131
-      // }, {
-      //   "price": 154.25,
-      //   "imagepath": "http://dummyimage.com/539x536.bmp/dddddd/000000",
-      //   "rating": 3,
-      //   "name": "Electra",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 67,
-      //   "count": 66
-      // }, {
-      //   "price": 161.1,
-      //   "imagepath": "http://dummyimage.com/442x473.jpg/5fa2dd/ffffff",
-      //   "rating": 2,
-      //   "name": "Miata MX-5",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 34,
-      //   "count": 153
-      // }, {
-      //   "price": 53.9,
-      //   "imagepath": "http://dummyimage.com/529x405.bmp/dddddd/000000",
-      //   "rating": 4,
-      //   "name": "CTS",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 37,
-      //   "count": 175
-      // }, {
-      //   "price": 155.82,
-      //   "imagepath": "http://dummyimage.com/511x402.bmp/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "STS-V",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 37,
-      //   "count": 139
-      // }, {
-      //   "price": 267.19,
-      //   "imagepath": "http://dummyimage.com/493x471.png/dddddd/000000",
-      //   "rating": 5,
-      //   "name": "SC",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 4,
-      //   "area": 22,
-      //   "count": 53
-      // }, {
-      //   "price": 249.37,
-      //   "imagepath": "http://dummyimage.com/524x575.png/dddddd/000000",
-      //   "rating": 4,
-      //   "name": "Blackwood",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 7,
-      //   "area": 58,
-      //   "count": 126
-      // }, {
-      //   "price": 278.59,
-      //   "imagepath": "http://dummyimage.com/412x464.png/5fa2dd/ffffff",
-      //   "rating": 4,
-      //   "name": "57",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 2,
-      //   "area": 24,
-      //   "count": 156
-      // }, {
-      //   "price": 74.16,
-      //   "imagepath": "http://dummyimage.com/596x480.jpg/dddddd/000000",
-      //   "rating": 5,
-      //   "name": "New Beetle",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 10,
-      //   "area": 44,
-      //   "count": 98
-      // }, {
-      //   "price": 272.91,
-      //   "imagepath": "http://dummyimage.com/429x400.png/cc0000/ffffff",
-      //   "rating": 5,
-      //   "name": "Seville",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 42,
-      //   "count": 68
-      // }, {
-      //   "price": 214.4,
-      //   "imagepath": "http://dummyimage.com/525x458.bmp/dddddd/000000",
-      //   "rating": 5,
-      //   "name": "Safari",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 6,
-      //   "area": 45,
-      //   "count": 165
-      // }, {
-      //   "price": 298.81,
-      //   "imagepath": "http://dummyimage.com/500x531.png/dddddd/000000",
-      //   "rating": 3,
-      //   "name": "Clubman",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 10,
-      //   "area": 41,
-      //   "count": 131
-      // }, {
-      //   "price": 182.33,
-      //   "imagepath": "http://dummyimage.com/526x435.jpg/ff4444/ffffff",
-      //   "rating": 5,
-      //   "name": "Crown Victoria",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 5,
-      //   "area": 61,
-      //   "count": 58
-      // }, {
-      //   "price": 52.39,
-      //   "imagepath": "http://dummyimage.com/494x508.jpg/dddddd/000000",
-      //   "rating": 2,
-      //   "name": "XJ",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 2,
-      //   "area": 58,
-      //   "count": 165
-      // }, {
-      //   "price": 277.8,
-      //   "imagepath": "http://dummyimage.com/563x443.jpg/5fa2dd/ffffff",
-      //   "rating": 4,
-      //   "name": "Cutlass Supreme",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 10,
-      //   "area": 50,
-      //   "count": 97
-      // }, {
-      //   "price": 221.27,
-      //   "imagepath": "http://dummyimage.com/479x498.bmp/cc0000/ffffff",
-      //   "rating": 5,
-      //   "name": "XK",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 7,
-      //   "area": 62,
-      //   "count": 82
-      // }, {
-      //   "price": 299.09,
-      //   "imagepath": "http://dummyimage.com/489x530.bmp/dddddd/000000",
-      //   "rating": 4,
-      //   "name": "Rabbit",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 65,
-      //   "count": 200
-      // }, {
-      //   "price": 149.93,
-      //   "imagepath": "http://dummyimage.com/557x480.bmp/cc0000/ffffff",
-      //   "rating": 4,
-      //   "name": "Legacy",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 71,
-      //   "count": 132
-      // }, {
-      //   "price": 161.33,
-      //   "imagepath": "http://dummyimage.com/591x542.png/dddddd/000000",
-      //   "rating": 2,
-      //   "name": "Firebird",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 43,
-      //   "count": 99
-      // }, {
-      //   "price": 178.7,
-      //   "imagepath": "http://dummyimage.com/586x597.jpg/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "Ciera",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 9,
-      //   "area": 59,
-      //   "count": 150
-      // }, {
-      //   "price": 246.37,
-      //   "imagepath": "http://dummyimage.com/574x595.bmp/5fa2dd/ffffff",
-      //   "rating": 4,
-      //   "name": "Ram 2500 Club",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 41,
-      //   "count": 132
-      // }, {
-      //   "price": 113.49,
-      //   "imagepath": "http://dummyimage.com/547x424.bmp/5fa2dd/ffffff",
-      //   "rating": 4,
-      //   "name": "GS",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 7,
-      //   "area": 72,
-      //   "count": 90
-      // }, {
-      //   "price": 244.82,
-      //   "imagepath": "http://dummyimage.com/478x599.jpg/cc0000/ffffff",
-      //   "rating": 5,
-      //   "name": "325",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 8,
-      //   "area": 65,
-      //   "count": 109
-      // }, {
-      //   "price": 78.41,
-      //   "imagepath": "http://dummyimage.com/453x600.png/ff4444/ffffff",
-      //   "rating": 4,
-      //   "name": "Ram 3500",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 2,
-      //   "area": 37,
-      //   "count": 132
-      // }, {
-      //   "price": 232.91,
-      //   "imagepath": "http://dummyimage.com/488x426.bmp/5fa2dd/ffffff",
-      //   "rating": 3,
-      //   "name": "Intrepid",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 62,
-      //   "count": 105
-      // }, {
-      //   "price": 91.24,
-      //   "imagepath": "http://dummyimage.com/467x536.bmp/5fa2dd/ffffff",
-      //   "rating": 5,
-      //   "name": "Rally Wagon G3500",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 4,
-      //   "area": 72,
-      //   "count": 105
-      // }, {
-      //   "price": 217.83,
-      //   "imagepath": "http://dummyimage.com/465x520.jpg/dddddd/000000",
-      //   "rating": 5,
-      //   "name": "Venture",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 24,
-      //   "count": 65
-      // }, {
-      //   "price": 243.3,
-      //   "imagepath": "http://dummyimage.com/537x488.png/dddddd/000000",
-      //   "rating": 4,
-      //   "name": "RL",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 52,
-      //   "count": 92
-      // }, {
-      //   "price": 220.83,
-      //   "imagepath": "http://dummyimage.com/564x592.bmp/dddddd/000000",
-      //   "rating": 5,
-      //   "name": "Caravan",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 9,
-      //   "area": 40,
-      //   "count": 163
-      // }, {
-      //   "price": 269.98,
-      //   "imagepath": "http://dummyimage.com/428x425.jpg/cc0000/ffffff",
-      //   "rating": 3,
-      //   "name": "Corrado",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 9,
-      //   "area": 19,
-      //   "count": 185
-      // }, {
-      //   "price": 217.17,
-      //   "imagepath": "http://dummyimage.com/483x576.jpg/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "MR2",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 63,
-      //   "count": 152
-      // }, {
-      //   "price": 278.7,
-      //   "imagepath": "http://dummyimage.com/526x547.jpg/dddddd/000000",
-      //   "rating": 2,
-      //   "name": "G",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 10,
-      //   "area": 45,
-      //   "count": 95
-      // }, {
-      //   "price": 162.42,
-      //   "imagepath": "http://dummyimage.com/475x479.jpg/dddddd/000000",
-      //   "rating": 3,
-      //   "name": "Accent",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 6,
-      //   "area": 66,
-      //   "count": 119
-      // }, {
-      //   "price": 185.72,
-      //   "imagepath": "http://dummyimage.com/550x579.bmp/5fa2dd/ffffff",
-      //   "rating": 5,
-      //   "name": "900",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 7,
-      //   "area": 26,
-      //   "count": 158
-      // }, {
-      //   "price": 78.53,
-      //   "imagepath": "http://dummyimage.com/468x462.png/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "7 Series",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 9,
-      //   "area": 26,
-      //   "count": 200
-      // }, {
-      //   "price": 224.73,
-      //   "imagepath": "http://dummyimage.com/523x512.bmp/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "525",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 54,
-      //   "count": 85
-      // }, {
-      //   "price": 97.74,
-      //   "imagepath": "http://dummyimage.com/482x489.jpg/dddddd/000000",
-      //   "rating": 3,
-      //   "name": "Ranger",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 1,
-      //   "area": 36,
-      //   "count": 101
-      // }, {
-      //   "price": 238.44,
-      //   "imagepath": "http://dummyimage.com/482x521.png/cc0000/ffffff",
-      //   "rating": 2,
-      //   "name": "Highlander",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 6,
-      //   "area": 26,
-      //   "count": 200
-      // }, {
-      //   "price": 292.63,
-      //   "imagepath": "http://dummyimage.com/473x489.jpg/dddddd/000000",
-      //   "rating": 4,
-      //   "name": "Monte Carlo",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 9,
-      //   "area": 75,
-      //   "count": 68
-      // }, {
-      //   "price": 68.34,
-      //   "imagepath": "http://dummyimage.com/600x505.png/dddddd/000000",
-      //   "rating": 4,
-      //   "name": "Corvette",
-      //   "isbooking": true,
-      //   "description": "",
-      //   "capacity": 5,
-      //   "area": 35,
-      //   "count": 200
-      // }, {
-      //   "price": 88.88,
-      //   "imagepath": "http://dummyimage.com/504x455.bmp/ff4444/ffffff",
-      //   "rating": 2,
-      //   "name": "Seville",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 3,
-      //   "area": 18,
-      //   "count": 91
-      // }, {
-      //   "price": 237.59,
-      //   "imagepath": "http://dummyimage.com/574x537.png/5fa2dd/ffffff",
-      //   "rating": 3,
-      //   "name": "Electra",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 6,
-      //   "area": 37,
-      //   "count": 177
-      // }, {
-      //   "price": 126.6,
-      //   "imagepath": "http://dummyimage.com/544x597.bmp/ff4444/ffffff",
-      //   "rating": 3,
-      //   "name": "Biturbo",
-      //   "isbooking": false,
-      //   "description": "",
-      //   "capacity": 4,
-      //   "area": 50,
-      //   "count": 138
-      // }]
-      // data.map(item=>{
-      //   item.createdAt=Sequelize.literal('NOW()')
-      //   item.updatedAt=Sequelize.literal('NOW()')
-      //   return item
-      // })
-      // await queryInterface.bulkInsert('Rooms',data, {});
-    
+    let data = [
+      {
+        "price": 67,
+        "imagepath": "images/listrooms-images/room1.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 1",
+        "isbooking": false,
+        "description": "Our Sea Diamond 1 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 5,
+        "area": 50,
+        "count": 759
+      },
+      {
+        "price": 56,
+        "imagepath": "images/listrooms-images/room2.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 2",
+        "isbooking": false,
+        "description": "Our Sea Diamond 2 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 5,
+        "area": 45,
+        "count": 744
+      },
+      {
+        "price": 63,
+        "imagepath": "images/listrooms-images/room3.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 3",
+        "isbooking": false,
+        "description": "Our Sea Diamond 3 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 1,
+        "area": 34,
+        "count": 426
+      },
+      {
+        "price": 45,
+        "imagepath": "images/listrooms-images/room4.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 4",
+        "isbooking": false,
+        "description": "Our Sea Diamond 4 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 2,
+        "area": 43,
+        "count": 765
+      },
+      {
+        "price": 97,
+        "imagepath": "images/listrooms-images/room5.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 5",
+        "isbooking": false,
+        "description": "Our Sea Diamond 5 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 5,
+        "area": 24,
+        "count": 57
+      },
+      {
+        "price": 118,
+        "imagepath": "images/listrooms-images/room6.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 6",
+        "isbooking": false,
+        "description": "Our Sea Diamond 6 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 1,
+        "area": 24,
+        "count": 64
+      },
+      {
+        "price": 120,
+        "imagepath": "images/listrooms-images/room7.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 7",
+        "isbooking": false,
+        "description": "Our Sea Diamond 7 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 1,
+        "area": 32,
+        "count": 346
+      },
+      {
+        "price": 141,
+        "imagepath": "images/listrooms-images/room8.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 8",
+        "isbooking": false,
+        "description": "Our Sea Diamond 8 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 5,
+        "area": 35,
+        "count": 645
+      },
+      {
+        "price": 152,
+        "imagepath": "images/listrooms-images/room9.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 9",
+        "isbooking": false,
+        "description": "Our Sea Diamond 9 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 10,
+        "area": 30,
+        "count": 254
+      },
+      {
+        "price": 150,
+        "imagepath": "images/listrooms-images/room10.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 10",
+        "isbooking": false,
+        "description": "Our Sea Diamond 10 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 10,
+        "area": 31,
+        "count": 765
+      },
+      {
+        "price": 200,
+        "imagepath": "images/listrooms-images/room11.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 11",
+        "isbooking": false,
+        "description": "Our Sea Diamond 11 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 10,
+        "area": 21,
+        "count": 354
+      },
+      {
+        "price": 56,
+        "imagepath": "images/listrooms-images/room12.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 12",
+        "isbooking": false,
+        "description": "Our Sea Diamond 12 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 6,
+        "area": 24,
+        "count": 243
+      },
+      {
+        "price": 46,
+        "imagepath": "images/listrooms-images/room13.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 13",
+        "isbooking": false,
+        "description": "Our Sea Diamond 13 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 4,
+        "area": 45,
+        "count": 654
+
+      },
+      {
+        "price": 70,
+        "imagepath": "images/listrooms-images/room14.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 14",
+        "isbooking": false,
+        "description": "Our Sea Diamond 14 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 8,
+        "area": 30,
+        "count": 244
+      },
+      {
+        "price": 45,
+        "imagepath": "images/listrooms-images/room15.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 15",
+        "isbooking": false,
+        "description": "Our Sea Diamond 15 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 10,
+        "area": 34,
+        "count": 442
+      },
+      {
+        "price": 90,
+        "imagepath": "images/listrooms-images/room16.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 16",
+        "isbooking": false,
+        "description": "Our Sea Diamond 16 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 10,
+        "area": 28,
+        "count": 233
+      },
+      {
+        "price": 111,
+        "imagepath": "images/listrooms-images/room17.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 17",
+        "isbooking": false,
+        "description": "Our Sea Diamond 17 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 2,
+        "area": 29,
+        "count": 445
+      },
+      {
+        "price": 143,
+        "imagepath": "images/listrooms-images/room18.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 18",
+        "isbooking": false,
+        "description": "Our Sea Diamond 18 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 5,
+        "area": 29,
+        "count": 444
+      },
+      {
+        "price": 177,
+        "imagepath": "images/listrooms-images/room19.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 19",
+        "isbooking": false,
+        "description": "Our Sea Diamond 19 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 2,
+        "area": 24,
+        "count": 58
+      },
+      {
+        "price": 143,
+        "imagepath": "images/listrooms-images/room20.jpg",
+        "rating": 4,
+        "name": "Sea Diamond 20",
+        "isbooking": false,
+        "description": "Our Sea Diamond 20 provides views over landscaped gardens. It has a seating area, ample storage, digital safe, minibar and luxurious duck down bedding.",
+        "capacity": 14,
+        "area": 25,
+        "count": 23
+      }
+    ]
+    data.map(item => {
+      item.createdAt = Sequelize.literal('NOW()')
+      item.updatedAt = Sequelize.literal('NOW()')
+      return item
+    })
+    await queryInterface.bulkInsert('Rooms', data, {});
+
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -68,32 +68,37 @@ function changeMenuStyle() {
   }
 }
 
-function upNumber(element) {
+function upNumber(element, maxValue) {
   var object = element.parentElement;
   var number = object.getElementsByClassName("number");
   var dataDate = number[0].innerHTML;
-  if (dataDate > 0) {
-    number[0].innerHTML = dataDate - 1;
+  let number2 = Number(dataDate)
+  maxValue = Number(maxValue)
+  if (dataDate < maxValue) {
+    number2 += 1
   }
+  console.log(number2)
+  number[0].innerHTML = number2.toString()
 }
 
 function downNumber(element) {
   var object = element.parentElement;
   var number = object.getElementsByClassName("number");
   var dataDate = number[0].innerHTML;
-  dataDate++;
-  var month = object.getElementsByClassName("month");
-  if (month.length > 0) {
-    var dataMonth = arrMonth.indexOf(month[0].innerHTML);
-    if (dataDate > dateOfMonth[dataMonth]) {
-      dataDate = 1;
-      dataMonth++;
-      if (dataMonth > 11) {
-        dataMonth = 0;
-      }
-    }
-    month[0].innerHTML = arrMonth[dataMonth];
-  }
+  if (Number(dataDate) == 1) return
+  dataDate--;
+  // var month = object.getElementsByClassName("month");
+  // if (month.length > 0) {
+  //   var dataMonth = arrMonth.indexOf(month[0].innerHTML);
+  //   if (dataDate > dateOfMonth[dataMonth]) {
+  //     dataDate = 1;
+  //     dataMonth++;
+  //     if (dataMonth > 11) {
+  //       dataMonth = 0;
+  //     }
+  //   }
+  //   month[0].innerHTML = arrMonth[dataMonth];
+  // }
   number[0].innerHTML = dataDate;
 }
 
