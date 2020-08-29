@@ -11,12 +11,21 @@
   <div class="row booking-section">
     {{{createReservation name price information}}}
     <div class="optional-booking col-lg-8">
+      {{#if user}}
+      <p class="notify-user" id="notify-guest" style="display:none">
+        You are booking as guest,
+        <a style="color: #fff;" href="#">LOGIN</a> or
+        <a style="color: #fff;" href="#">REGISTER</a> if you want to save
+        your reservation on your account.
+      </p>
+      {{else}}
       <p class="notify-user" id="notify-guest">
         You are booking as guest,
         <a style="color: #fff;" href="#">LOGIN</a> or
         <a style="color: #fff;" href="#">REGISTER</a> if you want to save
         your reservation on your account.
       </p>
+      {{/if}}
       <div class="more-service">
         <h6 class="text-center">MORE SERVICES</h6>
         <div class="container">

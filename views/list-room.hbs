@@ -46,7 +46,7 @@
         <div class="booking-content row row-mg">
             <div class="sidebar-filter row row-mg col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                 <div class="booking-frame col-12">
-                    <div class="booking-item" id="check-in">
+                    <div class="booking-item" id="check-in divCheckin">
                         <div class="form-group">
                             <input id="dp1" type="text" class="form-control clickable input-md" id="DtChkIn"
                                 placeholder="&#xf133;  Check-In" onchange="changeDateUI()">
@@ -56,7 +56,7 @@
                         <div class="month" id="month-in"></div>
                         {{!-- <i class="fas fa-caret-down button" onclick="downNumber(this)"></i> --}}
                     </div>
-                    <div class="booking-item" id="check-out">
+                    <div class="booking-item" id="check-out divCheckout">
                         <div class="form-group">
                             <input id="dp2" type="text" class="form-control clickable input-md" id="DtChkOut"
                                 placeholder="&#xf133;  Check-Out" onchange="changeDateUI()">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="top-filter-head col-12">Product Filters</div>
+                <div class="top-filter-head col-12"></div>
                 <div class="common-filter col-12">
                     <div class="head">Capacity</div>
                     <form action="#">
@@ -148,8 +148,8 @@
                         </div>
                         <div class="second-row">
 
-                            <span id="{{id}}" class="btn-detail button" onclick="toRoomDetail({{id}})">Thông tin chi
-                                tiết</span>
+                            <span id="{{id}}" class="btn-detail button" onclick="toRoomDetail({{id}})">Full
+                                information</span>
                         </div>
 
                     </div>
@@ -170,6 +170,12 @@
 <script src="js/ListRooms-page.js"></script>
 
 <script>
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    const tomorrow = new Date(now)
+    tomorrow.setDate(now.getDate() + 1)
+
     let urlParams = new URLSearchParams(location.search)
     let params = {
         capacity: 0,
@@ -219,11 +225,6 @@
         location.href = url
     }
 
-    var nowTemp = new Date();
-    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-
-    const tomorrow = new Date(now)
-    tomorrow.setDate(now.getDate() + 1)
 
     var checkin = $('#dp1').datepicker({
         showOtherMonths: true,
@@ -231,7 +232,6 @@
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
-        dateFormat: 'dd-mm-yy',
         minDate: now,
         onSelect: function (dateText) {
             console.log('check in select date')
@@ -257,7 +257,6 @@
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
-        dateFormat: 'dd-mm-yy',
         minDate: tomorrow,
         autoclose: true
 

@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="main-content container mb-5">
     <div id="bookingdetail" class="container row mb-5">
         <div id="booking-left" class="col-12 p-0 col-sm-12 col-md-4 col-lg-4 col-xl-4">
             <div id="img"></div>
@@ -60,6 +60,10 @@
                 </div>
             </div>
             <div id="requests">
+                <div>Extra Services:</div>
+                <div class="description">{{services}}</div>
+            </div>
+            <div id="requests">
                 <div>Extra requests:</div>
                 <div class="description">{{request}}</div>
             </div>
@@ -70,7 +74,9 @@
             <a id="btn-return" class="mt-5 p-3" href="/list">
                 RETURN TO SEARCH PAGE
             </a>
-
+            <a id="btn-return" class="mt-5 p-3 ml-3" onclick="window.print()">
+                PRINT THIS RESERVATION
+            </a>
         </div>
     </div>
 </div>
