@@ -131,7 +131,7 @@ $(document).ready(function () {
   }
 });
 
-$("#dp1").datepicker(changeA);
+// $("#dp1").datepicker();
 
 function changeDateUI() {
   var day1 = $("#dp1").datepicker("getDate");

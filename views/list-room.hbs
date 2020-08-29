@@ -53,7 +53,7 @@
                         <div id="check-in-text">CHECK-IN</div>
                         <div class="number" id="date-in"></div>
                         <div class="month" id="month-in"></div>
-                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                        {{!-- <i class="fas fa-caret-down button" onclick="downNumber(this)"></i> --}}
                     </div>
                     <div class="booking-item" id="check-out">
                         <div class="form-group">
@@ -63,7 +63,7 @@
                         <div id="check-out-text">CHECK-OUT</div>
                         <div class="number" id="date-out"></div>
                         <div class="month" id="month-out"></div>
-                        <i class="fas fa-caret-down button" onclick="downNumber(this)"></i>
+                        {{!-- <i class="fas fa-caret-down button" onclick="downNumber(this)"></i> --}}
                     </div>
                     <div class="booking-item guests">
                         <div id="guests-text">GUESTS</div>
@@ -233,10 +233,12 @@
         dateFormat: 'dd-mm-yy',
         minDate: now,
         onSelect: function (dateText) {
+            console.log('check in select date')
+
             var minDate = $('#dp1').datepicker('getDate');
             minDate.setDate(minDate.getDate() + 1)
             $("#dp2").datepicker("change", { minDate: minDate });
-
+            changeDateUI()
         }
 
     }).on('changeDate', function (ev) {
@@ -247,6 +249,7 @@
             checkout.datepicker("minDate", newDate);
         }
     }).datepicker('setDate', now);
+
     var checkout = $('#dp2').datepicker({
         showOtherMonths: true,
         selectOtherMonths: true,
@@ -257,8 +260,5 @@
         minDate: tomorrow,
         autoclose: true
 
-    }).on('changeDate', function (ev) { }).datepicker('setDate', tomorrow);;
-
-
-
+    }).on('changeDate', function (ev) { }).datepicker('setDate', tomorrow);
 </script>
