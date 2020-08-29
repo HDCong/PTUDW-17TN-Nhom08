@@ -2,9 +2,9 @@
 var basePrice// = 30
 var isLogin = true
 // services is loaded from server, but now,
-var services = [{ item: 'Wifi', price: 3 }, { item: 'Refrigerator', price: 3 },
-{ item: 'BBQ', price: 10 }, { item: 'Air conditional', price: 3 },
-{ item: 'Balcony', price: 1 }, { item: 'Airport Shuttle', price: 5 }
+var services = [{ item: 'Wifi', price: 3 }, { item: 'Car rental', price: 20 },
+{ item: 'BBQ', price: 10 }, { item: 'Laundry', price: 3 },
+{ item: 'Breakfast', price: 1 }, { item: 'Airport Shuttle', price: 5 }
 ]
 var itemExtends = document.getElementById('items-extend')
 var moreItemsSide = document.getElementsByClassName('more-items')[0]
@@ -45,17 +45,17 @@ customerEmail.addEventListener('keyup', function () {
 $(document).ready(() => {
     addItemExtendToService(services)
     basePrice = parseFloat(document.getElementById('total-price').textContent)
-    document.getElementById('reservationid').value =makeid(10)
+    document.getElementById('reservationid').value = makeid(15)
     console.log(document.getElementById('reservationid').value)
 })
 function makeid(length) {
-   var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 function addItemExtendToService(services) {
@@ -63,26 +63,26 @@ function addItemExtendToService(services) {
         var text = `
                     <div class="form-check form-check-inline col-sm-6 m-0 p-1">
                         <input class="form-check-input more-services" type="checkbox" id="${item.item}" value = '${item.price}'>
-                        <label class="form-check-label" for="${item.item}" > <b> ${item.item}</b> : ${item.price}$</label>
+                        <label class="form-check-label" for="${item.item}" > <b> ${item.item}</b> : ${item.price}$/ night</label>
                     </div>`
         itemExtends.insertAdjacentHTML('beforebegin', text)
     }
 }
-
+var nbofnight = parseInt(document.getElementById('number-of-night').innerHTML)
 function updateTotalPrice() {
     var listCheck = document.getElementsByClassName('more-services');
     var services = document.getElementById('services')
-    var listName =[]
+    var listName = []
     var s = parseFloat(basePrice)
     for (check of listCheck) {
         if (check.checked) {
-            s += parseFloat(check.value)
+            s += parseFloat(check.value * nbofnight)
             listName.push(check.id)
         }
     }
     console.log(listName.toString())
     services.value = listName.toString()
-    document.getElementById('total').value = s
+    document.getElementById('total').value = s.toFixed(2)
     totalPrice.innerText = s + '$'
 
 }

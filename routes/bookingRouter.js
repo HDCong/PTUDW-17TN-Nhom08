@@ -12,10 +12,13 @@ router.get('/', (req, res, next) => {
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
     const tomorrow = new Date(now)
     tomorrow.setDate(now.getDate() + 1)
+    console.log(req.session)
     if (req.query.in == null || isNaN(req.query.in)) {
+        console.log('a')
         req.query.in = now.valueOf()
     }
     if (req.query.out == null || isNaN(req.query.out)) {
+        console.log('b')
         req.query.out = tomorrow.valueOf()
     }
     if (req.query.guest == null || isNaN(req.query.guest)) {
@@ -26,6 +29,7 @@ router.get('/', (req, res, next) => {
         checkout: req.query.out,
         guest: req.query.num,
     }
+    console.log('route', information)
     var user = req.session.user
 
     var roomController = require('../controllers/roomController')

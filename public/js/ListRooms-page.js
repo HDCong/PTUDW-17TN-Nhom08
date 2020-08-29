@@ -77,7 +77,13 @@ function downNumber(element) {
   }
   number[0].innerHTML = dataDate;
 }
-
+function getDiff() {
+  var date1 = $("#dp1").datepicker("getDate");
+  var date2 = $("#dp2").datepicker("getDate");
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  count_nights.innerHTML = diffDays
+}
 $(document).ready(function () {
   var day1 = $("#dp1").datepicker("getDate");
   var day2 = $("#dp2").datepicker("getDate");
@@ -85,7 +91,7 @@ $(document).ready(function () {
   date_out.innerHTML = day2.getDate();
   month_in.innerHTML = arrMonth[day1.getMonth()];
   month_out.innerHTML = arrMonth[day2.getMonth()];
-
+  getDiff()
   if (document.getElementById("price-range")) {
     var nonLinearSlider = document.getElementById("price-range");
 
@@ -129,6 +135,24 @@ $(document).ready(function () {
       setParams(key[handle], value);
     });
   }
+  // $('#div-checkin').click(function (event) {
+  //   event.preventDefault();
+  //   console.log('div checkin click ned')
+  //   $('#dp1').focus();
+  // });
+  // $('#div-checkout').click(function (event) {
+  //   event.preventDefault();
+  //   console.log('div checkout click ned')
+  //   $('#dp2').focus();
+  // });
+  document.getElementsByClassName("booking-item")[0].addEventListener("click", function () {
+    console.log('check in click')
+    $('#dp1').focus()
+  });
+  document.getElementsByClassName("booking-item")[1].addEventListener("click", function () {
+    console.log('check out click')
+    $('#dp2').focus()
+  });
 });
 
 // $("#dp1").datepicker();
@@ -140,6 +164,7 @@ function changeDateUI() {
   date_out.innerHTML = day2.getDate();
   month_in.innerHTML = arrMonth[day1.getMonth()];
   month_out.innerHTML = arrMonth[day2.getMonth()];
+  getDiff()
 }
 
 function toRoomDetail(id) {

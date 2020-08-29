@@ -55,7 +55,7 @@ var hbs = expressHbs.create({
         createToBooking: helper.createToBooking,
         createReservation: helper.createReservation,
         generatedate: helper.generatedate,
-        getnights: helper.getnights
+        getnights: helper.getnights,
     }
 })
 
