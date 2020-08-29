@@ -54,12 +54,14 @@ var hbs = expressHbs.create({
         getHistoryDetail: helper.getHistoryDetail,
         createToBooking: helper.createToBooking,
         createReservation: helper.createReservation,
+        generatedate: helper.generatedate,
+        getnights: helper.getnights
     }
 })
 
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
-    // Routes 
+// Routes 
 
 app.use('/', require('./routes/indexRoutes'))
 app.use('/user', require('./routes/userRouter'))

@@ -378,18 +378,18 @@ helper.AvgRating = (reviews) => {
     return createStrStar(calcAvg(reviews)[0])
 }
 
-helper.ifEquals = function(arg1, arg2, options) {
+helper.ifEquals = function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 }
 
-helper.birthdayToMillis = function(date, month, year) {
+helper.birthdayToMillis = function (date, month, year) {
     var date = new Date(year, month, date); // some mock date
     var milliseconds = date.getTime();
 
     return milliseconds
 }
 
-helper.getBirthdayFromMillis = function(millis) {
+helper.getBirthdayFromMillis = function (millis) {
     var d = new Date(Number(millis));
     var birthday = {
         date: d.getDate(),
@@ -400,7 +400,7 @@ helper.getBirthdayFromMillis = function(millis) {
     return birthday
 }
 
-helper.getHistoryDetail = function(checkin) {
+helper.getHistoryDetail = function (checkin) {
     // console.log("HELPER: " + checkin)
     var d = new Date(Number(checkin))
 
@@ -415,7 +415,7 @@ helper.getHistoryDetail = function(checkin) {
             <div class="cart_item_text  m-1">${year}</div>`
 }
 
-helper.createToBooking = function(id, user) {
+helper.createToBooking = function (id, user) {
     if (user != undefined)
         return `<div id="btn-book-now" class="button" onclick="toBooking(${id}, ${user.id})">BOOK NOW</div>`
     return `<div id="btn-book-now" class="button" onclick="toBooking(${id})">BOOK NOW</div>`
@@ -434,7 +434,7 @@ function getDifDays(value1, value2) {
     // To calculate the no. of days between two dates 
     return Math.floor(Difference_In_Time / (1000 * 3600 * 24));
 }
-helper.createReservation = function(name, price, information) {
+helper.createReservation = function (name, price, information) {
     // console.log('helpr room: ', room)
     let checkinDay = getDayMonthYear(information['checkin'])
     let checkoutDay = getDayMonthYear(information['checkout'])
@@ -468,7 +468,7 @@ helper.createReservation = function(name, price, information) {
             <p>GUESTS</p>
           </div>
           <div class="text-center col-6 quantity">
-            <h2 id="number-of-night">${getDifDays(information['checkout'],information['checkin'])}</h2>
+            <h2 id="number-of-night">${getDifDays(information['checkout'], information['checkin'])}</h2>
             <p>NIGHTS</p>
           </div>
         </div>
@@ -480,6 +480,24 @@ helper.createReservation = function(name, price, information) {
         </div>
       </div>
     </div>`
+}
+
+helper.generatedate = function (millis) {
+    let date = new Date(Number(millis))
+    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+
+    return `<div>${date.getDate()}</div>
+            <div>${months[date.getMonth()]}, ${date.getFullYear()}</div>
+            <div>${days[date.getDay()]}</div>`
+}
+
+helper.getnights = function (checkin, checkout) {
+    let date1 = new Date(Number(checkin))
+    let date2 = new Date(Number(checkout))
+    let diffTime = Math.abs(date2 - date1);
+
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 }
 
 module.exports = helper

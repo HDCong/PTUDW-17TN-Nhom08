@@ -3,7 +3,6 @@ const { compareSync } = require('bcryptjs');
 let router = express.Router()
 
 router.get('/', (req, res, next) => {
-
     // if not room and userid not integer : redirect to our rooms
     if (req.query.room == null || isNaN(req.query.room)) {
         res.redirect('/list')
@@ -25,7 +24,7 @@ router.get('/', (req, res, next) => {
     var information = {
         checkin: req.query.in,
         checkout: req.query.out,
-        guest: req.query.guest,
+        guest: req.query.num,
     }
     var user = req.session.user
 
@@ -41,6 +40,7 @@ router.get('/', (req, res, next) => {
         }).catch(err => next(err))
 })
 router.post('/', (req, res, next) => {
+    console.log("Post booking req: " + req.body)
     if (req.body.userId == null || req.body.userId == undefined || req.body.userId.trim() == '') {
         req.body.userId = 1
     }
@@ -50,8 +50,9 @@ router.post('/', (req, res, next) => {
     var bookingController = require('../controllers/bookingController')
     bookingController.add(req.body)
         .then(data => {
-            console.log("BOOKING: " , data)
-            res.redirect('/')
+            console.log("BOOKING: ", data.dataValues)
+            // res.redirect('/')
+            res.render('booking-details', data.dataValues)
         }).catch(er => next(er))
 })
 

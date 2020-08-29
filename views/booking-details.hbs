@@ -1,110 +1,76 @@
 <div class="container mb-5">
     <div id="bookingdetail" class="container row mb-5">
-            <div id="booking-left" class="col-12 p-0 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <div id="img"></div>
-                <div id="your-reservation-frame">
-                    <div id="reservation-title">
-                        YOUR RESERVATION
-                    </div>
-                    <div id="reservation" class="row">
-                        <div class="col-5 date" id="check-in">
-                            <div>CHECK-IN</div>
-                            <div>28</div>
-                            <div>Aug, 2020</div>
-                            <div>FRIDAY</div>
-                        </div>
-                        <div class="col-5 date" id="check-out">
-                            <div>CHECK-IN</div>
-                            <div>29</div>
-                            <div>Aug, 2020</div>
-                            <div>FRIDAY</div>
-                        </div>
-                        <div class="col-5 no-date" id="guests">
-                            <div>1</div>
-                            <div>GUESTS</div>
-                        </div>
-                        <div class="col-5 no-date" id="nights">
-                            <div>1</div>
-                            <div>NIGHTS</div>
-                        </div>
-                    </div>
+        <div id="booking-left" class="col-12 p-0 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div id="img"></div>
+            <div id="your-reservation-frame">
+                <div id="reservation-title">
+                    YOUR RESERVATION
                 </div>
-                <div id="total">
-                    <div id="total-number">123</div>
-                    <div>
-                        <div>$</div>
-                        <div>/ TOTAL</div>
+                <div id="reservation" class="row">
+                    <div class="col-5 date" id="check-in">
+                        <div>CHECK-IN</div>
+                        {{{generatedate checkin}}}
+                    </div>
+                    <div class="col-5 date" id="check-out">
+                        <div>CHECK-OUT</div>
+                        {{{generatedate checkout}}}
+                    </div>
+                    <div class="col-5 no-date" id="guests">
+                        <div>{{numofguest}}</div>
+                        <div>GUESTS</div>
+                    </div>
+                    <div class="col-5 no-date" id="nights">
+                        <div>{{{getnights checkin checkout}}}</div>
+                        <div>NIGHTS</div>
                     </div>
                 </div>
             </div>
-            <div id="booking-right" class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 pl-5">
-                <div id="booking-right-title">
-                    Your Order Details:
+            <div id="total">
+                <div id="total-number">{{total}}</div>
+                <div>
+                    <div>$</div>
+                    <div>/ TOTAL</div>
                 </div>
-                <div id="order-transaction">
-                    <div>Order Transaction</div>
-                    <div class="description">721814181</div>
-                </div>
-                <div id="user-info" class="row">
-                    <div id="name" class="col-3">
-                        <span>Name: </span>
-                        <span class="description">sadsadsa</span>
-                    </div>
-                    <div id="surname" class="col-3">
-                        <span>Surname: </span>
-                        <span class="description">sadsadsa</span>
-                    </div>
-                    <div id="email" class="col-6">
-                        <span>Email: </span>
-                        <span class="description">abcxyz@gmail.com</span>
-                    </div>
-                    <div id="phone" class="col-3">
-                        <span>Phone: </span>
-                        <span class="description">0123456789</span>
-                    </div>
-                    <div id="address" class="col-3">
-                        <span>Address: </span>
-                        <span class="description">sadsadsa</span>
-                    </div>
-                    <div id="city" class="col-6">
-                        <span>City: </span>
-                        <span class="description">sadsadsa</span>
-                    </div>
-                    <div id="country" class="col-3">
-                        <span>Country: </span>
-                        <span class="description">sadsadsa</span>
-                    </div>
-                    <div id="zip" class="col-3">
-                        <span>ZIP: </span>
-                        <span class="description">sadsadsa</span>
-                    </div>
-                    <div id="arrival" class="col-6">
-                        <span>Arrival: </span>
-                        <span class="description">4:00 - 5:00 am</span>
-                    </div>
-                </div>
-                <div id="requests">
-                    <div>Requests:</div>
-                    <div class="description">d</div>
-                </div>
-
-                <div id="extra-services">
-                    <div>Extras Services:</div>
-                    <div class="description">You have not selected and additional services</div>
-                </div>
-
-                <div id="coupon">
-                    <div>Coupon:</div>
-                    <div class="description">Not set</div>
-                </div>
-                <div id="payment-options">
-                    <div>Payment Options:</div>
-                    <div class="description">Payment On Arrival</div>
-                </div>
-                <a id="btn-return" href="/list">
-                    RETURN TO SEARCH PAGE
-                </a>
-                
             </div>
+        </div>
+        <div id="booking-right" class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 pl-5">
+            <div id="booking-right-title">
+                Your Order Details:
+            </div>
+            <div id="order-transaction">
+                <div>Order Transaction</div>
+                <div class="description">{{reservationid}}</div>
+            </div>
+            <div id="user-info" class="d-flex flex-column">
+                <div id="name">
+                    <span>Name: </span>
+                    <span class="description">{{cusname}}</span>
+                </div>
+                <div id="email">
+                    <span>Email: </span>
+                    <span class="description">{{cusmail}}</span>
+                </div>
+                <div id="phone">
+                    <span>Phone: </span>
+                    <span class="description">{{cusphone}}</span>
+                </div>
+                <div id="arrival">
+                    <span>Arrival: </span>
+                    <span class="description">{{custime}}</span>
+                </div>
+            </div>
+            <div id="requests">
+                <div>Extra requests:</div>
+                <div class="description">{{request}}</div>
+            </div>
+            <div id="payment-options" class="mb-5">
+                <div>Payment Options:</div>
+                <div class="description">Payment when arrive (default)</div>
+            </div>
+            <a id="btn-return" class="mt-5 p-3" href="/list">
+                RETURN TO SEARCH PAGE
+            </a>
+
+        </div>
     </div>
 </div>

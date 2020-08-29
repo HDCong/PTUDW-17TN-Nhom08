@@ -112,7 +112,8 @@ function changeDateUI() {
 function toBooking(id, user = 0) {
   let checkin = new Date(document.getElementById("dp1").value).valueOf();
   let checkout = new Date(document.getElementById("dp2").value).valueOf();
-  let str = `/booking?room=${id}&in=${checkin}&out=${checkout}$user=${user}`;
+  let numGuest = document.getElementById("count-guests").innerHTML
+  let str = `/booking?room=${id}&num=${numGuest}&in=${checkin}&out=${checkout}$user=${user}`;
   console.log(str);
   window.location = str;
 }
@@ -198,5 +199,5 @@ var checkout = $("#dp2")
     minDate: tomorrow,
     autoclose: true,
   })
-  .on("changeDate", function (ev) {})
+  .on("changeDate", function (ev) { })
   .datepicker("setDate", tomorrow);

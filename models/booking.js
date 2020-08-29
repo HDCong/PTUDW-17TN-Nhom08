@@ -11,24 +11,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Booking.belongsTo(models.User, {foreignKey: 'userId'})
-      Booking.belongsTo(models.Booking, {foreignKey: 'roomId'})
+      Booking.belongsTo(models.User, { foreignKey: 'userId' })
+      Booking.belongsTo(models.Booking, { foreignKey: 'roomId' })
     }
   };
   Booking.init({
-    userId:DataTypes.INTEGER,
-    roomId:DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
+    roomId: DataTypes.INTEGER,
     checkin: DataTypes.BIGINT,
     checkout: DataTypes.BIGINT,
     total: DataTypes.DOUBLE,
-    cusname:DataTypes.TEXT,
-    cusphone:DataTypes.INTEGER,
-    cusmail:DataTypes.TEXT,
-    cusstate:DataTypes.TEXT,
-    custime:DataTypes.TEXT,
-    services:DataTypes.TEXT,
-    request:DataTypes.TEXT,
-    reservationid:DataTypes.TEXT,
+    cusname: DataTypes.TEXT,
+    cusphone: DataTypes.INTEGER,
+    cusmail: DataTypes.TEXT,
+    cusstate: DataTypes.TEXT,
+    custime: DataTypes.TEXT,
+    services: DataTypes.TEXT,
+    request: DataTypes.TEXT,
+    reservationid: DataTypes.TEXT,
+    numofguest: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Booking',
