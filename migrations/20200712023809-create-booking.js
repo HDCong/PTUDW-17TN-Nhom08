@@ -30,6 +30,30 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      cusname: {
+        type: Sequelize.TEXT
+      },
+      cusphone: {
+        type: Sequelize.INTEGER
+      },
+      cusmail: {
+        type: Sequelize.TEXT
+      },
+      cusstate: {
+        type: Sequelize.TEXT
+      },
+      custime: {
+        type: Sequelize.TEXT
+      },
+      services: {
+        type: Sequelize.TEXT
+      },
+      request: {
+        type: Sequelize.TEXT
+      },
+      reservationid: {
+        type: Sequelize.TEXT
       }
     });
   },

@@ -13,7 +13,7 @@ moreItemsSide.addEventListener('click', updateTotalPrice)
 var totalPrice = document.getElementById('total-price')
 var btnCheckout = document.getElementById('btn-checkout')
 btnCheckout.addEventListener('click', receiveInformationCheckout)
-var customerName = document.getElementById('inputName')
+var customerName = document.getElementById('cusname')
 customerName.addEventListener('keyup', function () {
     if (!customerName.value)
         setStyleDisplay(customerName.parentElement.lastElementChild, 'inline')
@@ -21,14 +21,14 @@ customerName.addEventListener('keyup', function () {
 
 });
 
-var customerPhone = document.getElementById('inputPhoneNb')
+var customerPhone = document.getElementById('cusphone')
 customerPhone.addEventListener('keyup', function () {
     if (!customerPhone.value)
         setStyleDisplay(customerPhone.parentElement.lastElementChild, 'inline')
     else setStyleDisplay(customerPhone.parentElement.lastElementChild, 'none')
 
 });
-var customerEmail = document.getElementById('inputEmail')
+var customerEmail = document.getElementById('cusmail')
 customerEmail.addEventListener('keyup', function () {
     if (!customerEmail.value)
         setStyleDisplay(customerEmail.parentElement.lastElementChild, 'inline')
@@ -45,9 +45,18 @@ customerEmail.addEventListener('keyup', function () {
 $(document).ready(() => {
     addItemExtendToService(services)
     basePrice = parseFloat(document.getElementById('total-price').textContent)
-    console.log(document.getElementById('total-price').textContent)
+    document.getElementById('reservationid').value =makeid(10)
+    console.log(document.getElementById('reservationid').value)
 })
-
+function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 
 function addItemExtendToService(services) {
     for (item of services) {
@@ -61,14 +70,19 @@ function addItemExtendToService(services) {
 }
 
 function updateTotalPrice() {
-    console.log(basePrice)
     var listCheck = document.getElementsByClassName('more-services');
+    var services = document.getElementById('services')
+    var listName =[]
     var s = parseFloat(basePrice)
     for (check of listCheck) {
         if (check.checked) {
             s += parseFloat(check.value)
+            listName.push(check.id)
         }
     }
+    console.log(listName.toString())
+    services.value = listName.toString()
+    document.getElementById('total').value = s
     totalPrice.innerText = s + '$'
 
 }

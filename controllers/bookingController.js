@@ -22,5 +22,15 @@ controller.getHistory = (userid) => {
         .catch(err =>reject(new Error(err)))
     })
 }
-
+controller.add=(booking)=>{
+    console.log(booking)
+    return new Promise((resolve, reject)=>{ 
+        Booking.create(booking)
+        .then(data=>{
+            console.log('controler',data)
+            resolve(data)
+        })
+        .catch(er=>reject(new Error(er)))
+    })
+}
 module.exports=controller

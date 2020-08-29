@@ -2,7 +2,7 @@ let express = require('express');
 const { compareSync } = require('bcryptjs');
 let router = express.Router()
 
-router.get('/', (req, res,next) => {
+router.get('/', (req, res, next) => {
 
     // if not room and userid not integer : redirect to our rooms
     if (req.query.room == null || isNaN(req.query.room)) {
@@ -14,17 +14,17 @@ router.get('/', (req, res,next) => {
     const tomorrow = new Date(now)
     tomorrow.setDate(now.getDate() + 1)
     if (req.query.in == null || isNaN(req.query.in)) {
-        req.query.in = now
+        req.query.in = now.valueOf()
     }
     if (req.query.out == null || isNaN(req.query.out)) {
-        req.query.out = tomorrow
+        req.query.out = tomorrow.valueOf()
     }
     if (req.query.guest == null || isNaN(req.query.guest)) {
         req.query.guest = 1
     }
-    var information={
+    var information = {
         checkin: req.query.in,
-        checkout:req.query.out,
+        checkout: req.query.out,
         guest: req.query.guest,
     }
     var user = req.session.user
@@ -33,16 +33,26 @@ router.get('/', (req, res,next) => {
     roomController.getInfRoom(req.query.room)
         .then(room => {
             console.log(room)
-            newdata =room.dataValues
+            newdata = room.dataValues
             newdata.user = user;
-            newdata.information =information
+            newdata.information = information
             res.locals.room = newdata
             res.render('booking', req.params)
         }).catch(err => next(err))
 })
-router.post('/',(req,res,next)=>{
-    console.log(req.body)
-    res.redirect('/')
+router.post('/', (req, res, next) => {
+    if (req.body.userId == null || req.body.userId == undefined || req.body.userId.trim() == '') {
+        req.body.userId = 1
+    }
+    console.log('req.body: ', req.body.userId)
+    console.log(req.body.userId)
+
+    var bookingController = require('../controllers/bookingController')
+    bookingController.add(req.body)
+        .then(data => {
+            console.log(data)
+            res.redirect('/')
+        }).catch(er => next(er))
 })
 
 module.exports = router;

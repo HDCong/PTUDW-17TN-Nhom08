@@ -414,6 +414,7 @@ helper.getHistoryDetail = function(checkin) {
             <div class="cart_item_text m-1"> ${date}th </div>
             <div class="cart_item_text  m-1">${year}</div>`
 }
+
 helper.createToBooking = function(id, user) {
     if (user != undefined)
         return `<div id="btn-book-now" class="button" onclick="toBooking(${id}, ${user.id})">BOOK NOW</div>`
