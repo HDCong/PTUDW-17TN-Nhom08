@@ -71,15 +71,21 @@
                 <div>Payment Options:</div>
                 <div class="description">Payment when arrive (default)</div>
             </div>
-            <a id="btn-return" class="mt-5 p-3" href="/list">
-                RETURN TO SEARCH PAGE
-            </a>
-            <a id="btn-return" class="mt-5 p-3 ml-3" onclick="window.print()">
-                PRINT THIS RESERVATION
-            </a>
-            {{!-- <div class="cancel mt-5"> --}}
-            {{{generateCancel checkin reservationid}}}
-            {{!-- </div> --}}
+            <div class="mt-5">
+                <a id="btn-return" class="mt-5 p-3" href="/list">
+                    RETURN TO SEARCH PAGE
+                </a>
+            </div>
+
+            <div class="mt-5">
+                <a id="btn-return" class="mt-5 p-3" onclick="window.print()">
+                    PRINT THIS RESERVATION
+                </a>
+            </div>
+
+            <div class="mt-4 pt-2">
+                {{{generateCancel checkin reservationid}}}
+            </div>
         </div>
     </div>
 </div>
