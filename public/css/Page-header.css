@@ -137,28 +137,28 @@ header .login {
     z-index: 17;
 }
 
-#filter-bar-search {
+#filter-bar-search2 {
     font-size: 16px;
 }
 
-#filter-bar-search input {
+#filter-bar-search2 input {
     width: 60%;
     margin-right: 15px;
     padding: 5px 10px;
     outline: none;
 }
 
-.input-group {
+.input-group2 {
     margin: 0;
 }
 
-#filter-bar-search button {
+#filter-bar-search2 button {
     padding: 5px 10px;
     background-color: #12263A;
     color: white;
 }
 
-#filter-bar-search button:hover {
+#filter-bar-search2 button:hover {
     background-color: #12263A;
 }
 

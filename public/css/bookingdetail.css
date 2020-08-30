@@ -67,7 +67,7 @@
 }
 
 #booking-right>div {
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 #booking-right-title {
@@ -95,6 +95,15 @@
     padding: 10px 0px;
     background-color: #12263A;
     width: 250px;
+    color: white;
+    text-align: center;
+}
+
+#btn-return2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #12263A;
+    width: 233px;
     color: white;
     text-align: center;
 }
