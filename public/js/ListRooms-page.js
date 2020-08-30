@@ -103,9 +103,9 @@ $(document).ready(function () {
         // Starting at 500, step the value by 500,
         // until 4000 is reached. From there, step by 1000.
         min: [0],
-        "10%": [300, 300],
-        "50%": [1500, 1500],
-        max: [3000],
+        "10%": [50, 50],
+        "50%": [250, 250],
+        max: [500],
       },
     });
     var nodes = [

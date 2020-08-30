@@ -1,50 +1,78 @@
+<!-- wrap all content in the page consist of header main content, footer-->
+<div class="container mb-4">
+    <!-- content goes here -->
+    <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
+    <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
+        <div class="logo col-sm-3">
+            <a href="/"><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
+        </div>
 
-    <!-- wrap all content in the page consist of header main content, footer-->
-    <div class="container mb-4">
-        <!-- content goes here -->
-        <!-- this part consists of logo, hotel's name login button, register button, navigation bar -->
-        <header class="row flex-nowrap no-gutters justify-content-between align-items-center" id="header">
-            <div class="logo col-sm-3">
-                <a href="/"><img class="img-fluid" src="../images/logos/logo_v1.png" alt="logo"></a>
-            </div>
+        <div class="hotel-name col-sm-6 text-center">
+            Sea Diamond hotel
+        </div>
 
-            <div class="hotel-name col-sm-6 text-center">
-                Sea Diamond hotel
-            </div>
-
-            <div id='login-btn' class="login text-right col-sm-3">
-                {{!-- <a class="log-btn" href="#login-form">Sign In</a> --}}
-                {{#if isLoggedIn}}
+        <div class="col">
+            <div class="row ml-5">
+                <div id='login-btn' class="login text-right col-sm-3">
+                    {{!-- <a class="log-btn" href="#login-form">Sign In</a> --}}
+                    {{#if isLoggedIn}}
                     <div class="btn-group">
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{username}}</button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">{{username}}</button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/user">Profile</a>
                             <div class="dropdown-divider"></div>
                             <a id="logout-btn" class="dropdown-item" href="/auth/logout">Log out</a>
                         </div>
                     </div>
-                {{else}}
+                    {{else}}
                     <a class="log-btn" href="/auth/login">Sign In</a>
-                {{/if}}
+                    {{/if}}
+                </div>
             </div>
-        </header>
-
-        <!-- navigation bar -->
-        <div class="nav-bar" id="content">
-            <ul class="nav justify-content-center no-gutters pt-2 pb-2">
-                <li class="nav-item col-md-2 i-begin">
-                    <a class={{#ifEquals active "home"}} "nav-link active" {{else}} "nav-link"{{/ifEquals}} href="/">Home</a>
-                </li>
-
-                <li class="nav-item col-md-2 i-normal">
-                    <a class={{#ifEquals active "list"}} "nav-link active" {{else}} "nav-link"{{/ifEquals}} id="list" href="/list">Our rooms</a>
-                </li>
-                <li class="nav-item col-md-2 i-normal">
-                    <a class={{#ifEquals active "contact"}} "nav-link active" {{else}} "nav-link"{{/ifEquals}} id="contact" href="/contact">Contact</a>
-                </li>
-                <li class="nav-item col-md-2 i-normal">
-                    <a class={{#ifEquals active "about"}} "nav-link active" {{else}} "nav-link"{{/ifEquals}} id="about-us" href="/about-us">About us</a>
-                </li>
-            </ul>
+            <div id="filter-bar-search" class="mt-2">
+                <form action="/reservation" method="GET">
+                    <div class="input-group filter-bar-search row">
+                        <input type="text" name="reservationid" placeholder="Reservation id" class="radius">
+                        <div class="input-group-append">
+                            <button type="submit" class="radius">Track</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
+    </header>
+
+    <!-- navigation bar -->
+    <div class="nav-bar" id="content">
+        <ul class="nav justify-content-center no-gutters pt-2 pb-2">
+            <li class="nav-item col-md-2 i-begin">
+                <a class={{#ifEquals active "home"}} "nav-link active" {{else}} "nav-link" {{/ifEquals}}
+                    href="/">Home</a>
+            </li>
+
+            <li class="nav-item col-md-2 i-normal">
+                <a class={{#ifEquals active "list"}} "nav-link active" {{else}} "nav-link" {{/ifEquals}} id="list"
+                    href="/list">Our rooms</a>
+            </li>
+            <li class="nav-item col-md-2 i-normal">
+                <a class={{#ifEquals active "contact"}} "nav-link active" {{else}} "nav-link" {{/ifEquals}} id="contact"
+                    href="/contact">Contact</a>
+            </li>
+            <li class="nav-item col-md-2 i-normal">
+                <a class={{#ifEquals active "about"}} "nav-link active" {{else}} "nav-link" {{/ifEquals}} id="about-us"
+                    href="/about-us">About us</a>
+            </li>
+        </ul>
     </div>
+</div>
+
+{{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> --}}

@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -134,4 +133,35 @@ header .login .log-btn:hover {
     left: 0;
     /* width: 100%; */
     z-index: 17;
+}
+
+#filter-bar-search {
+    font-size: 16px;
+}
+
+#filter-bar-search input {
+    width: 60%;
+    margin-right: 15px;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.input-group {
+    margin: 0;
+}
+
+#filter-bar-search button {
+    padding: 5px 10px;
+    background-color: #12263A;
+    color: white;
+}
+
+#filter-bar-search button:hover {
+    background-color: #12263A;
+}
+
+.radius {
+    border: 1px solid #12263A;
+    border-radius: 6px;
+    
 }
