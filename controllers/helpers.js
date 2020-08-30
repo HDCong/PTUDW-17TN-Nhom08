@@ -533,9 +533,9 @@ helper.generateCancel = function (checkin, id) {
     console.log(now)
     if (Number(checkin) - now > 24 * 3600 * 1000)
         return `
-        <form action="/reservation/delete" method="GET">
+        <form  action="/reservation/delete"  method="GET" >
             <input type="hidden"  name="id" value="${id}">
-            <button id="btn-return" type="submit" class ="mt-5" onclick="return confirm('Are you sure you want to submit?');" >
+            <button id="btn-return2"type="submit" onclick="return confirm('Are you sure you want to submit?');" >
                 CANCEL ORDER
             </button>
         </form>
