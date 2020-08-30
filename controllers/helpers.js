@@ -526,5 +526,20 @@ helper.getnights = function (checkin, checkout) {
 
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 }
-
+helper.generateCancel = function (checkin, id) {
+    var nowTemp = new Date();
+    now = nowTemp.valueOf()
+    console.log(Number(checkin))
+    console.log(now)
+    if (Number(checkin) - now > 24 * 3600 * 1000)
+        return `
+        <form action="/reservation/delete" method="GET">
+            <input type="hidden"  name="id" value="${id}">
+            <button id="btn-return" type="submit" class ="mt-5" onclick="return confirm('Are you sure you want to submit?');" >
+                CANCEL ORDER
+            </button>
+        </form>
+        `
+    else return ``
+}
 module.exports = helper
