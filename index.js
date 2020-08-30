@@ -56,6 +56,7 @@ var hbs = expressHbs.create({
         createReservation: helper.createReservation,
         generatedate: helper.generatedate,
         getnights: helper.getnights,
+        generateCancel: helper.generateCancel,
     }
 })
 
@@ -71,6 +72,7 @@ app.use('/about-us', require('./routes/aboutRouter'))
 app.use('/list', require('./routes/listRoomRouter'))
 app.use('/auth', require('./routes/authRouter'))
 app.use('/review', require('./routes/reviewRouter'))
+app.use('/reservation', require('./routes/reservationRouter'))
 
 app.get('/sync', (req, res) => {
     var models = require('./models')

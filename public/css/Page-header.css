@@ -65,8 +65,8 @@ header .login {
     justify-content: flex-end;
 }
 
-header .login .log-btn {
-    width: 90px;
+.login .log-btn {
+    width: 100px;
     height: 25px;
     background-color: #12263A;
     font-size: 14px;
@@ -76,7 +76,7 @@ header .login .log-btn {
     justify-content: center;
 }
 
-header .login .log-btn:hover {
+.login .log-btn:hover {
     font-weight: bold;
 }
 
@@ -107,6 +107,8 @@ header .login .log-btn:hover {
 
 #login-btn button {
     font-size: 16px;
+    /* position: relative; */
+    /* float: right; */
 }
 
 #login-btn a {
@@ -163,5 +165,5 @@ header .login .log-btn:hover {
 .radius {
     border: 1px solid #12263A;
     border-radius: 6px;
-    
+
 }
