@@ -30,16 +30,7 @@
                     {{/if}}
                 </div>
             </div>
-            <div id="filter-bar-search" class="mt-2">
-                <form action="/reservation" method="GET">
-                    <div class="input-group filter-bar-search row">
-                        <input type="text" name="reservationid" placeholder="Reservation id" class="radius">
-                        <div class="input-group-append">
-                            <button type="submit">Track</i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            
         </div>
     </header>
 
@@ -63,9 +54,41 @@
                 <a class={{#ifEquals active "about"}} "nav-link active" {{else}} "nav-link" {{/ifEquals}} id="about-us"
                     href="/about-us">About us</a>
             </li>
+            <li class="nav-item col-md-2 i-normal" id="search-btn">
+                <i class="fas fa-search"></i>
+                <div id="filter-bar-search" class="mt-2">
+                    <form action="/reservation" method="GET">
+                        <div class="input-group filter-bar-search row">
+                        <input type="text" name="reservationid" placeholder="Reservation id" class="radius">
+                        <div class="input-group-append">
+                            <button type="submit">Track</i></button>
+                        </div>
+                        </div>
+                    </form>
+            </div>
+            </li>
         </ul>
     </div>
 </div>
+
+<script>
+    const container = $("#filter-bar-search");
+    const btn = $("#search-btn>i")
+    $(document).ready(function(){
+        container.hide();
+    })
+    $(document).click(function (e)
+    {
+        if (!btn.is(e.target) && btn.has(e.target).length === 0 & !container.is(e.target) && container.has(e.target).length === 0 )
+        {
+            container.hide();
+        }
+        else{
+            container.show();
+        }
+    });
+    
+</script>
 
 {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

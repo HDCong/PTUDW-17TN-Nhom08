@@ -33,7 +33,6 @@ body+div {
 }
 
 
-
 /* header */
 
 header {
@@ -80,6 +79,7 @@ header .login {
     font-weight: bold;
 }
 
+
 /* .nav-bar {
     width: 100%;
 } */
@@ -103,6 +103,10 @@ header .login {
 .nav-bar ul li a:hover {
     font-weight: bold;
     color: #12263A !important;
+}
+
+#login-btn {
+    padding: 3px;
 }
 
 #login-btn button {
@@ -138,32 +142,51 @@ header .login {
 }
 
 #filter-bar-search {
-    font-size: 16px;
+    font-size: 12px;
+    max-height: 40px;
+    padding: 5px;
+    position: absolute;
+    top: 30px;
+    left: 10px;
 }
 
 #filter-bar-search input {
-    width: 60%;
-    margin-right: 15px;
-    padding: 5px 10px;
+    padding: 3px 5px;
     outline: none;
+    margin-right: 10px;
+    border: 1px solid rgba(18, 38, 58, 0.5);
 }
 
 .input-group {
     margin: 0;
 }
 
+#search-btn>i {
+    cursor: pointer;
+}
+
 #filter-bar-search button {
-    padding: 5px 10px;
+    padding: 3px 10px;
     background-color: #12263A;
     color: white;
+    border-radius: 5px;
 }
 
 #filter-bar-search button:hover {
     background-color: #12263A;
 }
 
+#filter-bar-search .filter-bar-search {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 .radius {
     border: 1px solid #12263A;
     border-radius: 6px;
+}
 
+#search-btn {
+    position: relative;
+    padding-top: 10px;
 }
