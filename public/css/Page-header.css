@@ -141,7 +141,7 @@ header .login {
     z-index: 17;
 }
 
-#filter-bar-search {
+#filter-bar-search-header {
     font-size: 12px;
     max-height: 40px;
     padding: 5px;
@@ -150,7 +150,7 @@ header .login {
     left: 10px;
 }
 
-#filter-bar-search input {
+#filter-bar-search-header input {
     padding: 3px 5px;
     outline: none;
     margin-right: 10px;
@@ -165,18 +165,18 @@ header .login {
     cursor: pointer;
 }
 
-#filter-bar-search button {
+#filter-bar-search-header button {
     padding: 3px 10px;
     background-color: #12263A;
     color: white;
     border-radius: 5px;
 }
 
-#filter-bar-search button:hover {
+#filter-bar-search-header button:hover {
     background-color: #12263A;
 }
 
-#filter-bar-search .filter-bar-search {
+#filter-bar-search-header .filter-bar-search-header {
     display: flex;
     flex-wrap: nowrap;
 }
