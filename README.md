@@ -1,7 +1,8 @@
 # PTUDW-17TN-Nhom08
 
 ## Final project: Sea diamond hotel web application
- 
+## Demo static web:
+https://seadiamond.herokuapp.com/ 
 ## Update 01 - Static web
 
 * Each page has it name follow the proposal [link](https://xd.adobe.com/view/baa2aba8-5304-4945-40c2-a8cd64161f5b-cc93)
